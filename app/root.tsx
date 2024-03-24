@@ -1,4 +1,14 @@
+
 import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
+import { LinksFunction } from "@remix-run/node";
+import styles from './styles/shared.css?url'
+
+export const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: styles
+  }
+]
 
 export default function App() {
   return (
@@ -9,7 +19,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <h1>Liam Dawson</h1>
         <Outlet />
 
         <Scripts />

@@ -1,0 +1,5 @@
+.mobile-nav {
+  > a {
+    margin: var(--spacing-lg);
+  }
+}
