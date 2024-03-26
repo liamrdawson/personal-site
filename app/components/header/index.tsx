@@ -7,7 +7,7 @@ function Header() {
   return (
     <header>
       <MobileNavigation />
-      <h1>Liam Dawson</h1>
+      <h1 className="underline text-3xl">Liam Dawson</h1>
     </header>
   );
 }
