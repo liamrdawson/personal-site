@@ -1,14 +1,15 @@
-
 import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
 import { LinksFunction } from "@remix-run/node";
-import styles from './styles/shared.css?url'
+import styles from "./styles/shared.css?url";
+import { Header, links as headerLinks } from "./components/header";
 
 export const links: LinksFunction = () => [
   {
-    rel: 'stylesheet',
-    href: styles
-  }
-]
+    rel: "stylesheet",
+    href: styles,
+  },
+  ...headerLinks(),
+];
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <Outlet />
 
         <Scripts />
