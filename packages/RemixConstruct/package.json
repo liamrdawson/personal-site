@@ -1,5 +1,5 @@
 {
-  "name": "remix-aws-stacks",
+  "name": "@liamrdawsonweb/remix-cdk-construct",
   "version": "0.1.0",
   "bin": {
     "cdk": "bin/cdk.js"
