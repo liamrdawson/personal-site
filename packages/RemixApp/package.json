@@ -1,5 +1,6 @@
 {
   "name": "@liamrdawsonweb/remix-app",
+  "main": "infra/index.ts",
   "private": true,
   "sideEffects": false,
   "type": "module",

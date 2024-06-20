@@ -1,9 +1,7 @@
 {
   "name": "@liamrdawsonweb/remix-cdk-construct",
   "version": "0.1.0",
-  "bin": {
-    "cdk": "bin/cdk.js"
-  },
+  "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",

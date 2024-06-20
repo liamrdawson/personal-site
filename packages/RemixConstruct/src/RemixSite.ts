@@ -2,7 +2,7 @@ import { Construct } from "constructs";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as cdk from "aws-cdk-lib";
 
-import { Bucket } from "./Bucket";
+import { Bucket } from "./Bucket/Bucket";
 
 type RemixSiteProps = {
   serverDir: string;
