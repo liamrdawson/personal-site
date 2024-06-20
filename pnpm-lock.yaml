@@ -10,6 +10,9 @@ importers:
 
   packages/app:
     dependencies:
+      '@liamrdawsonweb/remix-app':
+        specifier: workspace:^
+        version: link:../constructs/RemixApp
       aws-cdk-lib:
         specifier: 2.145.0
         version: 2.145.0(constructs@10.3.0)
@@ -44,6 +47,9 @@ importers:
 
   packages/constructs/RemixApp:
     dependencies:
+      '@liamrdawsonweb/remix-cdk-construct':
+        specifier: workspace:^
+        version: link:../RemixConstruct
       '@remix-run/express':
         specifier: ^2.9.2
         version: 2.9.2(express@4.19.2)(typescript@5.4.5)
@@ -59,6 +65,9 @@ importers:
       compression:
         specifier: ^1.7.4
         version: 1.7.4
+      constructs:
+        specifier: ^10.3.0
+        version: 10.3.0
       express:
         specifier: ^4.18.2
         version: 4.19.2
