@@ -1,2 +1,4 @@
 packages:
-  - 'packages/*'
+  - "packages/app"
+  - "packages/constructs/RemixApp"
+  - "packages/constructs/RemixConstruct"
