@@ -13,6 +13,12 @@ export class RemixSite extends Construct {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id);
 
-    new Bucket(this, "MyFirstBucket", { versioned: true });
+    new Bucket(this, "MyFirstBucket", {
+      versioned: true,
+      publicReadAccess: false,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
   }
 }
