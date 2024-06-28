@@ -1,8 +1,10 @@
 import { Construct } from "constructs";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as cdk from "aws-cdk-lib";
+import * as apigateway from "aws-cdk-lib/aws-apigateway";
 
 import { Bucket } from "./Bucket/Bucket";
+import { RemixServerFunction } from "./RemixServerFunction";
 
 type RemixSiteProps = {
   serverDir: string;
@@ -20,5 +22,18 @@ export class RemixSite extends Construct {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
+
+    const helloWorldFunction = new RemixServerFunction(
+      this,
+      "RemixServerFunction"
+    );
+
+    const httpApi = new apigateway.LambdaRestApi(this, "RemixSiteAPI", {
+      handler: helloWorldFunction,
+      proxy: false,
+    });
+
+    const helloResource = httpApi.root.addResource("hello");
+    helloResource.addMethod("GET");
   }
 }
