@@ -5,7 +5,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "lint": "eslint"
+  },
   "dependencies": {
     "esbuild": "^0.21.5"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/js": "^9.6.0",
+    "eslint": "9.x",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^15.8.0",
+    "typescript-eslint": "^7.16.0"
   }
 }

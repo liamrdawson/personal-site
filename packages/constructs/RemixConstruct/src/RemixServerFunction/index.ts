@@ -1,5 +1,5 @@
 import { Duration } from "aws-cdk-lib";
-import { Architecture, Runtime } from "aws-cdk-lib/aws-lambda";
+import { Runtime } from "aws-cdk-lib/aws-lambda";
 import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
 import type { Construct } from "constructs";
 import path from "path";
