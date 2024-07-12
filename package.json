@@ -6,16 +6,16 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "lint": "eslint"
+    "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
+    "lint:fix": "pnpm lint -- --fix"
   },
   "dependencies": {
     "esbuild": "^0.21.5"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.1.1",
     "@eslint/js": "^9.6.0",
-    "eslint": "8.57.0",
-    "eslint-plugin-react": "^7.33.2",
+    "eslint": "8.x",
+    "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.8.0",
     "typescript-eslint": "^7.16.0"
