@@ -1,18 +1,17 @@
-import { Construct } from "constructs";
-import * as s3 from "aws-cdk-lib/aws-s3";
 import * as cdk from "aws-cdk-lib";
-import * as apigateway from "aws-cdk-lib/aws-apigateway";
+import { CfnOutput } from "aws-cdk-lib";
+import { CorsHttpMethod } from "aws-cdk-lib/aws-apigatewayv2";
+import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
+import * as apigwIntegrations from "aws-cdk-lib/aws-apigatewayv2-integrations";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
 
 import { Bucket } from "./Bucket/Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
-type RemixSiteProps = {
-  serverDir: string;
-  publicDir: string;
-};
-
 export class RemixSite extends Construct {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  public readonly apiUrl: string;
+  constructor(scope: Construct, id: string) {
     super(scope, id);
 
     new Bucket(this, "MyFirstBucket", {
@@ -28,12 +27,28 @@ export class RemixSite extends Construct {
       "RemixServerFunction"
     );
 
-    const httpApi = new apigateway.LambdaRestApi(this, "RemixSiteAPI", {
-      handler: helloWorldFunction,
-      proxy: false,
+    const integration = new apigwIntegrations.HttpLambdaIntegration(
+      "LambdaIntegration",
+      helloWorldFunction
+    );
+
+    const httpApi = new apigwv2.HttpApi(this, "RemixApi", {
+      apiName: scope.node.id,
+      defaultIntegration: integration,
+      corsPreflight: {
+        allowMethods: [
+          CorsHttpMethod.GET,
+          CorsHttpMethod.DELETE,
+          CorsHttpMethod.PUT,
+          CorsHttpMethod.POST,
+        ],
+        allowOrigins: ["*"],
+      },
     });
 
-    const helloResource = httpApi.root.addResource("hello");
-    helloResource.addMethod("GET");
+    // Output the API endpoint URL
+    new CfnOutput(this, "ApiEndpoint", {
+      value: httpApi.apiEndpoint,
+    });
   }
 }
