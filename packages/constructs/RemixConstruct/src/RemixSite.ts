@@ -9,9 +9,17 @@ import { Construct } from "constructs";
 import { Bucket } from "./Bucket/Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
+interface RemixSiteProps {
+  server: string;
+  projectRoot: string;
+  depsLockFilePath: string;
+  serverBundle: string;
+  handler: string;
+}
+
 export class RemixSite extends Construct {
   public readonly apiUrl: string;
-  constructor(scope: Construct, id: string) {
+  constructor(scope: Construct, id: string, props: RemixSiteProps) {
     super(scope, id);
 
     new Bucket(this, "MyFirstBucket", {
@@ -24,7 +32,14 @@ export class RemixSite extends Construct {
 
     const helloWorldFunction = new RemixServerFunction(
       this,
-      "RemixServerFunction"
+      "RemixServerFunction",
+      {
+        server: props.server,
+        projectRoot: props.projectRoot,
+        depsLockFilePath: props.depsLockFilePath,
+        serverBundle: props.serverBundle,
+        handler: props.handler,
+      }
     );
 
     const integration = new apigwIntegrations.HttpLambdaIntegration(
