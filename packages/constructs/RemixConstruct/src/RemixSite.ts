@@ -10,11 +10,8 @@ import { Bucket } from "./Bucket/Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
 interface RemixSiteProps {
-  server: string;
-  projectRoot: string;
-  depsLockFilePath: string;
-  serverBundle: string;
   handler: string;
+  remixPath: string;
 }
 
 export class RemixSite extends Construct {
@@ -33,13 +30,7 @@ export class RemixSite extends Construct {
     const helloWorldFunction = new RemixServerFunction(
       this,
       "RemixServerFunction",
-      {
-        server: props.server,
-        projectRoot: props.projectRoot,
-        depsLockFilePath: props.depsLockFilePath,
-        serverBundle: props.serverBundle,
-        handler: props.handler,
-      }
+      { remixPath: props.remixPath, handler: props.handler }
     );
 
     const integration = new apigwIntegrations.HttpLambdaIntegration(

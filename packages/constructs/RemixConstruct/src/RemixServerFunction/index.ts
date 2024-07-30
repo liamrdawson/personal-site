@@ -1,31 +1,40 @@
-import { aws_lambda as lambda, Duration } from "aws-cdk-lib";
-import { Runtime } from "aws-cdk-lib/aws-lambda";
-import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
-import type { Construct } from "constructs";
-// import path from "path";
+import * as cdk from "aws-cdk-lib";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+import { Construct } from "constructs";
+import fs from "fs";
+import path from "path";
 
-interface RemixServerFunctionProps {
-  server: string;
-  projectRoot: string;
-  depsLockFilePath: string;
-  serverBundle: string;
-  handler: string;
+const defaultLambdaProps = {
+  timeout: cdk.Duration.seconds(30),
+  memorySize: 512,
+  runtime: lambda.Runtime.NODEJS_20_X,
+};
+
+function getDir(dir: string): string {
+  if (!fs.existsSync(dir)) {
+    throw new Error(`Build Error: ${path} does not exist.`);
+  }
+
+  return dir;
 }
 
-export class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
+interface RemixServerFunctionProps
+  extends Omit<lambda.FunctionProps, "code" | "runtime"> {
+  remixPath: string;
+}
+
+export class RemixServerFunction extends lambda.Function {
   constructor(scope: Construct, id: string, props: RemixServerFunctionProps) {
-    super(scope, id, {
-      entry: props.server,
-      projectRoot: props.projectRoot,
-      depsLockFilePath: props.depsLockFilePath,
-      bundling: {
-        nodeModules: ["@remix-run/architect"],
-        // format: lambdaNodeJS.OutputFormat.ESM,
-      },
-      code: lambda.Code.fromAsset(props.serverBundle),
-      handler: props.handler,
-      runtime: Runtime.NODEJS_20_X,
-      timeout: Duration.seconds(10),
-    });
+    const remixServerBuild = getDir(
+      path.resolve(props.remixPath, "build/server")
+    );
+
+    const superProps = {
+      ...defaultLambdaProps,
+      ...props,
+      code: lambda.Code.fromAsset(remixServerBuild),
+    };
+
+    super(scope, id, { ...superProps });
   }
 }
