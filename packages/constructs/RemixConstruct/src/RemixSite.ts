@@ -1,61 +1,49 @@
 import * as cdk from "aws-cdk-lib";
-import { CfnOutput } from "aws-cdk-lib";
-import { CorsHttpMethod } from "aws-cdk-lib/aws-apigatewayv2";
-import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
-import * as apigwIntegrations from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import * as s3 from "aws-cdk-lib/aws-s3";
+import * as s3Deployment from "aws-cdk-lib/aws-s3-deployment";
 import { Construct } from "constructs";
+import path from "path";
 
-import { Bucket } from "./Bucket";
-import { RemixServerFunction } from "./RemixServerFunction";
+import { RemixDistribution } from "./Distribution";
+import { RemixServer } from "./RemixServerFunction";
 
 interface RemixSiteProps {
   remixPath: string;
 }
 
 export class RemixSite extends Construct {
-  public readonly apiUrl: string;
   constructor(scope: Construct, id: string, props: RemixSiteProps) {
     super(scope, id);
 
-    new Bucket(this, "MyFirstBucket", {
-      versioned: true,
+    const remixBucket = new s3.Bucket(this, "RemixStaticBucket", {
       publicReadAccess: false,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
 
-    const helloWorldFunction = new RemixServerFunction(
-      this,
-      "RemixServerFunction",
-      {
-        remixPath: props.remixPath,
-      }
-    );
-
-    const integration = new apigwIntegrations.HttpLambdaIntegration(
-      "LambdaIntegration",
-      helloWorldFunction
-    );
-
-    const httpApi = new apigwv2.HttpApi(this, "RemixApi", {
-      apiName: scope.node.id,
-      defaultIntegration: integration,
-      corsPreflight: {
-        allowMethods: [
-          CorsHttpMethod.GET,
-          CorsHttpMethod.DELETE,
-          CorsHttpMethod.PUT,
-          CorsHttpMethod.POST,
-        ],
-        allowOrigins: ["*"],
-      },
+    const remixServer = new RemixServer(this, "RemixServerFunction", {
+      remixPath: props.remixPath,
     });
 
-    // Output the API endpoint URL
-    new CfnOutput(this, "ApiEndpoint", {
-      value: httpApi.apiEndpoint,
+    const remixDistribution = new RemixDistribution(this, "RemixDistribution", {
+      serverApiUrl: remixServer.apiUrl,
+      bucket: remixBucket,
+    });
+
+    new s3Deployment.BucketDeployment(this, "RemixBucketDeployment", {
+      sources: [
+        s3Deployment.Source.asset(
+          path.join(props.remixPath, "build/client/assets")
+        ),
+      ],
+      destinationBucket: remixBucket,
+      destinationKeyPrefix: "assets",
+      distribution: remixDistribution.distribution,
+    });
+
+    new cdk.CfnOutput(this, "RemixCloudfrontDomainName", {
+      value: remixDistribution.distribution.distributionDomainName,
     });
   }
 }

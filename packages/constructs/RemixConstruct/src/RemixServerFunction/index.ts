@@ -1,4 +1,6 @@
 import * as cdk from "aws-cdk-lib";
+import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2";
+import * as apigwIntegrations from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
@@ -18,7 +20,7 @@ interface RemixServerFunctionProps
   remixPath: string;
 }
 
-export class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
+class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
   constructor(scope: Construct, id: string, props: RemixServerFunctionProps) {
     super(scope, id, {
       entry: getDir(path.join(props.remixPath, "server.ts")),
@@ -43,5 +45,39 @@ export class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
         NODE_ENV: "production",
       },
     });
+  }
+}
+
+interface RemixServerProps {
+  remixPath: string;
+}
+
+export class RemixServer extends Construct {
+  public readonly apiUrl: string;
+
+  constructor(scope: Construct, id: string, props: RemixServerProps) {
+    super(scope, id);
+
+    const remixLambdaNodeJsFunction = new RemixServerFunction(
+      this,
+      "RemixServerFunction",
+      {
+        remixPath: props.remixPath,
+      }
+    );
+
+    const integration = new apigwIntegrations.HttpLambdaIntegration(
+      "LambdaIntegration",
+      remixLambdaNodeJsFunction
+    );
+
+    const httpApi = new apigwv2.HttpApi(this, "RemixApi", {
+      apiName: scope.node.id,
+      defaultIntegration: integration,
+    });
+
+    this.apiUrl = `${httpApi.httpApiId}.execute-api.${
+      cdk.Stack.of(this).region
+    }.${cdk.Stack.of(this).urlSuffix}`;
   }
 }
