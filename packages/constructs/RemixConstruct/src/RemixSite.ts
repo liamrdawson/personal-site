@@ -6,7 +6,7 @@ import * as apigwIntegrations from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 
-import { Bucket } from "./Bucket/Bucket";
+import { Bucket } from "./Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
 interface RemixSiteProps {
