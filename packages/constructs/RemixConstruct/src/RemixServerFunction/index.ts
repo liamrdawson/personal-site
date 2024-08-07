@@ -1,14 +1,9 @@
 import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import fs from "fs";
 import path from "path";
-
-const defaultLambdaProps = {
-  timeout: cdk.Duration.seconds(30),
-  memorySize: 512,
-  runtime: lambda.Runtime.NODEJS_20_X,
-};
 
 function getDir(dir: string): string {
   if (!fs.existsSync(dir)) {
@@ -19,22 +14,19 @@ function getDir(dir: string): string {
 }
 
 interface RemixServerFunctionProps
-  extends Omit<lambda.FunctionProps, "code" | "runtime"> {
-  remixPath: string;
+  extends Omit<lambdaNodeJS.NodejsFunctionProps, "code" | "runtime"> {
+  pathToRemixServerBuildFile: string;
 }
 
-export class RemixServerFunction extends lambda.Function {
+export class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
   constructor(scope: Construct, id: string, props: RemixServerFunctionProps) {
-    const remixServerBuild = getDir(
-      path.resolve(props.remixPath, "build/server")
-    );
-
-    const superProps = {
-      ...defaultLambdaProps,
-      ...props,
-      code: lambda.Code.fromAsset(remixServerBuild),
-    };
-
-    super(scope, id, { ...superProps });
+    super(scope, id, {
+      entry: path.join(__dirname, "./handler.ts"),
+      runtime: lambda.Runtime.NODEJS_20_X,
+      timeout: cdk.Duration.seconds(10),
+      environment: {
+        REMIX_SERVER_BUILD: getDir(props.pathToRemixServerBuildFile),
+      },
+    });
   }
 }

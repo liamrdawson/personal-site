@@ -10,8 +10,7 @@ import { Bucket } from "./Bucket/Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
 interface RemixSiteProps {
-  handler: string;
-  remixPath: string;
+  pathToRemixServerBuildFile: string;
 }
 
 export class RemixSite extends Construct {
@@ -30,7 +29,9 @@ export class RemixSite extends Construct {
     const helloWorldFunction = new RemixServerFunction(
       this,
       "RemixServerFunction",
-      { remixPath: props.remixPath, handler: props.handler }
+      {
+        pathToRemixServerBuildFile: props.pathToRemixServerBuildFile,
+      }
     );
 
     const integration = new apigwIntegrations.HttpLambdaIntegration(
