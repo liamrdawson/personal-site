@@ -10,7 +10,7 @@ import { Bucket } from "./Bucket/Bucket";
 import { RemixServerFunction } from "./RemixServerFunction";
 
 interface RemixSiteProps {
-  pathToRemixServerBuildFile: string;
+  remixPath: string;
 }
 
 export class RemixSite extends Construct {
@@ -30,7 +30,7 @@ export class RemixSite extends Construct {
       this,
       "RemixServerFunction",
       {
-        pathToRemixServerBuildFile: props.pathToRemixServerBuildFile,
+        remixPath: props.remixPath,
       }
     );
 

@@ -5,10 +5,7 @@ import path from "path";
 export class RemixApp extends RemixSite {
   constructor(scope: Construct, id: string) {
     super(scope, id, {
-      pathToRemixServerBuildFile: path.join(
-        __dirname,
-        "../build/server/index.js"
-      ),
+      remixPath: path.join(__dirname, ".."),
     });
   }
 }

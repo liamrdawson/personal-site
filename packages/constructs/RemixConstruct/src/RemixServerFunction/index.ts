@@ -15,17 +15,32 @@ function getDir(dir: string): string {
 
 interface RemixServerFunctionProps
   extends Omit<lambdaNodeJS.NodejsFunctionProps, "code" | "runtime"> {
-  pathToRemixServerBuildFile: string;
+  remixPath: string;
 }
 
 export class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
   constructor(scope: Construct, id: string, props: RemixServerFunctionProps) {
     super(scope, id, {
-      entry: path.join(__dirname, "./handler.ts"),
+      entry: getDir(path.join(props.remixPath, "server.ts")),
       runtime: lambda.Runtime.NODEJS_20_X,
       timeout: cdk.Duration.seconds(10),
+
+      bundling: {
+        format: lambdaNodeJS.OutputFormat.ESM,
+        mainFields: ["module", "main"],
+        esbuildArgs: {
+          "--conditions": "module",
+        },
+        banner:
+          "import { createRequire } from 'module';const require = createRequire(import.meta.url);",
+        nodeModules: [
+          "@remix-run/architect",
+          "vite",
+          "@rollup/rollup-linux-x64-gnu",
+        ],
+      },
       environment: {
-        REMIX_SERVER_BUILD: getDir(props.pathToRemixServerBuildFile),
+        NODE_ENV: "production",
       },
     });
   }
