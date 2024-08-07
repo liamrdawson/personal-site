@@ -26,7 +26,6 @@ class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
       entry: getDir(path.join(props.remixPath, "server.ts")),
       runtime: lambda.Runtime.NODEJS_20_X,
       timeout: cdk.Duration.seconds(10),
-
       bundling: {
         format: lambdaNodeJS.OutputFormat.ESM,
         mainFields: ["module", "main"],
