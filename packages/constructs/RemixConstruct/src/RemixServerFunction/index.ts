@@ -28,10 +28,6 @@ class RemixServerFunction extends lambdaNodeJS.NodejsFunction {
       timeout: cdk.Duration.seconds(10),
       bundling: {
         format: lambdaNodeJS.OutputFormat.ESM,
-        mainFields: ["module", "main"],
-        esbuildArgs: {
-          "--conditions": "module",
-        },
         banner:
           "import { createRequire } from 'module';const require = createRequire(import.meta.url);",
         nodeModules: [
