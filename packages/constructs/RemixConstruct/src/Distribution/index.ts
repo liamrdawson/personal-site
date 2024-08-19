@@ -42,6 +42,16 @@ export class RemixDistribution extends Construct {
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
           compress: true,
         },
+        "favicon.ico": {
+          allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
+          origin: new cloudfrontOrigins.S3Origin(props.bucket, {
+            originAccessIdentity: bucketOriginAccessIdentity,
+          }),
+          cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+          viewerProtocolPolicy:
+            cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          compress: true,
+        },
       },
     });
   }

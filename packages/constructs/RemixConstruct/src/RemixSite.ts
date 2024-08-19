@@ -33,12 +33,10 @@ export class RemixSite extends Construct {
 
     new s3Deployment.BucketDeployment(this, "RemixBucketDeployment", {
       sources: [
-        s3Deployment.Source.asset(
-          path.join(props.remixPath, "build/client/assets")
-        ),
+        s3Deployment.Source.asset(path.join(props.remixPath, "build/client")),
       ],
       destinationBucket: remixBucket,
-      destinationKeyPrefix: "assets",
+      destinationKeyPrefix: "/",
       distribution: remixDistribution.distribution,
     });
 
