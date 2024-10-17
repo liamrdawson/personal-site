@@ -1,0 +1,8 @@
+@import url("../primitives.css");
+
+:root {
+  /* Transition */
+
+  --lrd-transition-ease-out: cubic-bezier(0.28, 0.44, 0.49, 1);
+  --lrd-transition-ease-out-soft: cubic-bezier(0.28, 0, 0.49, 1);
+}

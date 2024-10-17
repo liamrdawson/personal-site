@@ -1,13 +1,16 @@
+import "./styles/global.css";
+
 import {
+  Link,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import "./tailwind.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const thisYear = new Date().getFullYear();
   return (
     <html lang="en">
       <head>
@@ -17,7 +20,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <header className="grid header_container">
+          <hgroup>
+            <h1>LIAM DAWSON</h1>
+            <p className="subheading">
+              <i>eCommerce Developer</i>
+            </p>
+          </hgroup>
+        </header>
         {children}
+        <footer className="body_small">
+          <div className="grid">
+            <ul className="footer_socials">
+              <li>
+                <a href="mailto:liamrdawson@gmail.com">Email</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/liamrdawson/">linkedin</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/liam_r_dawson/">Instagram</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer_copyright">
+            <span>
+              Copyright © {thisYear} <Link to="/">Liam Dawson</Link>
+            </span>
+          </div>
+        </footer>
         <ScrollRestoration />
         <Scripts />
       </body>

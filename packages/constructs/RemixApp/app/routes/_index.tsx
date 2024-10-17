@@ -1,48 +1,39 @@
-import type { MetaFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { SanityDocument } from "@sanity/client";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import { client } from "~/sanity/client";
 
-export default function Index() {
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+export async function loader() {
+  return { posts: await client.fetch<SanityDocument[]>(POSTS_QUERY) };
+}
+
+export default function IndexPage() {
+  const { posts } = useLoaderData<typeof loader>();
+
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <main className="grid">
+      <section className="intro_section">
+        <h2>Welcome</h2>
+        <p>
+          I&apos;m Liam Dawson. I build and optimise eCommerce websites for
+          consumer brands and write about my experiences here.
+        </p>
+      </section>
+      <section className="posts_section">
+        <h3>Posts</h3>
+        <ul>
+          {posts.map((post) => (
+            <li className="content_link" key={post._id}>
+              <Link to={`/${post.slug.current}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
   );
 }

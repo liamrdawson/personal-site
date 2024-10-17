@@ -1,0 +1,71 @@
+:root {
+  /* Colour */
+
+  --lrd-grey-hue: 145.39;
+  --lrd-colour-base-grey-50: oklch(95% 0.005 var(--lrd-grey-hue));
+  --lrd-colour-base-grey-400: oklch(60% 0.005 var(--lrd-grey-hue));
+  --lrd-colour-base-grey-800: oklch(20% 0.005 var(--lrd-grey-hue));
+  --lrd-colour-base-grey-900: oklch(10% 0.005 var(--lrd-grey-hue));
+  --lrd-colour-base-black: oklch(0% 0 0);
+  --lrd-colour-base-white: oklch(100% 0 0);
+
+  /* Layout */
+
+  --lrd-layout-grid-columns-small: 6;
+  --lrd-layout-grid-columns-large: 12;
+
+  --lrd-layout-grid-z-index-1: 100;
+  --lrd-layout-grid-z-index-2: 200;
+  --lrd-layout-grid-z-index-3: 300;
+  --lrd-layout-grid-z-index-4: 400;
+  --lrd-layout-grid-z-index-5: 500;
+  --lrd-layout-grid-z-index-6: 600;
+  --lrd-layout-grid-z-index-7: 700;
+  --lrd-layout-grid-z-index-8: 800;
+  --lrd-layout-grid-z-index-9: 800;
+  --lrd-layout-grid-z-index-10: 1000;
+
+  /* Size */
+
+  --lrd-size-4: 0.4rem;
+  --lrd-size-8: 0.8rem;
+  --lrd-size-12: 1.2rem;
+  --lrd-size-16: 1.6rem;
+  --lrd-size-24: 2.4rem;
+  --lrd-size-32: 3.2rem;
+  --lrd-size-48: 4.8rem;
+  --lrd-size-64: 6.4rem;
+  --lrd-size-96: 9.6rem;
+  --lrd-size-128: 12.8rem;
+  --lrd-size-256: 25.6rem;
+
+  --lrd-size-font-sm: 1.4rem;
+  --lrd-size-font-md: 1.6rem;
+  --lrd-size-font-lg: 1.8rem;
+  --lrd-size-font-xl: 2.4rem;
+  --lrd-size-font-2xl: 2.8rem;
+  --lrd-size-font-3xl: 3.2rem;
+  --lrd-size-font-4xl: 4rem;
+  --lrd-size-font-5xl: 4.8rem;
+  --lrd-size-font-6xl: 5.6rem;
+  --lrd-size-font-7xl: 6.4rem;
+
+  /* Font */
+
+  --lrd-font-family-avenir: "Avenir next", sans-serif;
+  --lrd-font-family-newsreader: "Newsreader", serif;
+
+  /* Time */
+
+  --lrd-time-transition-100: 0.1s;
+  --lrd-time-transition-125: 0.13s;
+  --lrd-time-transition-150: 0.15s;
+  --lrd-time-transition-200: 0.2s;
+  --lrd-time-transition-250: 0.25s;
+  --lrd-time-transition-350: 0.35s;
+  --lrd-time-transition-500: 0.5s;
+  --lrd-time-transition-550: 0.55s;
+  --lrd-time-transition-650: 0.65s;
+  --lrd-time-transition-750: 0.75s;
+  --lrd-time-transition-1000: 1s;
+}

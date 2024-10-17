@@ -1,0 +1,22 @@
+@import url("../primitives.css");
+
+:root {
+  --lrd-colour-dark: var(--lrd-colour-base-grey-800);
+  --lrd-colour-light: var(--lrd-colour-base-grey-50);
+  --lrd-colour-opaque-dark-high: oklch(from var(--lrd-colour-dark) l c h / 0.7);
+  --lrd-colour-opaque-dark-low: oklch(from var(--lrd-colour-dark) l c h / 0.25);
+  --lrd-colour-background-light: var(--lrd-colour-light);
+  --lrd-colour-background-dark: var(--lrd-colour-dark);
+
+  --lrd-colour-text-base: var(--lrd-colour-dark);
+  --lrd-colour-nav-link: var(--lrd-colour-dark);
+  --lrd-colour-nav-link-hover: var(--lrd-colour-opaque-dark-low);
+  --lrd-colour-content-dark: var(--lrd-colour-dark);
+  --lrd-colour-content-link: var(--lrd-colour-dark);
+  --lrd-colour-content-link-hover: var(--lrd-colour-dark);
+  --lrd-colour-content-link-underscore: var(--lrd-colour-opaque-dark-low);
+  --lrd-colour-content-link-underscore-hover: var(--lrd-colour-dark);
+  --lrd-colour-text-footer-copyright: var(--lrd-colour-opaque-dark-high);
+  --lrd-colour-socials-link: var(--lrd-colour-opaque-dark-high);
+  --lrd-colour-socials-link-hover: var(--lrd-colour-dark);
+}

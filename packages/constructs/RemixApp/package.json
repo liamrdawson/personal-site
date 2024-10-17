@@ -13,10 +13,14 @@
   },
   "dependencies": {
     "@liamrdawsonweb/remix-cdk-construct": "workspace:^",
+    "@portabletext/react": "^3.1.0",
     "@remix-run/architect": "^2.10.3",
     "@remix-run/node": "^2.10.3",
     "@remix-run/react": "^2.10.3",
     "@remix-run/serve": "^2.10.3",
+    "@sanity/client": "^6.22.1",
+    "@sanity/image-url": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
     "constructs": "^10.3.0",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.10.3",
+    "@rollup/rollup-linux-x64-gnu": "*",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -36,12 +41,12 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "lightningcss": "^1.27.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1",
-    "@rollup/rollup-linux-x64-gnu": "*"
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
     "node": ">=20.0.0"

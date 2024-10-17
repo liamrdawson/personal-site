@@ -1,0 +1,182 @@
+@import url("./reset.css");
+@import url("./theme.css");
+
+html {
+  font-size: var(--rem-base);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  margin: 0 var(--grid-margin);
+  column-gap: var(--grid-gutter);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body);
+  background-color: var(--background-colour);
+  color: var(--text-colour);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1600;
+  margin: 0 auto;
+}
+
+.body_small {
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-small);
+  line-height: var(--line-height-small);
+}
+
+.body_large {
+  font-size: var(--font-size-large);
+  letter-spacing: var(--letter-spacing-large);
+  line-height: var(--line-height-large);
+}
+
+.header_container > hgroup {
+  padding-top: var(--padding-header-top);
+  padding-bottom: var(--padding-header-bottom);
+  grid-column: 1 / -1;
+  text-align: center;
+  border-bottom: solid 1px var(--colour-dark-primary);
+}
+
+.subheading {
+  font-family: var(--font-family-content);
+  line-height: var(--line-height-subheading);
+  font-size: var(--font-size-medium);
+  font-style: italic;
+}
+
+.h1,
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+}
+
+.h2,
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+}
+
+.h3,
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  line-height: var(--line-height-h3);
+}
+
+.h4,
+h4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  letter-spacing: var(--letter-spacing-h4);
+  line-height: var(--line-height-h4);
+}
+
+.h5,
+h5 {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-h5);
+  letter-spacing: var(--letter-spacing-h5);
+  line-height: var(--line-height-h5);
+}
+
+section {
+  margin-top: var(--spacing-page-section);
+  grid-column: 1 / -1;
+}
+
+.intro_section {
+  margin-top: var(--spacing-intro-section);
+  > p {
+    font-family: var(--font-family-content);
+    margin-top: var(--spacing-h2-to-text);
+  }
+}
+
+.posts_section {
+  > ul {
+    padding-left: var(--padding-left-posts-list);
+    margin-top: var(--spacing-h2-to-text);
+    font-family: var(--font-family-content);
+  }
+  > ul li {
+    list-style-type: disc;
+  }
+}
+
+a,
+a:visited {
+  color: var(--colour-dark-primary);
+  text-decoration: none;
+}
+
+.content_link a {
+  text-decoration: none;
+  border-bottom: var(--link-underscore-colour) 1px solid;
+  transition: border-color var(--ease-out-soft) var(--lrd-time-transition-250);
+  &:hover {
+    border-bottom: var(--link-underscore-colour-hover) 1px solid;
+  }
+}
+
+footer {
+  margin-top: auto;
+  padding-top: var(--padding-footer-top);
+  padding-bottom: var(--padding-footer-bottom);
+}
+
+.footer_socials {
+  grid-column: 2 / -2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: var(--font-weight-social);
+}
+
+.footer_copyright {
+  text-align: center;
+  margin-top: var(--spacing-footer-row);
+}
+
+@media only screen and (min-width: 760px) {
+  section,
+  .footer_socials,
+  .header_container > hgroup {
+    grid-column: 2 / -2;
+  }
+  .footer_socials {
+    > li a {
+      color: var(--lrd-colour-socials-link);
+      transition: all var(--ease-out-soft) var(--lrd-time-transition-250);
+      &:hover {
+        color: var(--lrd-colour-socials-link-hover);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  section,
+  .header_container > hgroup {
+    grid-column: 4 / -4;
+  }
+  .footer_socials {
+    grid-column: 5 / -5;
+  }
+}
