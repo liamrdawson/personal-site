@@ -18,14 +18,14 @@ export default function IndexPage() {
   return (
     <main className="grid">
       <section className="intro_section">
-        <h2>Welcome</h2>
+        <h1>Welcome</h1>
         <p>
           I&apos;m Liam Dawson. I build and optimise eCommerce websites for
           consumer brands and write about my experiences here.
         </p>
       </section>
       <section className="posts_section">
-        <h3>Posts</h3>
+        <h2>Posts</h2>
         <ul>
           {posts.map((post) => (
             <li className="content_link" key={post._id}>

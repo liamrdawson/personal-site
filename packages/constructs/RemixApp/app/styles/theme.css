@@ -145,3 +145,10 @@
     --padding-footer-bottom: var(--lrd-padding-footer-bottom-desktop);
   }
 }
+
+@media only screen and (min-width: 1700px) {
+  :root {
+    --spacing-page-section: var(--lrd-spacing-section-wide);
+    --spacing-intro-section: var(--lrd-spacing-intro-section-wide);
+  }
+}

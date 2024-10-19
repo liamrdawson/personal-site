@@ -21,15 +21,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <header className="grid header_container">
-          <hgroup>
-            <h1>LIAM DAWSON</h1>
-            <p className="subheading">
-              <i>eCommerce Developer</i>
-            </p>
-          </hgroup>
+          <div className="site_title">
+            <Link to="/">
+              <p className="h1">LIAM DAWSON</p>
+              <p className="subheading">
+                <i>eCommerce Developer</i>
+              </p>
+            </Link>
+          </div>
         </header>
         {children}
-        <footer className="body_small">
+        <footer>
           <div className="grid">
             <ul className="footer_socials">
               <li>
