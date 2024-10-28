@@ -60,11 +60,14 @@
   --lrd-spacing-intro-section-desktop: var(--lrd-spacing-layout-variable-md);
   --lrd-spacing-intro-section-wide: var(--lrd-spacing-layout-fixed-md);
 
-  --lrd-spacing-text-to-image-mobile: var(--lrd-size-24);
-  --lrd-spacing-text-to-image-desktop: var(--lrd-size-32);
+  --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
+  --lrd-spacing-text-to-image-desktop: var(--lrd-spacing-layout-variable-sm);
 
   --lrd-spacing-between-text-mobile: var(--lrd-size-4);
   --lrd-spacing-between-text-desktop: var(--lrd-size-8);
+
+  --lrd-spacing-between-paragraphs-mobile: var(--lrd-size-32);
+  --lrd-spacing-between-paragraphs-desktop: var(--lrd-size-32);
 
   --lrd-spacing-heading-to-subheading-mobile: 0;
   --lrd-spacing-heading-to-subheading-desktop: var(--lrd-size-8);

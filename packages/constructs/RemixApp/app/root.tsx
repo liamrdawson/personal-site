@@ -1,7 +1,6 @@
 import "./styles/global.css";
 
 import {
-  Link,
   Links,
   Meta,
   Outlet,
@@ -9,8 +8,10 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import Footer from "./lib/components/Footer";
+import Header from "./lib/components/Header";
+
 export function Layout({ children }: { children: React.ReactNode }) {
-  const thisYear = new Date().getFullYear();
   return (
     <html lang="en">
       <head>
@@ -20,37 +21,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <header className="grid header_container">
-          <div className="site_title">
-            <Link to="/">
-              <p className="h1">LIAM DAWSON</p>
-              <p className="subheading">
-                <i>eCommerce Developer</i>
-              </p>
-            </Link>
-          </div>
-        </header>
+        <Header />
         {children}
-        <footer>
-          <div className="grid">
-            <ul className="footer_socials">
-              <li>
-                <a href="mailto:liamrdawson@gmail.com">Email</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/liamrdawson/">linkedin</a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/liam_r_dawson/">Instagram</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer_copyright">
-            <span>
-              Copyright © {thisYear} <Link to="/">Liam Dawson</Link>
-            </span>
-          </div>
-        </footer>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>

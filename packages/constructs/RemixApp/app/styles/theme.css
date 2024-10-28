@@ -78,6 +78,7 @@
 
   /* Spacing */
 
+  --spacing-between-paragraphs: var(--lrd-spacing-between-paragraphs-mobile);
   --spacing-page-section: var(--lrd-spacing-section-mobile);
   --spacing-intro-section: var(--lrd-spacing-intro-section-mobile);
   --spacing-text-to-image: var(--lrd-spacing-text-to-image-mobile);
@@ -125,6 +126,7 @@
 
     /* Spacing */
 
+    --spacing-between-paragraphs: var(--lrd-spacing-between-paragraphs-desktop);
     --spacing-page-section: var(--lrd-spacing-section-desktop);
     --spacing-intro-section: var(--lrd-spacing-intro-section-desktop);
     --spacing-text-to-image: var(--lrd-spacing-text-to-image-desktop);

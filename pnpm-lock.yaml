@@ -140,6 +140,9 @@ importers:
       constructs:
         specifier: ^10.3.0
         version: 10.3.0
+      groq:
+        specifier: ^3.62.2
+        version: 3.62.2
       isbot:
         specifier: ^4.1.0
         version: 4.4.0
@@ -150,6 +153,12 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@liamrdawsonweb/cms':
+        specifier: workspace:^
+        version: link:../../cms
+      '@portabletext/types':
+        specifier: ^2.0.13
+        version: 2.0.13
       '@remix-run/dev':
         specifier: ^2.10.3
         version: 2.11.1(@remix-run/react@2.11.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@remix-run/serve@2.11.1(typescript@5.4.5))(@types/node@20.12.7)(lightningcss@1.27.0)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5))(typescript@5.4.5)(vite@5.3.5(@types/node@20.12.7)(lightningcss@1.27.0))
@@ -4002,6 +4011,10 @@ packages:
 
   groq@3.60.0:
     resolution: {integrity: sha512-VF/GeMFUKinl825Q8gayj8SqKToYunqngovlbJ1XbGbD+QVyEmqy0EoWTg6Gu53MbJohxrzrK8h9EDc7oGfkOg==}
+    engines: {node: '>=18'}
+
+  groq@3.62.2:
+    resolution: {integrity: sha512-sB6DWnN5J3lV7bFm+8F0/olBZ5+hxQLLXF8ge4f5L9jesGrumc143XZwhvCxz2kxl9cwz1lqIkLy1l7sHAtn2Q==}
     engines: {node: '>=18'}
 
   gunzip-maybe@1.4.2:
@@ -11784,6 +11797,8 @@ snapshots:
       - supports-color
 
   groq@3.60.0: {}
+
+  groq@3.62.2: {}
 
   gunzip-maybe@1.4.2:
     dependencies:
