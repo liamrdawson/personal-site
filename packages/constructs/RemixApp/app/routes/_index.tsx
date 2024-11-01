@@ -20,7 +20,7 @@ export default function IndexPage() {
       <div className="grid">
         <section className="intro_section">
           <h1>Welcome</h1>
-          <p>
+          <p className="border-2 bg-light">
             I&apos;m Liam Dawson. I build and optimise eCommerce websites for
             consumer brands and write about my experiences here.
           </p>

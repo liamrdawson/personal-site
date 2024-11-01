@@ -13,7 +13,4 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
-  css: {
-    transformer: "lightningcss",
-  },
 });

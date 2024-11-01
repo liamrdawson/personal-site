@@ -8,6 +8,7 @@
   /* Colour */
 
   --colour-dark-primary: var(--lrd-colour-dark);
+  --colour-light-primary: var(--lrd-colour-light);
   --background-colour: var(--lrd-colour-background-light);
   --text-colour: var(--lrd-colour-text-base);
   --content-link-colour: var(--lrd-colour-content-link);

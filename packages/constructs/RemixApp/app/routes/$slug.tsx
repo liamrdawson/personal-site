@@ -15,6 +15,8 @@ export async function loader({ params }: LoaderFunctionArgs) {
   return { post: await client.fetch(POST_QUERY, params) };
 }
 
+// TODO: Setup to use Remix links for css.
+
 export default function PostPage() {
   const { post } = useLoaderData<typeof loader>();
   const { projectId, dataset } = client.config();

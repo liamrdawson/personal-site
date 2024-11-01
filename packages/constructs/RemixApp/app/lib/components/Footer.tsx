@@ -1,23 +1,43 @@
 import { Link } from "@remix-run/react";
+import { ReactNode } from "react";
+
+const SocialsLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) => (
+  <a
+    href={href}
+    className="text-socialsLink duration-250 ease-easeOutSoft hover:text-socialsLinkHover"
+  >
+    {children}
+  </a>
+);
 
 const Footer = () => {
   const thisYear = new Date().getFullYear();
   return (
-    <footer>
-      <div className="grid">
-        <ul className="footer_socials">
+    <footer className="pb-md pt-md text-small md:pb-lg md:pt-lg">
+      <div className="grid grid-cols-6 md:grid-cols-12">
+        <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong sm:col-span-4 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5">
           <li>
-            <a href="mailto:liamrdawson@gmail.com">Email</a>
+            <SocialsLink href="mailto:liamrdawson@gmail.com">Email</SocialsLink>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/liamrdawson/">linkedin</a>
+            <SocialsLink href="https://www.linkedin.com/in/liamrdawson/">
+              linkedin
+            </SocialsLink>
           </li>
           <li>
-            <a href="https://www.instagram.com/liam_r_dawson/">Instagram</a>
+            <SocialsLink href="https://www.instagram.com/liam_r_dawson/">
+              Instagram
+            </SocialsLink>
           </li>
         </ul>
       </div>
-      <div className="footer_copyright">
+      <div className="mt-row text-center">
         <span>
           Copyright © {thisYear} <Link to="/">Liam Dawson</Link>
         </span>

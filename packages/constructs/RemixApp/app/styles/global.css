@@ -1,6 +1,10 @@
 @import url("./reset.css");
 @import url("./theme.css");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
   font-size: var(--rem-base);
 }
@@ -111,8 +115,13 @@ article {
   margin-top: var(--spacing-intro-section);
   > p {
     font-family: var(--font-family-content);
-    margin-top: var(--spacing-h2-to-text);
   }
+}
+
+.intro_section > p,
+.intro_section > h1,
+.intro_section {
+  margin-top: var(--spacing-between-paragraphs);
 }
 
 .posts_section {
@@ -142,7 +151,7 @@ a:visited {
   }
 }
 
-footer {
+/* footer {
   margin-top: var(--spacing-page-section);
   padding-top: var(--padding-footer-top);
   padding-bottom: var(--padding-footer-bottom);
@@ -155,7 +164,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   font-weight: var(--font-weight-social);
-}
+} */
 
 .footer_copyright {
   text-align: center;
