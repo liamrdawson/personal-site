@@ -2,6 +2,7 @@ import { useLoaderData } from "@remix-run/react";
 import { SanityDocument } from "@sanity/client";
 
 import { ContentLink } from "~/lib/components/ContentLink";
+import { Grid } from "~/lib/components/Grid";
 import { client } from "~/sanity/client";
 
 const POSTS_QUERY = `*[
@@ -17,10 +18,10 @@ export default function IndexPage() {
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <main className="flex-1 text-dark">
-      <div className="mx-grid-sm md:mx-grid-md grid grid-cols-6 gap-x-body md:grid-cols-12">
+    <main className="mt-layoutSection flex-1 text-dark">
+      <Grid>
         <section className="col-span-6 col-start-1 md:col-span-8 md:col-start-3 xl:col-span-6 xl:col-start-4">
-          <h1 className="mt-layoutSection font-heading text-h1 font-h1 leading-h1 tracking-h1">
+          <h1 className="font-heading text-h1 font-h1 leading-h1 tracking-h1">
             Welcome
           </h1>
           <p className="mt-h1 font-content text-body leading-body tracking-body">
@@ -114,7 +115,7 @@ export default function IndexPage() {
             ))}
           </ul>
         </section>
-      </div>
+      </Grid>
     </main>
   );
 }

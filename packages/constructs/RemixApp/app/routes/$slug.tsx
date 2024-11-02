@@ -4,11 +4,12 @@ import { useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
 
+import { Grid } from "~/lib/components/Grid";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { client } from "~/sanity/client";
 
 const POST_QUERY = defineQuery(
-  `*[_type == "post" && slug.current == $slug][0]`
+  `*[_type == "post" && slug.current == $slug][0]`,
 );
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -43,22 +44,23 @@ export default function PostPage() {
   };
 
   return (
-    <main className="grid">
-      <section className="intro_section">
-        <h1 className="text-4xl font-bold mb-8">{post?.title}</h1>
-        {postImageUrl && (
-          <img
-            src={postImageUrl}
-            alt={post?.title}
-            className="aspect-video rounded-xl"
-            width="550"
-            height="310"
-          />
-        )}
-        {Array.isArray(post?.body) && (
-          <PortableText value={post.body} components={components} />
-        )}
-      </section>
+    <main className="mt-layoutSection flex-1 text-dark">
+      <Grid>
+        <section>
+          <h1>{post?.title}</h1>
+          {postImageUrl && (
+            <img
+              src={postImageUrl}
+              alt={post?.title}
+              width="550"
+              height="310"
+            />
+          )}
+          {Array.isArray(post?.body) && (
+            <PortableText value={post.body} components={components} />
+          )}
+        </section>
+      </Grid>
     </main>
   );
 }
