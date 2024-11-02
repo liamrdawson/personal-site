@@ -71,7 +71,7 @@ export default {
     spacing: {
       paragraph: "var(--spacing-between-paragraphs)",
       pageSection: "var(--spacing-page-section)",
-      introSection: "var(--spacing-intro-section)",
+      layoutSection: "var(--spacing-layout-section)",
       textToImage: "var(--spacing-text-to-image)",
       textToText: "var(--spacing-between-text)",
       headingToSubheading: "var(--spacing-heading-to-subheading)",

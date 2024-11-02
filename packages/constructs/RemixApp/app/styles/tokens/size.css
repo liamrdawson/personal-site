@@ -56,9 +56,9 @@
   --lrd-spacing-section-desktop: var(--lrd-spacing-layout-variable-sm);
   --lrd-spacing-section-wide: var(--lrd-spacing-layout-variable-sm);
 
-  --lrd-spacing-intro-section-mobile: var(--lrd-spacing-layout-variable-lg);
-  --lrd-spacing-intro-section-desktop: var(--lrd-spacing-layout-variable-md);
-  --lrd-spacing-intro-section-wide: var(--lrd-spacing-layout-fixed-md);
+  --lrd-spacing-layout-section-mobile: var(--lrd-spacing-layout-variable-lg);
+  --lrd-spacing-layout-section-desktop: var(--lrd-spacing-layout-variable-md);
+  --lrd-spacing-layout-section-wide: var(--lrd-spacing-layout-fixed-md);
 
   --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
   --lrd-spacing-text-to-image-desktop: var(--lrd-spacing-layout-variable-sm);
