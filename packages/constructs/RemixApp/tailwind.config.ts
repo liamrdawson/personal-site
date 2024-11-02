@@ -115,6 +115,12 @@ export default {
       750: "0.75s",
       1000: "1s",
     },
+    extend: {
+      margin: ({ theme }) => ({
+        "grid-sm": theme("spacing.32"),
+        "grid-md": theme("spacing.96"),
+      }),
+    },
   },
   plugins: [],
 } satisfies Config;

@@ -20,7 +20,7 @@ const Footer = () => {
   const thisYear = new Date().getFullYear();
   return (
     <footer className="pb-md pt-md text-small md:pb-lg md:pt-lg">
-      <div className="grid grid-cols-6 md:grid-cols-12">
+      <div className="mx-grid-sm md:mx-grid-md grid grid-cols-6 gap-x-body md:grid-cols-12">
         <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong sm:col-span-4 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5">
           <li>
             <SocialsLink href="mailto:liamrdawson@gmail.com">Email</SocialsLink>
@@ -37,7 +37,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="mt-row text-center">
+      <div className="mt-row text-center text-socialsLink">
         <span>
           Copyright © {thisYear} <Link to="/">Liam Dawson</Link>
         </span>
