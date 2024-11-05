@@ -120,6 +120,9 @@ export default {
       1000: "1s",
     },
     extend: {
+      maxWidth: {
+        body: "70rem",
+      },
       margin: ({ theme }) => ({
         "grid-sm": theme("spacing.32"),
         "grid-md": theme("spacing.96"),
