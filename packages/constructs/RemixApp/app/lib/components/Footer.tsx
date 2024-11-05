@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="mt-layoutSection pb-md pt-md text-small md:pb-lg md:pt-lg">
       <Grid>
-        <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong sm:col-span-4 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5">
+        <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong md:col-span-9 md:col-start-3">
           <li>
             <TextLink to="mailto:liamrdawson@gmail.com" variant="muted">
               Email

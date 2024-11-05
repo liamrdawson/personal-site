@@ -109,7 +109,7 @@
   --ease-out-soft: var(--lrd-transition-ease-out-soft);
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1024px) {
   :root {
     /* Grid */
 
@@ -154,7 +154,7 @@
   }
 }
 
-@media only screen and (min-width: 1700px) {
+@media only screen and (min-width: 1280px) {
   :root {
     --spacing-page-section: var(--lrd-spacing-section-wide);
     --spacing-layout-section: var(--lrd-spacing-layout-section-wide);
