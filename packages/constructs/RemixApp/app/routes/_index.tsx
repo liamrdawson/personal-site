@@ -1,10 +1,10 @@
 import { useLoaderData } from "@remix-run/react";
 import { SanityDocument } from "@sanity/client";
 
-import { ContentLink } from "~/lib/components/ContentLink";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { Text } from "~/lib/components/Text";
+import { TextLink } from "~/lib/components/TextLink";
 import { client } from "~/sanity/client";
 
 const POSTS_QUERY = `*[
@@ -35,10 +35,9 @@ export default function IndexPage() {
             <ul className="mt-h2 list-disc space-y-4 pl-sm font-content text-body leading-body tracking-body">
               {posts.map((post) => (
                 <li className="w-fit" key={post._id}>
-                  {/* Should be TextLink with variants of 'content' and 'ui' */}
-                  <ContentLink to={`/${post.slug.current}`}>
+                  <TextLink to={`/${post.slug.current}`} variant="content">
                     {post.title}
-                  </ContentLink>
+                  </TextLink>
                 </li>
               ))}
             </ul>

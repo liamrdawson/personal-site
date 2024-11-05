@@ -1,22 +1,7 @@
 import { Link } from "@remix-run/react";
-import { ReactNode } from "react";
 
 import { Grid } from "./Grid";
-
-const SocialsLink = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) => (
-  <a
-    href={href}
-    className="text-socialsLink duration-250 ease-easeOutSoft hover:text-socialsLinkHover"
-  >
-    {children}
-  </a>
-);
+import { TextLink } from "./TextLink";
 
 const Footer = () => {
   const thisYear = new Date().getFullYear();
@@ -25,17 +10,25 @@ const Footer = () => {
       <Grid>
         <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong sm:col-span-4 sm:col-start-2 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5">
           <li>
-            <SocialsLink href="mailto:liamrdawson@gmail.com">Email</SocialsLink>
+            <TextLink to="mailto:liamrdawson@gmail.com" variant="muted">
+              Email
+            </TextLink>
           </li>
           <li>
-            <SocialsLink href="https://www.linkedin.com/in/liamrdawson/">
+            <TextLink
+              to="https://www.linkedin.com/in/liamrdawson/"
+              variant="muted"
+            >
               linkedin
-            </SocialsLink>
+            </TextLink>
           </li>
           <li>
-            <SocialsLink href="https://www.instagram.com/liam_r_dawson/">
+            <TextLink
+              to="https://www.instagram.com/liam_r_dawson/"
+              variant="muted"
+            >
               Instagram
-            </SocialsLink>
+            </TextLink>
           </li>
         </ul>
       </Grid>
