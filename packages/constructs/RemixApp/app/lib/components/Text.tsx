@@ -6,13 +6,15 @@ import { cn } from "~/lib/utils/cn";
 const textVariants = cva("block", {
   variants: {
     variant: {
-      content: "font-content",
-      ui: "font-default",
+      content: "font-content font-family-content",
+      ui: "font-default font-family-default",
+      display: "font-display font-family-display",
     },
     size: {
       sm: "text-small leading-small tracking-small",
       default: "text-body leading-body tracking-body",
       lg: "text-large leading-large tracking-large",
+      display: "text-display leading-display tracking-display",
     },
   },
   defaultVariants: {
@@ -44,7 +46,7 @@ export function Text({
   ...props
 }: TextProps) {
   const Element = as;
-
+  console.log(textVariants());
   return (
     <Element
       className={cn(textVariants({ variant, size }), className ?? "")}

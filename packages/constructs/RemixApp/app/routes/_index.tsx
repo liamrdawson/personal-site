@@ -24,14 +24,14 @@ export default function IndexPage() {
       <Grid>
         <div className="col-span-6 col-start-1 md:col-span-8 md:col-start-3 xl:col-span-6 xl:col-start-4">
           <section>
-            <Heading level={1}>Welcome</Heading>
+            <Heading level="h1">Welcome</Heading>
             <Text variant={"content"} className="mt-h1">
               I&apos;m Liam Dawson. I build and optimise eCommerce websites for
               consumer brands and write about my experiences here.
             </Text>
           </section>
           <section className="mt-pageSection">
-            <Heading level={2}>Posts</Heading>
+            <Heading level="h2">Posts</Heading>
             <ul className="mt-h2 list-disc space-y-4 pl-sm font-content text-body leading-body tracking-body">
               {posts.map((post) => (
                 <li className="w-fit" key={post._id}>

@@ -20,5 +20,6 @@
   --lrd-font-weight-h3: var(--lrd-font-weight-bold);
   --lrd-font-weight-h4: var(--lrd-font-weight-bold);
   --lrd-font-weight-h5: var(--lrd-font-weight-bold);
+  --lrd-font-weight-display: var(--lrd-font-weight-bold);
   --lrd-font-weight-social: var(--lrd-font-weight-medium);
 }

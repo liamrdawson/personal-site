@@ -29,6 +29,7 @@
   --font-family-display: var(--lrd-font-family-display);
   --font-family-content: var(--lrd-font-family-content);
 
+  --font-weight-display: var(--lrd-font-weight-display);
   --font-weight-h1: var(--lrd-font-weight-h1);
   --font-weight-h2: var(--lrd-font-weight-h2);
   --font-weight-h3: var(--lrd-font-weight-h3);
@@ -37,6 +38,7 @@
   --font-weight-body: var(--lrd-font-weight-body);
   --font-weight-social: var(--lrd-font-weight-social);
 
+  --letter-spacing-display: -0.05em;
   --letter-spacing-h1: -0.05em;
   --letter-spacing-h2: -0.035em;
   --letter-spacing-h3: -0.035em;
@@ -60,6 +62,7 @@
   --font-size-body: var(--lrd-font-text-body-base-mobile-font-size);
   --font-size-large: var(--lrd-font-text-body-lg-mobile-font-size);
 
+  --font-size-display: var(--lrd-font-text-heading-xl-mobile-font-size);
   --font-size-h1: var(--lrd-font-text-heading-xl-mobile-font-size);
   --font-size-h2: var(--lrd-font-text-heading-lg-mobile-font-size);
   --font-size-h3: var(--lrd-font-text-heading-md-mobile-font-size);
@@ -70,6 +73,7 @@
   --line-height-body: var(--lrd-size-line-height-md);
   --line-height-large: var(--lrd-size-line-height-lg);
 
+  --line-height-display: var(--lrd-size-line-height-display);
   --line-height-h1: var(--lrd-size-line-height-h1);
   --line-height-h2: var(--lrd-size-line-height-h2);
   --line-height-h3: var(--lrd-size-line-height-h3);
@@ -119,6 +123,7 @@
     --font-size-body: var(--lrd-font-text-body-base-desktop-font-size);
     --font-size-large: var(--lrd-font-text-body-lg-desktop-font-size);
 
+    --font-size-display: var(--lrd-font-text-heading-xl-desktop-font-size);
     --font-size-h1: var(--lrd-font-text-heading-xl-desktop-font-size);
     --font-size-h2: var(--lrd-font-text-heading-lg-desktop-font-size);
     --font-size-h3: var(--lrd-font-text-heading-md-desktop-font-size);
