@@ -156,7 +156,6 @@
 
 @media only screen and (min-width: 1280px) {
   :root {
-    --spacing-page-section: var(--lrd-spacing-section-wide);
     --spacing-layout-section: var(--lrd-spacing-layout-section-wide);
   }
 }
