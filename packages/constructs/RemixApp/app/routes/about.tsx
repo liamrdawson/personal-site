@@ -1,27 +1,19 @@
-import { useLoaderData } from "@remix-run/react";
-
+import image1 from "/assets/1-281006880034-liamrdawsonweb.jpg";
+import image2 from "/assets/2-281006880033-liamrdawsonweb.jpg";
+import image3 from "/assets/3-281006880035-liamrdawsonweb.jpg";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { Text } from "~/lib/components/Text";
 
-// const POST_QUERY = defineQuery(
-//   `*[_type == "post" && slug.current == $slug][0]`,
-// );
-
-// export async function loader({ params }: LoaderFunctionArgs) {
-//   return { post: await client.fetch(POST_QUERY, params) };
-// }
-
-// TODO: Setup to use Remix links for css.
-
-export default function PostPage() {
-  //   const { post } = useLoaderData<typeof loader>();
-
+export default function AboutPage() {
   return (
     <main className="mt-layoutSection flex-1 text-dark">
+      <Heading level={"h1"}>About</Heading>
       <Grid>
+        <img src={image1} className="col-start-1 col-end-5 my-textToImage" />
+        <img src={image2} className="col-start-5 col-end-9 my-textToImage" />
+        <img src={image3} className="col-start-9 col-end-13 my-textToImage" />
         <section className="col-span-6 col-start-1 md:col-span-12">
-          <Heading level={"h1"}>About</Heading>
           <Text variant="content" className="mt-paragraph">
             Hi, I&apos;m Liam.
           </Text>
