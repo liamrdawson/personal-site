@@ -7,7 +7,7 @@ import { defineQuery } from "groq";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
-import { List, ListItem } from "~/lib/components/List";
+import { List } from "~/lib/components/List";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
@@ -50,7 +50,8 @@ export default function PostPage() {
       },
     },
     list: {
-      bullet: ({ children }) => <List>{children}</List>,
+      bullet: ({ children }) => <List style={"ul"}>{children}</List>,
+      number: ({ children }) => <List style="ol">{children}</List>,
     },
     marks: {
       link: ({ value, children }) => (

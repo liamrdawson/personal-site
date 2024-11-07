@@ -33,7 +33,7 @@ export default function IndexPage() {
           </section>
           <section className="mt-pageSection">
             <Heading level="h2">Posts</Heading>
-            <List>
+            <List style="ul" className="mt-h2">
               {posts.map((post) => (
                 <li className="w-fit" key={post._id}>
                   <TextLink to={`/${post.slug.current}`} variant="content">
