@@ -49,6 +49,11 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      type: 'code',
+      name: 'myCodeField',
+      title: 'My code field',
+    }),
   ],
 
   preview: {
