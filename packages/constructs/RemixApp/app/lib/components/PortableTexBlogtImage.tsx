@@ -1,4 +1,5 @@
 import { PortableTextTypeComponentProps } from "@portabletext/react";
+import { getImageDimensions } from "@sanity/asset-utils";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
@@ -15,6 +16,7 @@ const PortableTextBlogImage = ({
   projectId,
   dataset,
 }: PortableTextBlogImageProps) => {
+  const { width, height } = getImageDimensions(value);
   const urlFor = (source: SanityImageSource) =>
     projectId && dataset
       ? imageUrlBuilder({ projectId, dataset }).image(source)
@@ -30,10 +32,11 @@ const PortableTextBlogImage = ({
       sizes="(max-width: 1200px) 100vw, 1200px"
       alt={value.altText}
       loading="lazy"
+      className="my-textToImage"
       style={{
         display: "block",
         width: "100%",
-        aspectRatio: "4 / 3",
+        aspectRatio: `${width} / ${height}`,
         objectFit: "cover",
       }}
     />

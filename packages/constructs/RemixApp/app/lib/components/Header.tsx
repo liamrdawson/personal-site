@@ -6,7 +6,7 @@ import { Text } from "./Text";
 const Header = () => (
   <header>
     <Grid>
-      <div className="col-span-6 col-start-1 border-b-2 border-solid border-dark pb-md pt-xl text-center md:col-span-12">
+      <div className="col-span-6 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center md:col-span-12">
         <Link to="/">
           <Text variant="display" size="display">
             LIAM DAWSON
