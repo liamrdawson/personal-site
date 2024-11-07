@@ -19,8 +19,6 @@ export class RemixDistribution extends Construct {
     );
     props.bucket.grantRead(bucketOriginAccessIdentity);
 
-    console.log(props.serverApiUrl);
-
     this.distribution = new cloudfront.Distribution(this, "Distribution", {
       enableLogging: false,
       defaultBehavior: {

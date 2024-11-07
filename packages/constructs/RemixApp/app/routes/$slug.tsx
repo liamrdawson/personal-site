@@ -7,8 +7,10 @@ import { defineQuery } from "groq";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
+import { List, ListItem } from "~/lib/components/List";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { Text } from "~/lib/components/Text";
+import { TextLink } from "~/lib/components/TextLink";
 import { client } from "~/sanity/client";
 
 const POST_QUERY = defineQuery(
@@ -46,6 +48,16 @@ export default function PostPage() {
       code: ({ value }) => {
         return <CodeBlock value={value} />;
       },
+    },
+    list: {
+      bullet: ({ children }) => <List>{children}</List>,
+    },
+    marks: {
+      link: ({ value, children }) => (
+        <TextLink to={value.href} variant="content">
+          {children}
+        </TextLink>
+      ),
     },
     block: {
       normal: ({ children }) => (

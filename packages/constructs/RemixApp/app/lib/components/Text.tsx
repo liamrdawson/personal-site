@@ -46,7 +46,6 @@ export function Text({
   ...props
 }: TextProps) {
   const Element = as;
-  console.log(textVariants());
   return (
     <Element
       className={cn(textVariants({ variant, size }), className ?? "")}

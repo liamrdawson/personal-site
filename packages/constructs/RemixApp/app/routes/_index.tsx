@@ -3,6 +3,7 @@ import { SanityDocument } from "@sanity/client";
 
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
+import { List } from "~/lib/components/List";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
 import { client } from "~/sanity/client";
@@ -32,7 +33,7 @@ export default function IndexPage() {
           </section>
           <section className="mt-pageSection">
             <Heading level="h2">Posts</Heading>
-            <ul className="mt-h2 list-disc space-y-4 pl-sm font-content text-body leading-body tracking-body">
+            <List>
               {posts.map((post) => (
                 <li className="w-fit" key={post._id}>
                   <TextLink to={`/${post.slug.current}`} variant="content">
@@ -40,7 +41,7 @@ export default function IndexPage() {
                   </TextLink>
                 </li>
               ))}
-            </ul>
+            </List>
           </section>
         </div>
       </Grid>
