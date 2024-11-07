@@ -45,7 +45,8 @@
 
   /* Spacing */
 
-  --lrd-spacing-layout-fixed-sm: var(--lrd-size-64);
+  --lrd-spacing-layout-fixed-xs: var(--lrd-size-64);
+  --lrd-spacing-layout-fixed-sm: var(--lrd-size-96);
   --lrd-spacing-layout-fixed-md: var(--lrd-size-128);
   --lrd-spacing-layout-fixed-lg: var(--lrd-size-256);
 
@@ -53,13 +54,39 @@
   --lrd-spacing-layout-variable-md: 8.5vw;
   --lrd-spacing-layout-variable-lg: 12.5vw;
 
-  --lrd-spacing-section-mobile: var(--lrd-spacing-layout-variable-md);
-  --lrd-spacing-section-desktop: var(--lrd-spacing-layout-fixed-md);
-  --lrd-spacing-section-wide: var(--lrd-spacing-layout-variable-sm);
+  --lrd-spacing-section-mobile: clamp(
+    var(--lrd-spacing-layout-fixed-xs),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-sm)
+  );
 
-  --lrd-spacing-layout-section-mobile: var(--lrd-spacing-layout-variable-lg);
-  --lrd-spacing-layout-section-desktop: var(--lrd-spacing-layout-variable-md);
-  --lrd-spacing-layout-section-wide: var(--lrd-spacing-layout-fixed-md);
+  --lrd-spacing-section-desktop: clamp(
+    var(--lrd-spacing-layout-fixed-xs),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-sm)
+  );
+
+  --lrd-spacing-section-wide: clamp(
+    var(--lrd-spacing-layout-fixed-xs),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-sm)
+  );
+
+  --lrd-spacing-layout-section-mobile: clamp(
+    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-md)
+  );
+  --lrd-spacing-layout-section-desktop: clamp(
+    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-md)
+  );
+  --lrd-spacing-layout-section-wide: clamp(
+    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-variable-lg),
+    var(--lrd-spacing-layout-fixed-md)
+  );
 
   --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
   --lrd-spacing-text-to-image-desktop: var(--lrd-spacing-layout-variable-sm);

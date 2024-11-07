@@ -7,6 +7,7 @@ import { defineQuery } from "groq";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
+import { InlineCode } from "~/lib/components/InlineCode";
 import { List } from "~/lib/components/List";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { Text } from "~/lib/components/Text";
@@ -59,6 +60,7 @@ export default function PostPage() {
           {children}
         </TextLink>
       ),
+      code: ({ children }) => <InlineCode>{children}</InlineCode>,
     },
     block: {
       normal: ({ children }) => (

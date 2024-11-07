@@ -26,7 +26,7 @@ export default function IndexPage() {
         <div className="col-span-6 col-start-1 md:col-span-12">
           <section>
             <Heading level="h1">Welcome</Heading>
-            <Text variant={"content"} className="mt-h1">
+            <Text variant={"content"} className="mt-paragraph">
               I&apos;m Liam Dawson. I build and optimise eCommerce websites for
               consumer brands and write about my experiences here.
             </Text>
