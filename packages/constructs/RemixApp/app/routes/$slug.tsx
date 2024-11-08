@@ -32,8 +32,8 @@ export default function PostPage() {
     post?.mainImage && projectId && dataset
       ? imageUrlBuilder({ projectId, dataset })
           .image(post.mainImage)
-          ?.width(550)
-          .height(310)
+          ?.width(700)
+          .height(583)
           .url()
       : null;
 
@@ -103,10 +103,11 @@ export default function PostPage() {
           <Heading level={"h1"}>{post?.title}</Heading>
           {postImageUrl && (
             <img
+              className="my-textToImage"
               src={postImageUrl}
               alt={post?.title}
-              width="550"
-              height="310"
+              width="700"
+              height="583"
             />
           )}
           {Array.isArray(post?.body) && (

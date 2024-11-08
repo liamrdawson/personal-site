@@ -50,9 +50,9 @@
   --lrd-spacing-layout-fixed-md: var(--lrd-size-128);
   --lrd-spacing-layout-fixed-lg: var(--lrd-size-256);
 
-  --lrd-spacing-layout-variable-sm: 4.2vw;
-  --lrd-spacing-layout-variable-md: 8.5vw;
-  --lrd-spacing-layout-variable-lg: 12.5vw;
+  --lrd-spacing-layout-variable-sm: 3.2vw;
+  --lrd-spacing-layout-variable-md: 6.5vw;
+  --lrd-spacing-layout-variable-lg: 10.5vw;
 
   --lrd-spacing-section-mobile: clamp(
     var(--lrd-spacing-layout-fixed-xs),
@@ -73,19 +73,19 @@
   );
 
   --lrd-spacing-layout-section-mobile: clamp(
-    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-fixed-xs),
     var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-md)
+    var(--lrd-spacing-layout-fixed-sm)
   );
   --lrd-spacing-layout-section-desktop: clamp(
-    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-fixed-xs),
     var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-md)
+    var(--lrd-spacing-layout-fixed-sm)
   );
   --lrd-spacing-layout-section-wide: clamp(
-    var(--lrd-spacing-layout-fixed-sm),
+    var(--lrd-spacing-layout-fixed-xs),
     var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-md)
+    var(--lrd-spacing-layout-fixed-sm)
   );
 
   --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
@@ -107,7 +107,7 @@
   --lrd-spacing-h2-to-text-desktop: var(--lrd-size-12);
 
   --lrd-spacing-footer-row-mobile: var(--lrd-size-32);
-  --lrd-spacing-footer-row-desktop: var(--lrd-size-48);
+  --lrd-spacing-footer-row-desktop: var(--lrd-size-32);
 
   /* Padding */
 

@@ -6,7 +6,7 @@ import { TextLink } from "./TextLink";
 const Footer = () => {
   const thisYear = new Date().getFullYear();
   return (
-    <footer className="mt-layoutSection pb-md pt-md text-small md:pb-lg md:pt-lg">
+    <footer className="mt-layoutSection pb-md pt-lg text-small md:pb-lg md:pt-xl">
       <Grid>
         <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong md:col-span-8 md:col-start-3">
           <li>
