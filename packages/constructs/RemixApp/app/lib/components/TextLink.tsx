@@ -11,6 +11,7 @@ const textLinkVariants = cva("duration-250 ease-easeOutSoft", {
         "text-contentLink font-family-content hover:text-contentLinkHover border-b border-solid border-b-contentLinkUnderscore hover:border-b-contentLinkUnderscoreHover",
       muted: "text-socialsLink hover:text-socialsLinkHover",
       ui: "text-defaultLink hover:text-defaultLinkHover",
+      nav: "text-light hover:text-dark",
     },
   },
 });
@@ -27,10 +28,17 @@ interface TextLinkProps
     TextLinkVariantProps {
   to: string;
   children: ReactNode;
+  className?: string;
+  prefetch: "none" | "intent" | "render" | "viewport";
 }
 
-export const TextLink = ({ children, variant, to }: TextLinkProps) => (
-  <Link className={cn(textLinkVariants({ variant }))} to={to}>
+export const TextLink = ({
+  children,
+  variant,
+  to,
+  className,
+}: TextLinkProps) => (
+  <Link className={cn(textLinkVariants({ variant }), className ?? "")} to={to}>
     {children}
   </Link>
 );
