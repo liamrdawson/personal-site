@@ -26,12 +26,35 @@ const Header = () => {
     open: {
       height: "8rem",
       width: isButtonHovered || isOpen ? "12.8rem" : "9.6rem",
+      opacity: 1,
+      transition: {
+        height: {
+          duration: 0.2,
+        },
+        opacity: {
+          delay: 0,
+          duratio: 0,
+        },
+      },
     },
     closed: {
       height: "3.2rem",
       width: isButtonHovered || isOpen ? "12.8rem" : "9.6rem",
+      opacity: 0,
+      transition: {
+        width: {
+          duration: 0.1,
+        },
+        height: {
+          duration: 0.2,
+          delay: 0.1,
+        },
+        opacity: {
+          delay: 0.4,
+          duration: 0,
+        },
+      },
     },
-    buttonHovered: { width: "12.8rem" },
   };
 
   const motionButtonVariants: Variants = {
@@ -50,7 +73,11 @@ const Header = () => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const handleMenuOpen = () => {
-    setHovered(currentMenuItem);
+    if (isMobile) {
+      setHovered(currentMenuItem);
+    } else {
+      setHovered(menuItems.find((item) => item.path === "/"));
+    }
     setIsOpen(true);
   };
 
@@ -90,10 +117,7 @@ const Header = () => {
     <header>
       <Grid>
         <div className="font-family-default fixed bottom-0 left-0 w-full pb-xl">
-          <div
-            // onMouseLeave={() => handleMouseLeave()}
-            className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-[red]"
-          >
+          <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
             <motion.button
               animate={isOpen ? "open" : "closed"}
               variants={motionButtonVariants}
@@ -104,7 +128,7 @@ const Header = () => {
               whileHover={{ padding: 8, width: 128 }}
               transition={{
                 duration: 0.2,
-                pointerEvents: { delay: 0.125, duration: 0.2 },
+                pointerEvents: { delay: 0.125, duration: 0.125 },
               }}
               className="font-family-default z-50 w-128 rounded-md bg-dark py-xs text-center text-large font-strong text-light shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]"
             >
@@ -113,9 +137,8 @@ const Header = () => {
             <motion.nav
               ref={navRef}
               animate={isOpen ? "open" : "closed"}
-              initial={{ height: "4.6rem", width: "9.6rem" }}
+              initial={{ height: "2.6rem", width: "9.6rem" }}
               variants={motionNavVariants}
-              transition={{ duration: 0.2 }}
               onMouseLeave={() => handleMouseLeave()}
               className="absolute bottom-0 w-96 overflow-y-hidden rounded-md bg-dark p-xs"
             >
