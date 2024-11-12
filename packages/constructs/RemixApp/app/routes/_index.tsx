@@ -35,17 +35,18 @@ export default function IndexPage() {
           <section className="mt-pageSection">
             <Heading level="h2">Posts</Heading>
             <List style="ul" className="mt-h2">
-              {posts.map((post) => (
-                <li className="w-fit" key={post._id}>
-                  <TextLink
-                    prefetch="viewport"
-                    to={`blog/${post.slug.current}`}
-                    variant="content"
-                  >
-                    {post.title}
-                  </TextLink>
-                </li>
-              ))}
+              {posts.length &&
+                posts.map((post) => (
+                  <li className="w-fit" key={post._id}>
+                    <TextLink
+                      prefetch="viewport"
+                      to={`blog/${post.slug.current}`}
+                      variant="content"
+                    >
+                      {post.title}
+                    </TextLink>
+                  </li>
+                ))}
             </List>
           </section>
         </div>
