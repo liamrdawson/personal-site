@@ -1,5 +1,5 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
@@ -19,7 +19,10 @@ const POST_QUERY = defineQuery(
 );
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  return { post: await client.fetch(POST_QUERY, params) };
+  return json(
+    { post: await client.fetch(POST_QUERY, params) },
+    { headers: { "Cache-Control": "max-age=3600, public" } },
+  );
 }
 
 // TODO: Setup to use Remix links for css.
