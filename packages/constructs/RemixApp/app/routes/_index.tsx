@@ -14,7 +14,8 @@ const POSTS_QUERY = `*[
 ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
 
 export async function loader() {
-  return { posts: await client.fetch<SanityDocument[]>(POSTS_QUERY) };
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY);
+  return { posts: posts || [] }; // Ensure posts is always an array
 }
 
 export default function IndexPage() {
