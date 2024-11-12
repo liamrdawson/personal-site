@@ -7,7 +7,11 @@ import { Grid } from "./Grid";
 import { Text } from "./Text";
 import { TextLink } from "./TextLink";
 
-const Header = () => {
+interface HeaderProps {
+  footerIsInView: boolean;
+}
+
+const Header = ({ footerIsInView }: HeaderProps) => {
   const menuItems = [
     { label: "About", path: "/about" },
     { label: "Home", path: "/" },
@@ -114,10 +118,25 @@ const Header = () => {
     };
   }, []);
 
+  console.log("FOOTER", footerIsInView);
+
+  const menuVariants: Variants = {
+    hidden: {
+      y: "110%",
+    },
+    visible: {
+      y: 0,
+    },
+  };
+
   return (
     <header>
       <Grid>
-        <div className="font-family-default fixed bottom-0 left-0 w-full pb-xl">
+        <motion.div
+          variants={menuVariants}
+          animate={footerIsInView ? "hidden" : "visible"}
+          className="font-family-default fixed bottom-0 left-0 w-full pb-xl"
+        >
           <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
             <motion.button
               animate={isOpen ? "open" : "closed"}
@@ -165,7 +184,7 @@ const Header = () => {
               </ul>
             </motion.nav>
           </div>
-        </div>
+        </motion.div>
         <div className="col-span-6 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center md:col-span-12">
           <Link to="/">
             <Text variant="display" size="display">

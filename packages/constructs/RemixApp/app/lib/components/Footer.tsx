@@ -1,12 +1,47 @@
 import { Link } from "@remix-run/react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 import { Grid } from "./Grid";
 import { TextLink } from "./TextLink";
 
-const Footer = () => {
+interface FooterProps {
+  setFooterIsInView: Dispatch<SetStateAction<boolean>>;
+}
+
+const Footer = ({ setFooterIsInView }: FooterProps) => {
   const thisYear = new Date().getFullYear();
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFooterIsInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          console.log("Footer has entered the viewport");
+        } else {
+          console.log("Footer has left the viewport");
+        }
+      },
+      { threshold: 0.4 }, // Adjust as needed to control sensitivity
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
-    <footer className="mt-layoutSection pb-md pt-lg text-small md:pb-lg md:pt-xl">
+    <footer
+      ref={ref}
+      className="mt-layoutSection pb-md pt-lg text-small md:pb-lg md:pt-xl"
+    >
       <Grid>
         <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong md:col-span-8 md:col-start-3">
           <li>

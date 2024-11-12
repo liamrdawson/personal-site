@@ -7,11 +7,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { useState } from "react";
 
 import Footer from "./lib/components/Footer";
 import Header from "./lib/components/Header";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [footerIsInView, setFooterIsInView] = useState(false);
   return (
     <html lang="en" className="text-base">
       <head>
@@ -21,9 +23,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="max-w-body mx-auto flex min-h-[120vh] w-[90%] flex-col bg-background antialiased">
-        <Header />
+        <Header footerIsInView={footerIsInView} />
         {children}
-        <Footer />
+        <Footer setFooterIsInView={setFooterIsInView} />
         <ScrollRestoration />
         <Scripts />
       </body>
