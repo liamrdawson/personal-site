@@ -10,9 +10,18 @@ export default function AboutPage() {
     <main className="mt-layoutSection flex-1 text-dark">
       <Heading level={"h1"}>About</Heading>
       <Grid>
-        <img src={image1} className="col-start-1 col-end-5 my-textToImage" />
-        <img src={image2} className="col-start-5 col-end-9 my-textToImage" />
-        <img src={image3} className="col-start-9 col-end-13 my-textToImage" />
+        <img
+          src={image1}
+          className="col-start-1 col-end-3 my-textToImage hidden min-[500px]:block md:col-end-5"
+        />
+        <img
+          src={image2}
+          className="col-start-1 col-end-7 my-textToImage min-[500px]:col-start-3 min-[500px]:col-end-5 md:col-start-5 md:col-end-9"
+        />
+        <img
+          src={image3}
+          className="col-start-5 col-end-7 my-textToImage hidden min-[500px]:block md:col-start-9 md:col-end-13"
+        />
         <section className="col-span-6 col-start-1 md:col-span-12">
           <Text variant="content" className="mt-paragraph">
             Hi, I&apos;m Liam.
