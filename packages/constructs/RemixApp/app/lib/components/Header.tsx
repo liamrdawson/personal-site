@@ -11,8 +11,9 @@ const Header = () => {
     { label: "About", path: "/about" },
     { label: "Home", path: "/" },
   ];
+  const location = useLocation();
   const currentMenuItem = menuItems.find(
-    (item) => item.path === useLocation().pathname,
+    (item) => item.path === location.pathname,
   );
 
   const [hovered, setHovered] = useState<(typeof menuItems)[0] | undefined>(
@@ -130,7 +131,7 @@ const Header = () => {
                       className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label ? "text-dark" : "text-light"}`}
                       to={item.path}
                       variant="nav"
-                      prefetch="intent"
+                      prefetch="viewport"
                     >
                       <span className="relative z-40">{item.label}</span>
                       {item.label === hovered?.label ? <HoverBox /> : null}

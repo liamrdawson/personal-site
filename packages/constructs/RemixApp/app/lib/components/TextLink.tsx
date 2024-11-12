@@ -37,8 +37,13 @@ export const TextLink = ({
   variant,
   to,
   className,
+  prefetch,
 }: TextLinkProps) => (
-  <Link className={cn(textLinkVariants({ variant }), className ?? "")} to={to}>
+  <Link
+    prefetch={prefetch}
+    className={cn(textLinkVariants({ variant }), className ?? "")}
+    to={to}
+  >
     {children}
   </Link>
 );

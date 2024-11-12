@@ -31,7 +31,7 @@ const PortableTextBlogImage = ({
       `}
       sizes="(max-width: 1200px) 100vw, 1200px"
       alt={value.altText}
-      loading="lazy"
+      loading="eager"
       className="my-textToImage"
       style={{
         display: "block",

@@ -56,7 +56,7 @@ export default function PostPage() {
     },
     marks: {
       link: ({ value, children }) => (
-        <TextLink to={value.href} variant="content">
+        <TextLink prefetch="none" to={value.href} variant="content">
           {children}
         </TextLink>
       ),

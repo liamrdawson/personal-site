@@ -36,7 +36,11 @@ export default function IndexPage() {
             <List style="ul" className="mt-h2">
               {posts.map((post) => (
                 <li className="w-fit" key={post._id}>
-                  <TextLink to={`/${post.slug.current}`} variant="content">
+                  <TextLink
+                    prefetch="viewport"
+                    to={`/${post.slug.current}`}
+                    variant="content"
+                  >
                     {post.title}
                   </TextLink>
                 </li>

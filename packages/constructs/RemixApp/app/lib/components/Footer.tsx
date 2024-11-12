@@ -10,12 +10,17 @@ const Footer = () => {
       <Grid>
         <ul className="col-span-6 col-start-1 flex flex-row justify-between font-strong md:col-span-8 md:col-start-3">
           <li>
-            <TextLink to="mailto:liamrdawson@gmail.com" variant="muted">
+            <TextLink
+              prefetch="none"
+              to="mailto:liamrdawson@gmail.com"
+              variant="muted"
+            >
               Email
             </TextLink>
           </li>
           <li>
             <TextLink
+              prefetch="none"
               to="https://www.linkedin.com/in/liamrdawson/"
               variant="muted"
             >
@@ -24,6 +29,7 @@ const Footer = () => {
           </li>
           <li>
             <TextLink
+              prefetch="none"
               to="https://www.instagram.com/liam_r_dawson/"
               variant="muted"
             >
