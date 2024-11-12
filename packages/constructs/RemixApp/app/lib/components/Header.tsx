@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@remix-run/react";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 import { Grid } from "./Grid";
 import { Text } from "./Text";
