@@ -122,6 +122,7 @@ export type Post = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  description?: string;
   slug?: Slug;
   author?: {
     _ref: string;
@@ -280,7 +281,7 @@ export type AllSanitySchemaTypes =
   | Slug
   | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ../constructs/RemixApp/app/routes/$slug.tsx
+// Source: ../constructs/RemixApp/app/routes/blog.$slug.tsx
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]
 export type POST_QUERYResult = {
@@ -290,6 +291,7 @@ export type POST_QUERYResult = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  description?: string;
   slug?: Slug;
   author?: {
     _ref: string;

@@ -1,6 +1,6 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData, useLocation } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
 
@@ -25,7 +25,40 @@ export async function loader({ params }: LoaderFunctionArgs) {
   );
 }
 
-// TODO: Setup to use Remix links for css.
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const location = useLocation();
+  const image = data?.post?.mainImage;
+  const { projectId, dataset } = client.config();
+  const imageUrl =
+    image && projectId && dataset
+      ? imageUrlBuilder({ projectId, dataset })
+          .image(image)
+          ?.width(640)
+          .height(360)
+          .url()
+      : "";
+  return [
+    {
+      title: data?.post?.title,
+    },
+    {
+      property: "og:description",
+      content: data?.post?.description,
+    },
+    {
+      property: "og:title",
+      content: data?.post?.title,
+    },
+    {
+      property: "og:image",
+      content: imageUrl,
+    },
+    {
+      property: "og:url",
+      content: `https://liamrdawson.com${location.pathname}`,
+    },
+  ];
+};
 
 export default function PostPage() {
   const { post } = useLoaderData<typeof loader>();

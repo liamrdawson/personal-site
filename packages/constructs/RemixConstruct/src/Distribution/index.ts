@@ -26,10 +26,19 @@ export class RemixDistribution extends Construct {
         origin: new cloudfrontOrigins.HttpOrigin(props.serverApiUrl),
         originRequestPolicy:
           cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
-        cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+        cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
       additionalBehaviors: {
+        "blog/*": {
+          allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
+          origin: new cloudfrontOrigins.HttpOrigin(props.serverApiUrl),
+          originRequestPolicy:
+            cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
+          cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+          viewerProtocolPolicy:
+            cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        },
         "assets/*": {
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
           origin: new cloudfrontOrigins.S3Origin(props.bucket, {
