@@ -1,5 +1,5 @@
 packages:
-  - "packages/app"
-  - "packages/constructs/RemixApp"
-  - "packages/constructs/RemixConstruct"
+  - "packages/RemixApp"
   - "packages/cms"
+  - "packages/remix-app"
+  - "packages/remix-app/remix.init"
