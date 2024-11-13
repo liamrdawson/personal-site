@@ -118,8 +118,6 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     };
   }, []);
 
-  console.log("FOOTER", footerIsInView);
-
   const menuVariants: Variants = {
     hidden: {
       y: "110%",

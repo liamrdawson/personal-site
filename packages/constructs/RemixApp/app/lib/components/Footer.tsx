@@ -17,11 +17,6 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setFooterIsInView(entry.isIntersecting);
-        if (entry.isIntersecting) {
-          console.log("Footer has entered the viewport");
-        } else {
-          console.log("Footer has left the viewport");
-        }
       },
       { threshold: 0.4 }, // Adjust as needed to control sensitivity
     );
