@@ -32,8 +32,8 @@ export default function AboutPage() {
           <Text variant="content" className="mt-paragraph">
             Born and raised in North Wales, I initially worked in the TV
             industry in London after university, but soon found my true passion
-            in tech. Now based in Winchester, England, I specialize in
-            full-stack eCommerce development, helping brands optimize their
+            in tech. Now based in Winchester, England, I specialise in
+            full-stack eCommerce development, helping brands optimise their
             digital experiences to drive growth and deliver outstanding customer
             journeys.
           </Text>
