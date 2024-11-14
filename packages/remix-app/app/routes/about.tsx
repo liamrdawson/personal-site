@@ -30,23 +30,23 @@ export default function AboutPage() {
             I&apos;m a husband, father, software engineer, and curious tinkerer.
           </Text>
           <Text variant="content" className="mt-paragraph">
-            I was born and raised in North Wales and moved to London after
-            university, initially working in the TV industry. I eventually found
-            my passion in tech, becoming a full-stack software engineer with a
-            specialty in eCommerce. Today, I’m based in Winchester, England,
-            where I work on optimizing digital experiences for eCommerce brands.
+            Born and raised in North Wales, I initially worked in the TV
+            industry in London after university, but soon found my true passion
+            in tech. Now based in Winchester, England, I specialize in
+            full-stack eCommerce development, helping brands optimize their
+            digital experiences to drive growth and deliver outstanding customer
+            journeys.
           </Text>
           <Text variant="content" className="mt-paragraph">
-            As a full-stack developer focused on eCommerce, I use technology to
-            empower brands to maximise their potential. I’m fortunate to work in
-            a field where innovation drives change, and I use my skills to
-            enhance customer buying experiences while supporting brand growth
-            and success.
+            I use technology to empower brands to maximise their potential. I’m
+            fortunate to work in a field where innovation drives change, and I
+            use my skills to enhance customer buying experiences while
+            supporting brand growth and success.
           </Text>
           <Text variant="content" className="mt-paragraph">
-            Here on my website, I aim to share thoughts and learnings from my
-            journey in eCommerce. From industry trends to personal insights, I
-            enjoy jotting down ideas that might be valuable for others.
+            On this site, I share insights and learnings from my journey in
+            eCommerce. From industry trends to personal insights, I enjoy
+            jotting down ideas that might be valuable for others.
           </Text>
           <Text variant="content" className="mt-paragraph">
             Outside of work, my favourite things are spending time with my
