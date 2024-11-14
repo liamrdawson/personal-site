@@ -1,3 +1,3 @@
-# Remix × AWS
+# LiamRDawson
 
-[Remix](https://remix.run/) application deployed to [AWS](https://aws.amazon.com/) using [CDK](https://docs.aws.amazon.com/cdk/) as it's infrastructure-as-code.
+This is the code for liamrdawson.com. Built with Remix.
