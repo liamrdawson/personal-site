@@ -1,6 +1,6 @@
 [build]
-command = "npm run build"
-publish = "packages/remix-app/build/client"
+command = "pnpm -F remix-app run build"
+publish = "build/client"
 
 [dev]
 command = "npm run dev"
