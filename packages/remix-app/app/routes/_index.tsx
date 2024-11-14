@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { SanityDocument } from "@sanity/client";
 
 import { Grid } from "~/lib/components/Grid";
@@ -17,6 +17,38 @@ export async function loader() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY);
   return { posts: posts || [] }; // Ensure posts is always an array
 }
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Liam Dawson",
+    },
+    {
+      property: "og:title",
+      content: "Home - Liam Dawson",
+    },
+    {
+      property: "og:description",
+      content: "The writings of Liam Dawson, Full Stack eCommerce Developer",
+    },
+    {
+      property: "og:title",
+      content: "Liam Dawson",
+    },
+    {
+      property: "og:url",
+      content: "https://liamrdawson.com/",
+    },
+    {
+      property: "og:site_name",
+      content: "Liam Dawson",
+    },
+    {
+      property: "og:locale",
+      content: "en-GB",
+    },
+  ];
+};
 
 export default function IndexPage() {
   const { posts } = useLoaderData<typeof loader>();
