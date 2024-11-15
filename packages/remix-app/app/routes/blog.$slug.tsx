@@ -20,23 +20,27 @@ const POST_QUERY = defineQuery(
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
+  const post = await client.fetch(POST_QUERY, params);
+  const { projectId, dataset } = client.config();
+  const mainImageUrl =
+    post?.mainImage && projectId && dataset
+      ? imageUrlBuilder({ projectId, dataset })
+          .image(post.mainImage)
+          ?.width(640)
+          .height(360)
+          .url()
+      : "";
   return json(
-    { post: await client.fetch(POST_QUERY, params), urlPath: url.pathname },
+    {
+      post: await client.fetch(POST_QUERY, params),
+      urlPath: url.pathname,
+      mainImageUrl,
+    },
     { headers: { "Cache-Control": "max-age=3600, public" } },
   );
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  const image = data?.post?.mainImage;
-  const { projectId, dataset } = client.config();
-  const imageUrl =
-    image && projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset })
-          .image(image)
-          ?.width(640)
-          .height(360)
-          .url()
-      : "";
   return [
     {
       title: data?.post?.title,
@@ -51,7 +55,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     {
       property: "og:image",
-      content: imageUrl,
+      content: data?.mainImageUrl,
     },
     {
       property: "og:url",
