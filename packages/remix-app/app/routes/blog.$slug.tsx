@@ -20,18 +20,9 @@ const POST_QUERY = defineQuery(
 );
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
-  const [isClient, setIsClient] = useState(false);
   const url = new URL(request.url);
   const post = await client.fetch(POST_QUERY, params);
   const { projectId, dataset } = client.config();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
 
   const mainImageUrl =
     post?.mainImage && projectId && dataset
@@ -120,7 +111,16 @@ const portableTextComponents: PortableTextComponents = {
 };
 
 export default function PostPage() {
+  const [isClient, setIsClient] = useState(false);
   const { post, mainImageUrl } = useLoaderData<typeof loader>();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <main className="mt-layoutSection flex-1 text-dark">
