@@ -1,6 +1,6 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { MetaFunction, useLoaderData, useLocation } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
 
@@ -18,15 +18,15 @@ const POST_QUERY = defineQuery(
   `*[_type == "post" && slug.current == $slug][0]`,
 );
 
-export async function loader({ params }: LoaderFunctionArgs) {
+export async function loader({ params, request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
   return json(
-    { post: await client.fetch(POST_QUERY, params) },
+    { post: await client.fetch(POST_QUERY, params), urlPath: url.pathname },
     { headers: { "Cache-Control": "max-age=3600, public" } },
   );
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  const location = useLocation();
   const image = data?.post?.mainImage;
   const { projectId, dataset } = client.config();
   const imageUrl =
@@ -55,7 +55,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     {
       property: "og:url",
-      content: `https://liamrdawson.com${location.pathname}`,
+      content: `https://liamrdawson.com${data?.urlPath}`,
     },
   ];
 };
