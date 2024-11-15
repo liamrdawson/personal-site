@@ -33,14 +33,11 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
           .url()
       : null;
 
-  return json(
-    {
-      post,
-      urlPath: url.pathname,
-      mainImageUrl,
-    },
-    { headers: { "Cache-Control": "max-age=3600, public" } },
-  );
+  return json({
+    post,
+    urlPath: url.pathname,
+    mainImageUrl,
+  });
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
