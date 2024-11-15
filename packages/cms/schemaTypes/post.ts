@@ -34,6 +34,17 @@ export default defineType({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      fields: [
+        {
+          title: 'Alternative Text',
+          name: 'alt',
+          type: 'string',
+          validation: (rule) => rule.required(),
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
       options: {
         hotspot: true,
       },
