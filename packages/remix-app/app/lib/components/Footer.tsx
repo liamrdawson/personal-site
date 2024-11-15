@@ -9,8 +9,6 @@ interface FooterProps {
 }
 
 const Footer = ({ setFooterIsInView }: FooterProps) => {
-  const thisYear = new Date().getFullYear();
-
   const ref = useRef(null);
 
   useEffect(() => {
@@ -70,7 +68,7 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
       </Grid>
       <div className="mt-row text-center text-socialsLink">
         <span>
-          Copyright © {thisYear} <Link to="/">Liam Dawson</Link>
+          Copyright © 2024 <Link to="/">Liam Dawson</Link>
         </span>
       </div>
     </footer>
