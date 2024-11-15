@@ -22,17 +22,19 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const post = await client.fetch(POST_QUERY, params);
   const { projectId, dataset } = client.config();
+
   const mainImageUrl =
     post?.mainImage && projectId && dataset
       ? imageUrlBuilder({ projectId, dataset })
           .image(post.mainImage)
-          ?.width(640)
-          .height(360)
+          .width(700)
+          .height(583)
           .url()
-      : "";
+      : null;
+
   return json(
     {
-      post: await client.fetch(POST_QUERY, params),
+      post,
       urlPath: url.pathname,
       mainImageUrl,
     },
@@ -42,116 +44,91 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
-    {
-      title: data?.post?.title,
-    },
-    {
-      property: "og:description",
-      content: data?.post?.description,
-    },
-    {
-      property: "og:title",
-      content: data?.post?.title,
-    },
-    {
-      property: "og:image",
-      content: data?.mainImageUrl,
-    },
-    {
-      property: "og:url",
-      content: `https://liamrdawson.com${data?.urlPath}`,
-    },
+    { title: data?.post?.title },
+    { property: "og:description", content: data?.post?.description },
+    { property: "og:title", content: data?.post?.title },
+    { property: "og:image", content: data?.mainImageUrl },
+    { property: "og:url", content: `https://liamrdawson.com${data?.urlPath}` },
   ];
 };
 
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: (props) => (
+      <PortableTextBlogImage
+        {...props}
+        projectId={client.config().projectId}
+        dataset={client.config().dataset}
+      />
+    ),
+    code: ({ value }) => <CodeBlock value={value} />,
+  },
+  list: {
+    bullet: ({ children }) => <List style="ul">{children}</List>,
+    number: ({ children }) => <List style="ol">{children}</List>,
+  },
+  marks: {
+    link: ({ value, children }) => (
+      <TextLink prefetch="none" to={value.href} variant="content">
+        {children}
+      </TextLink>
+    ),
+    code: ({ children }) => <InlineCode>{children}</InlineCode>,
+  },
+  block: {
+    normal: ({ children }) => (
+      <Text variant="content" className="mt-paragraph">
+        {children}
+      </Text>
+    ),
+    h1: ({ children }) => (
+      <Heading level="h1" className="mt-pageSection">
+        {children}
+      </Heading>
+    ),
+    h2: ({ children }) => (
+      <Heading level="h2" className="mt-pageSection">
+        {children}
+      </Heading>
+    ),
+    h3: ({ children }) => (
+      <Heading level="h3" className="mt-pageSection">
+        {children}
+      </Heading>
+    ),
+    h4: ({ children }) => (
+      <Heading level="h4" className="mt-64">
+        {children}
+      </Heading>
+    ),
+    h5: ({ children }) => (
+      <Heading level="h5" className="mt-paragraph">
+        {children}
+      </Heading>
+    ),
+  },
+};
+
 export default function PostPage() {
-  const { post } = useLoaderData<typeof loader>();
-  const { projectId, dataset } = client.config();
-
-  const postImageUrl =
-    post?.mainImage && projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset })
-          .image(post.mainImage)
-          ?.width(700)
-          .height(583)
-          .url()
-      : null;
-
-  const components: PortableTextComponents = {
-    types: {
-      image: (props) => (
-        <PortableTextBlogImage
-          {...props}
-          projectId={projectId}
-          dataset={dataset}
-        />
-      ),
-      code: ({ value }) => {
-        return <CodeBlock value={value} />;
-      },
-    },
-    list: {
-      bullet: ({ children }) => <List style={"ul"}>{children}</List>,
-      number: ({ children }) => <List style="ol">{children}</List>,
-    },
-    marks: {
-      link: ({ value, children }) => (
-        <TextLink prefetch="none" to={value.href} variant="content">
-          {children}
-        </TextLink>
-      ),
-      code: ({ children }) => <InlineCode>{children}</InlineCode>,
-    },
-    block: {
-      normal: ({ children }) => (
-        <Text variant="content" className="mt-paragraph">
-          {children}
-        </Text>
-      ),
-      h1: ({ children }) => (
-        <Heading level={"h1"} className="mt-pageSection">
-          {children}
-        </Heading>
-      ),
-      h2: ({ children }) => (
-        <Heading level={"h2"} className="mt-pageSection">
-          {children}
-        </Heading>
-      ),
-      h3: ({ children }) => (
-        <Heading level={"h3"} className="mt-pageSection">
-          {children}
-        </Heading>
-      ),
-      h4: ({ children }) => (
-        <Heading level={"h4"} className="mt-64">
-          {children}
-        </Heading>
-      ),
-      h5: ({ children }) => (
-        <Heading level={"h5"} className="mt-paragraph">
-          {children}
-        </Heading>
-      ),
-    },
-  };
+  const { post, mainImageUrl } = useLoaderData<typeof loader>();
 
   return (
     <main className="mt-layoutSection flex-1 text-dark">
       <Grid>
         <section className="col-span-6 col-start-1 md:col-span-12">
-          <Heading level={"h1"}>{post?.title}</Heading>
-          {postImageUrl && (
+          <Heading level="h1">{post?.title}</Heading>
+          {mainImageUrl && (
             <img
               className="my-textToImage"
-              src={postImageUrl}
+              src={mainImageUrl}
               alt={post?.title}
-              width="700"
-              height="583"
             />
           )}
           {Array.isArray(post?.body) && (
-            <PortableText value={post.body} components={components} />
+            <PortableText
+              value={post.body}
+              components={portableTextComponents}
+            />
           )}
         </section>
       </Grid>
