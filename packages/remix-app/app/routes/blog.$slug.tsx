@@ -3,6 +3,7 @@ import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
+import { useEffect, useState } from "react";
 
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
@@ -19,9 +20,18 @@ const POST_QUERY = defineQuery(
 );
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
+  const [isClient, setIsClient] = useState(false);
   const url = new URL(request.url);
   const post = await client.fetch(POST_QUERY, params);
   const { projectId, dataset } = client.config();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   const mainImageUrl =
     post?.mainImage && projectId && dataset
