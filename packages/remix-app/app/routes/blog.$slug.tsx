@@ -107,20 +107,20 @@ const portableTextComponents: PortableTextComponents = {
 };
 
 export default function PostPage() {
-  const { post } = useLoaderData<typeof loader>();
+  const { post, mainImageUrl } = useLoaderData<typeof loader>();
 
   return (
     <main className="mt-layoutSection flex-1 text-dark">
       <Grid>
         <section className="col-span-6 col-start-1 md:col-span-12">
           <Heading level="h1">{post?.title}</Heading>
-          {/* {mainImageUrl && (
+          {mainImageUrl && (
             <img
               className="animate-fade-in my-textToImage opacity-0"
               src={mainImageUrl}
               alt={post?.title}
             />
-          )} */}
+          )}
           {Array.isArray(post?.body) && (
             <div className="animate-fade-in opacity-0">
               <PortableText
