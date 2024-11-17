@@ -136,7 +136,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
             <motion.div
               variants={menuVariants}
               animate={footerIsInView ? "hidden" : "visible"}
-              className="fixed bottom-0 left-0 w-full pb-xl font-family-default"
+              className="fixed bottom-0 left-0 z-50 w-full pb-xl font-family-default"
             >
               <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
                 <motion.button

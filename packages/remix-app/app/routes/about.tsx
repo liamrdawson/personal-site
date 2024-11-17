@@ -12,17 +12,17 @@ export default function AboutPage() {
       <Grid>
         <img
           src={image1}
-          className="col-start-1 col-end-3 my-textToImage hidden min-[500px]:block md:col-end-5"
+          className="animate-fade-in col-start-1 col-end-3 my-textToImage hidden opacity-0 min-[500px]:block md:col-end-5"
         />
         <img
           src={image2}
-          className="col-start-1 col-end-7 my-textToImage min-[500px]:col-start-3 min-[500px]:col-end-5 md:col-start-5 md:col-end-9"
+          className="animate-fade-in col-start-1 col-end-7 my-textToImage opacity-0 min-[500px]:col-start-3 min-[500px]:col-end-5 md:col-start-5 md:col-end-9"
         />
         <img
           src={image3}
-          className="col-start-5 col-end-7 my-textToImage hidden min-[500px]:block md:col-start-9 md:col-end-13"
+          className="animate-fade-in col-start-5 col-end-7 my-textToImage hidden opacity-0 min-[500px]:block md:col-start-9 md:col-end-13"
         />
-        <section className="col-span-6 col-start-1 md:col-span-12">
+        <section className="animate-fade-in col-span-6 col-start-1 opacity-0 md:col-span-12">
           <Text variant="content" className="mt-paragraph">
             Hi, I&apos;m Liam.
           </Text>

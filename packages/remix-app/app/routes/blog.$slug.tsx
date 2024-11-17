@@ -3,7 +3,6 @@ import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
-import { useEffect, useState } from "react";
 
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
@@ -108,16 +107,7 @@ const portableTextComponents: PortableTextComponents = {
 };
 
 export default function PostPage() {
-  const [isClient, setIsClient] = useState(false);
   const { post, mainImageUrl } = useLoaderData<typeof loader>();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
 
   return (
     <main className="mt-layoutSection flex-1 text-dark">
@@ -126,7 +116,7 @@ export default function PostPage() {
           <Heading level="h1">{post?.title}</Heading>
           {mainImageUrl && (
             <img
-              className="my-textToImage"
+              className="animate-fade-in my-textToImage opacity-0"
               src={mainImageUrl}
               alt={post?.title}
             />
