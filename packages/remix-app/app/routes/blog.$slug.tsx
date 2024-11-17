@@ -126,7 +126,7 @@ export default function PostPage() {
           <Heading level="h1">{post?.title}</Heading>
           {mainImageUrl && (
             <img
-              className="animate-fade-in my-textToImage opacity-0"
+              className="my-textToImage"
               src={mainImageUrl}
               alt={post?.title}
             />
