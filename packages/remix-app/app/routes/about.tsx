@@ -1,9 +1,33 @@
+import { LinksFunction } from "@remix-run/node";
+
 import image1 from "/assets/1-281006880034-liamrdawsonweb.jpg";
 import image2 from "/assets/2-281006880033-liamrdawsonweb.jpg";
 import image3 from "/assets/3-281006880035-liamrdawsonweb.jpg";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { Text } from "~/lib/components/Text";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "prefetch",
+      as: "image",
+      href: image1,
+      media: "(min-width: 500px)",
+    },
+    {
+      rel: "prefetch",
+      as: "image",
+      href: image2,
+    },
+    {
+      rel: "prefetch",
+      as: "image",
+      href: image3,
+      media: "(min-width: 500px)",
+    },
+  ];
+};
 
 export default function AboutPage() {
   return (
