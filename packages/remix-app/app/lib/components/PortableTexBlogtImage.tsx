@@ -3,20 +3,16 @@ import { getImageDimensions } from "@sanity/asset-utils";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-import type { SanityImageAsset } from "../cms/types";
+import { client } from "~/sanity/client";
 
-interface PortableTextBlogImageProps
-  extends PortableTextTypeComponentProps<SanityImageAsset> {
-  projectId?: string;
-  dataset?: string;
-}
+import type { SanityImageAsset } from "../cms/types";
 
 const PortableTextBlogImage = ({
   value,
-  projectId,
-  dataset,
-}: PortableTextBlogImageProps) => {
+}: PortableTextTypeComponentProps<SanityImageAsset>) => {
   const { width, height } = getImageDimensions(value);
+  const { projectId, dataset } = client.config();
+
   const urlFor = (source: SanityImageSource) =>
     projectId && dataset
       ? imageUrlBuilder({ projectId, dataset }).image(source)

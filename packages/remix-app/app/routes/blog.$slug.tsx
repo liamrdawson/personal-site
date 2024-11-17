@@ -51,13 +51,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 const portableTextComponents: PortableTextComponents = {
   types: {
-    image: (props) => (
-      <PortableTextBlogImage
-        {...props}
-        projectId={client.config().projectId}
-        dataset={client.config().dataset}
-      />
-    ),
+    image: (props) => <PortableTextBlogImage {...props} />,
     code: ({ value }) => <CodeBlock value={value} />,
   },
   list: {
