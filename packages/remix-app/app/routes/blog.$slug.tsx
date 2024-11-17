@@ -4,6 +4,7 @@ import { MetaFunction, useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { defineQuery } from "groq";
 
+import { AssetSlideWrapper } from "~/lib/components/AssetSlideWrapper";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
@@ -109,11 +110,11 @@ export default function PostPage() {
         <section className="col-span-6 col-start-1 md:col-span-12">
           <Heading level="h1">{post?.title}</Heading>
           {mainImageUrl && (
-            <img
-              className="animate-fade-in my-textToImage opacity-0"
-              src={mainImageUrl}
-              alt={post?.title}
-            />
+            <div className="my-textToImage overflow-hidden">
+              <AssetSlideWrapper>
+                <img src={mainImageUrl} alt={post?.title} />
+              </AssetSlideWrapper>
+            </div>
           )}
           {post?.body && (
             <div className="animate-fade-in opacity-0">

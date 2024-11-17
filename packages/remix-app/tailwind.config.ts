@@ -129,10 +129,26 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        "asset-slide-up": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "asset-slide-down": {
+          "0%": {
+            transform: "translateY(-100%) scale3d(1.25, 1.25, 1)",
+          },
+          "100%": {
+            transform: "translateY(0) scaleX(1)",
+          },
+        },
       },
       animation: {
         "slide-up": "slide-up 0.75s var(--ease-garret) forwards",
         "fade-in": "fade-in 0.65s var(--ease-out) 0.35s forwards",
+        "asset-slide-up":
+          "asset-slide-up 1s var(--ease-in-out-soft) 0.35s forwards",
+        "asset-slide-down":
+          "asset-slide-down 1s var(--ease-in-out-soft) 0.35s forwards",
       },
       maxWidth: {
         body: "70rem",
