@@ -105,6 +105,7 @@
 
   /* transition */
 
+  --ease-garret: var(--lrd-transition-ease-garret);
   --ease-out: var(--lrd-transition-ease-out);
   --ease-out-soft: var(--lrd-transition-ease-out-soft);
 }

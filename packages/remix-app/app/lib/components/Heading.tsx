@@ -32,8 +32,10 @@ interface HeadingProps
 export const Heading = ({ level, children, className }: HeadingProps) => {
   const Element = level;
   return (
-    <Element className={cn(headingVariants({ level }), className ?? "")}>
-      {children}
-    </Element>
+    <div className="*:animate-slide-up overflow-hidden">
+      <Element className={cn(headingVariants({ level }), className ?? "")}>
+        {children}
+      </Element>
+    </div>
   );
 };

@@ -126,16 +126,18 @@ export default function PostPage() {
           <Heading level="h1">{post?.title}</Heading>
           {mainImageUrl && (
             <img
-              className="my-textToImage"
+              className="animate-fade-in my-textToImage opacity-0"
               src={mainImageUrl}
               alt={post?.title}
             />
           )}
           {Array.isArray(post?.body) && (
-            <PortableText
-              value={post.body}
-              components={portableTextComponents}
-            />
+            <div className="animate-fade-in opacity-0">
+              <PortableText
+                value={post.body}
+                components={portableTextComponents}
+              />
+            </div>
           )}
         </section>
       </Grid>

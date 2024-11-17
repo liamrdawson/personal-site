@@ -120,6 +120,20 @@ export default {
       1000: "1s",
     },
     extend: {
+      keyframes: {
+        "slide-up": {
+          "0%": { transform: "translateY(103%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "slide-up": "slide-up 0.75s var(--ease-garret) forwards",
+        "fade-in": "fade-in 0.65s var(--ease-out) 0.35s forwards",
+      },
       maxWidth: {
         body: "70rem",
       },

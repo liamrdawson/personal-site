@@ -59,14 +59,17 @@ export default function IndexPage() {
         <div className="col-span-6 col-start-1 md:col-span-12">
           <section>
             <Heading level="h1">Welcome</Heading>
-            <Text variant={"content"} className="mt-paragraph">
+            <Text
+              variant={"content"}
+              className="animate-fade-in mt-paragraph opacity-0"
+            >
               I&apos;m Liam Dawson. I build and optimise eCommerce websites for
               consumer brands and write about my experiences here.
             </Text>
           </section>
           <section className="mt-pageSection">
             <Heading level="h2">Posts</Heading>
-            <List style="ul" className="mt-h2">
+            <List style="ul" className="animate-fade-in mt-h2 opacity-0">
               {posts.length &&
                 posts.map((post) => (
                   <li className="w-fit" key={post._id}>
