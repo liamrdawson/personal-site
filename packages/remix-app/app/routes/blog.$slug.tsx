@@ -121,14 +121,14 @@ export default function PostPage() {
               alt={post?.title}
             />
           )}
-          {/* {Array.isArray(post?.body) && (
+          {post?.body && (
             <div className="animate-fade-in opacity-0">
               <PortableText
                 value={post.body}
                 components={portableTextComponents}
               />
             </div>
-          )} */}
+          )}
         </section>
       </Grid>
     </main>
