@@ -131,63 +131,59 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   return (
     <header>
       <Grid>
-        <ClientOnly>
-          {() => (
-            <motion.div
-              variants={menuVariants}
-              animate={footerIsInView ? "hidden" : "visible"}
-              className="fixed bottom-0 left-0 z-50 w-full pb-xl font-family-default"
+        <motion.div
+          variants={menuVariants}
+          animate={footerIsInView ? "hidden" : "visible"}
+          className="fixed bottom-0 left-0 z-50 w-full pb-xl font-family-default"
+        >
+          <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
+            <motion.button
+              animate={isOpen ? "open" : "closed"}
+              variants={motionButtonVariants}
+              onClick={() => handleMenuOpen()}
+              onHoverStart={() => setIsButtonHovered(true)}
+              onHoverEnd={() => setIsButtonHovered(false)}
+              initial={{ padding: 4, width: 96 }}
+              whileHover={{ padding: 8, width: 128 }}
+              transition={{
+                duration: 0.2,
+                pointerEvents: { delay: 0.125, duration: 0.125 },
+              }}
+              className="z-50 w-128 rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]"
             >
-              <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
-                <motion.button
-                  animate={isOpen ? "open" : "closed"}
-                  variants={motionButtonVariants}
-                  onClick={() => handleMenuOpen()}
-                  onHoverStart={() => setIsButtonHovered(true)}
-                  onHoverEnd={() => setIsButtonHovered(false)}
-                  initial={{ padding: 4, width: 96 }}
-                  whileHover={{ padding: 8, width: 128 }}
-                  transition={{
-                    duration: 0.2,
-                    pointerEvents: { delay: 0.125, duration: 0.125 },
-                  }}
-                  className="z-50 w-128 rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]"
-                >
-                  Menu
-                </motion.button>
-                <motion.nav
-                  ref={navRef}
-                  animate={isOpen ? "open" : "closed"}
-                  initial={{ height: "2.6rem", width: "9.6rem" }}
-                  variants={motionNavVariants}
-                  onMouseLeave={() => handleMouseLeave()}
-                  className="absolute bottom-0 w-96 overflow-y-hidden rounded-md bg-dark p-xs"
-                >
-                  <ul className="relative flex flex-col rounded-sm text-center text-large font-strong">
-                    {menuItems.map((item) => (
-                      <motion.li
-                        key={item.label}
-                        className={`relative z-40 flex h-32 flex-row items-center justify-center`}
-                        onHoverStart={() => setHovered(item)}
-                        onClick={() => handleLinkClick()}
-                      >
-                        <TextLink
-                          className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label ? "text-dark" : "text-light"}`}
-                          to={item.path}
-                          variant="nav"
-                          prefetch="viewport"
-                        >
-                          <span className="relative z-40">{item.label}</span>
-                          {item.label === hovered?.label ? <HoverBox /> : null}
-                        </TextLink>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.nav>
-              </div>
-            </motion.div>
-          )}
-        </ClientOnly>
+              Menu
+            </motion.button>
+            <motion.nav
+              ref={navRef}
+              animate={isOpen ? "open" : "closed"}
+              initial={{ height: "2.6rem", width: "9.6rem" }}
+              variants={motionNavVariants}
+              onMouseLeave={() => handleMouseLeave()}
+              className="absolute bottom-0 w-96 overflow-y-hidden rounded-md bg-dark p-xs"
+            >
+              <ul className="relative flex flex-col rounded-sm text-center text-large font-strong">
+                {menuItems.map((item) => (
+                  <motion.li
+                    key={item.label}
+                    className={`relative z-40 flex h-32 flex-row items-center justify-center`}
+                    onHoverStart={() => setHovered(item)}
+                    onClick={() => handleLinkClick()}
+                  >
+                    <TextLink
+                      className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label ? "text-dark" : "text-light"}`}
+                      to={item.path}
+                      variant="nav"
+                      prefetch="viewport"
+                    >
+                      <span className="relative z-40">{item.label}</span>
+                      {item.label === hovered?.label ? <HoverBox /> : null}
+                    </TextLink>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+          </div>
+        </motion.div>
         <div className="col-span-6 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center md:col-span-12">
           <Link to="/">
             <Text variant="display" size="display">
