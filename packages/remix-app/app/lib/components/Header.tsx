@@ -71,7 +71,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   const HoverBox = () => (
     <motion.span
       layoutId="underline"
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.2, ease: cubicBezier(0.72, 0, 0.28, 1) }}
       className="absolute bottom-0 left-0 right-0 top-0 z-30 rounded-sm bg-light"
     />
   );
