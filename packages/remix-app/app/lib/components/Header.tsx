@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@remix-run/react";
-import { motion, Variants } from "framer-motion";
+import { cubicBezier, motion, Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { ClientOnly } from "remix-utils/client-only";
@@ -26,45 +26,45 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     currentMenuItem,
   );
   const [isOpen, setIsOpen] = useState(false);
-  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   const motionNavVariants: Variants = {
-    open: {
-      height: "8rem",
-      width: isButtonHovered || isOpen ? "12.8rem" : "9.6rem",
-      opacity: 1,
+    isOpen: {
+      height: ["3.5rem", "8rem"],
+      width: ["9.6rem", "12.8rem"],
       transition: {
+        ease: cubicBezier(5, 0, 0, 1),
         height: {
-          duration: 0.2,
+          duration: 0.25,
+          delay: 0.1,
         },
-        opacity: {
+        width: {
+          duration: 0.1,
           delay: 0,
-          duratio: 0,
         },
       },
     },
-    closed: {
-      height: "3.2rem",
-      width: isButtonHovered || isOpen ? "12.8rem" : "9.6rem",
-      opacity: 0,
+    isClosed: {
+      height: [null, "3.5rem"],
+      width: [null, "9.6rem"],
       transition: {
-        width: {
-          duration: 0.1,
-        },
+        ease: cubicBezier(5, 0, 0, 1),
         height: {
-          duration: 0.2,
+          duration: 0.25,
           delay: 0.1,
         },
-        opacity: {
-          delay: 0.4,
-          duration: 0,
+        width: {
+          duration: 0.1,
+          delay: 0,
         },
       },
     },
   };
 
   const motionButtonVariants: Variants = {
-    open: { opacity: 0, pointerEvents: "none" },
+    open: {
+      opacity: 0,
+      pointerEvents: "none",
+    },
     closed: { opacity: 1, pointerEvents: "auto" },
   };
 
@@ -128,6 +128,9 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     },
   };
 
+  const boxShadow =
+    "shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]";
+
   return (
     <header>
       <Grid>
@@ -143,21 +146,20 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                   animate={isOpen ? "open" : "closed"}
                   variants={motionButtonVariants}
                   onClick={() => handleMenuOpen()}
-                  onHoverStart={() => setIsButtonHovered(true)}
-                  onHoverEnd={() => setIsButtonHovered(false)}
                   initial={{ padding: 4, width: 96 }}
                   whileHover={{ padding: 8, width: 128 }}
                   transition={{
                     duration: 0.2,
+                    ease: cubicBezier(0.28, 0.44, 0.49, 1),
                     pointerEvents: { delay: 0.125, duration: 0.125 },
                   }}
-                  className="z-50 w-128 rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]"
+                  className={`${boxShadow} z-50 w-128 rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light`}
                 >
                   Menu
                 </motion.button>
                 <motion.nav
                   ref={navRef}
-                  animate={isOpen ? "open" : "closed"}
+                  animate={isOpen ? "isOpen" : "isClosed"}
                   initial={{ height: "2.6rem", width: "9.6rem" }}
                   variants={motionNavVariants}
                   onMouseLeave={() => handleMouseLeave()}
