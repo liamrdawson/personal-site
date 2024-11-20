@@ -32,7 +32,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
       height: ["3.5rem", "8rem"],
       width: ["9.6rem", "12.8rem"],
       transition: {
-        ease: cubicBezier(5, 0, 0, 1),
+        ease: cubicBezier(0.5, 0, 0, 1),
         height: {
           duration: 0.25,
           delay: 0.1,
@@ -47,7 +47,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
       height: [null, "3.5rem"],
       width: [null, "9.6rem"],
       transition: {
-        ease: cubicBezier(5, 0, 0, 1),
+        ease: cubicBezier(0.5, 0, 0, 1),
         height: {
           duration: 0.25,
           delay: 0.1,
@@ -140,14 +140,28 @@ const Header = ({ footerIsInView }: HeaderProps) => {
               variants={menuVariants}
               animate={footerIsInView ? "hidden" : "visible"}
               className="fixed bottom-0 left-0 z-50 w-full pb-xl font-family-default"
+              initial={{ y: "100%" }}
+              transition={{
+                duration: 0.3,
+                delay: 0,
+                ease: cubicBezier(0.5, 0, 0, 1),
+              }}
             >
-              <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-dark">
+              <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-[red]">
                 <motion.button
                   animate={isOpen ? "open" : "closed"}
                   variants={motionButtonVariants}
                   onClick={() => handleMenuOpen()}
                   initial={{ padding: 4, width: 96 }}
-                  whileHover={{ padding: 8, width: 128 }}
+                  whileHover={{
+                    padding: 8,
+                    width: 128,
+                    transition: {
+                      duration: 0.2,
+                      ease: cubicBezier(0.28, 0.44, 0.49, 1),
+                      pointerEvents: { delay: 0.125, duration: 0.125 },
+                    },
+                  }}
                   transition={{
                     duration: 0.2,
                     ease: cubicBezier(0.28, 0.44, 0.49, 1),

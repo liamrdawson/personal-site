@@ -144,7 +144,7 @@ export default {
       },
       animation: {
         "slide-up": "slide-up 0.55s var(--ease-garret) forwards",
-        "fade-in": "fade-in 0.65s var(--ease-out) 0.45s forwards",
+        "fade-in": "fade-in 0.65s var(--ease-out-soft) 0.2s forwards",
         "asset-slide-up":
           "asset-slide-up 1s var(--ease-in-out-soft) 0.35s forwards",
         "asset-slide-down":
