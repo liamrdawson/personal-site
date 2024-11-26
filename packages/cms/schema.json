@@ -551,7 +551,7 @@
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "_type": {
                 "type": "objectAttribute",
@@ -683,14 +683,14 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -698,7 +698,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "author": {
         "type": "objectAttribute",
@@ -728,7 +728,7 @@
           },
           "dereferencesTo": "author"
         },
-        "optional": true
+        "optional": false
       },
       "mainImage": {
         "type": "objectAttribute",
@@ -780,6 +780,13 @@
                 "name": "sanity.imageCrop"
               },
               "optional": true
+            },
+            "alt": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
             },
             "_type": {
               "type": "objectAttribute",
@@ -849,7 +856,7 @@
           "type": "inline",
           "name": "blockContent"
         },
-        "optional": true
+        "optional": false
       },
       "myCodeField": {
         "type": "objectAttribute",
@@ -1472,7 +1479,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "source": {
           "type": "objectAttribute",
