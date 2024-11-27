@@ -9,16 +9,19 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
@@ -28,6 +31,7 @@ export default defineType({
       name: 'author',
       title: 'Author',
       type: 'reference',
+      validation: (Rule) => Rule.required(),
       to: {type: 'author'},
     }),
     defineField({
@@ -64,6 +68,7 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       type: 'code',

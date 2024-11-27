@@ -1,21 +1,15 @@
 import { MetaFunction, useLoaderData } from "@remix-run/react";
-import { SanityDocument } from "@sanity/client";
 
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { List } from "~/lib/components/List";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
-import { client } from "~/sanity/client";
-
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+import { fetchPosts } from "~/sanity/api";
 
 export async function loader() {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY);
-  return { posts: posts || [] }; // Ensure posts is always an array
+  const posts = await fetchPosts();
+  return { posts };
 }
 
 export const meta: MetaFunction = () => {
@@ -61,7 +55,7 @@ export default function IndexPage() {
             <Heading level="h1">Welcome</Heading>
             <Text
               variant={"content"}
-              className="animate-fade-in mt-paragraph opacity-0"
+              className="mt-paragraph animate-fade-in opacity-0"
             >
               I&apos;m Liam Dawson. I build and optimise eCommerce websites for
               consumer brands and write about my experiences here.
@@ -69,19 +63,22 @@ export default function IndexPage() {
           </section>
           <section className="mt-pageSection">
             <Heading level="h2">Posts</Heading>
-            <List style="ul" className="animate-fade-in mt-h2 opacity-0">
+            <List style="ul" className="mt-h2 animate-fade-in opacity-0">
               {posts.length &&
-                posts.map((post) => (
-                  <li className="w-fit" key={post._id}>
-                    <TextLink
-                      prefetch="viewport"
-                      to={`blog/${post.slug.current}`}
-                      variant="content"
-                    >
-                      {post.title}
-                    </TextLink>
-                  </li>
-                ))}
+                posts.map(
+                  (post) =>
+                    post && (
+                      <li className="w-fit" key={post._id}>
+                        <TextLink
+                          prefetch="viewport"
+                          to={`blog/${post.slug.current}`}
+                          variant="content"
+                        >
+                          {post.title}
+                        </TextLink>
+                      </li>
+                    ),
+                )}
             </List>
           </section>
         </div>

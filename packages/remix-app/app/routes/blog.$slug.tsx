@@ -2,7 +2,6 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import imageUrlBuilder from "@sanity/image-url";
-import { defineQuery } from "groq";
 
 import { AssetSlideWrapper } from "~/lib/components/AssetSlideWrapper";
 import CodeBlock from "~/lib/components/CodeHighlight";
@@ -13,15 +12,12 @@ import { List } from "~/lib/components/List";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
+import { fetchPost } from "~/sanity/api";
 import { client } from "~/sanity/client";
-
-const POST_QUERY = defineQuery(
-  `*[_type == "post" && slug.current == $slug][0]`,
-);
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
-  const post = await client.fetch(POST_QUERY, params);
+  const post = await fetchPost(params);
   const { projectId, dataset } = client.config();
 
   const mainImageUrl =

@@ -96,7 +96,7 @@ export type BlockContent = Array<
       };
       hotspot?: SanityImageHotspot;
       crop?: SanityImageCrop;
-      alt?: string;
+      alt: string;
       _type: "image";
       _key: string;
     }
@@ -121,10 +121,10 @@ export type Post = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  description?: string;
-  slug?: Slug;
-  author?: {
+  title: string;
+  description: string;
+  slug: Slug;
+  author: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -139,6 +139,7 @@ export type Post = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt: string;
     _type: "image";
   };
   categories?: Array<{
@@ -149,7 +150,7 @@ export type Post = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
-  body?: BlockContent;
+  body: BlockContent;
   myCodeField?: Code;
 };
 
@@ -251,7 +252,7 @@ export type SanityImageMetadata = {
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -281,7 +282,7 @@ export type AllSanitySchemaTypes =
   | Slug
   | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ../constructs/RemixApp/app/routes/blog.$slug.tsx
+// Source: ../remix-app/app/routes/blog.$slug.tsx
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]
 export type POST_QUERYResult = {
@@ -290,10 +291,10 @@ export type POST_QUERYResult = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  description?: string;
-  slug?: Slug;
-  author?: {
+  title: string;
+  description: string;
+  slug: Slug;
+  author: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -308,6 +309,7 @@ export type POST_QUERYResult = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
+    alt: string;
     _type: "image";
   };
   categories?: Array<{
@@ -318,7 +320,7 @@ export type POST_QUERYResult = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
-  body?: BlockContent;
+  body: BlockContent;
   myCodeField?: Code;
 } | null;
 
