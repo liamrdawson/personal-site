@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: Merge
 
 on:
   push:
@@ -7,40 +7,68 @@ on:
   pull_request:
 
 jobs:
-  build-and-deploy:
-    name: Build, Lint, Test, and Deploy
+  setup:
+    name: Set up Environment
     runs-on: ubuntu-latest
-
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.key }}
     steps:
       # Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # See https://github.com/pnpm/action-setup
+      # Set up Node.js and pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: "pnpm"
 
+      # Cache dependencies
+      - name: Cache pnpm dependencies
+        id: cache-key
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-${{ runner.os }}-
+
       # Install dependencies
       - name: Install dependencies
         run: pnpm install
 
-      # Run linting
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Run linter
         run: pnpm lint
 
-      # Run types
-      - name: Run types
+  types:
+    name: Check Types
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run type checks
         run: pnpm types
 
-      # Run tests
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Run unit tests
         run: pnpm test
