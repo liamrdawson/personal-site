@@ -13,7 +13,7 @@
  */
 
 // Source: schema.json
-export type SanityImagePaletteSwatch = {
+export interface SanityImagePaletteSwatch {
   _type: 'sanity.imagePaletteSwatch'
   background?: string
   foreground?: string
@@ -21,7 +21,7 @@ export type SanityImagePaletteSwatch = {
   title?: string
 }
 
-export type SanityImagePalette = {
+export interface SanityImagePalette {
   _type: 'sanity.imagePalette'
   darkMuted?: SanityImagePaletteSwatch
   lightVibrant?: SanityImagePaletteSwatch
@@ -32,14 +32,14 @@ export type SanityImagePalette = {
   muted?: SanityImagePaletteSwatch
 }
 
-export type SanityImageDimensions = {
+export interface SanityImageDimensions {
   _type: 'sanity.imageDimensions'
   height?: number
   width?: number
   aspectRatio?: number
 }
 
-export type SanityFileAsset = {
+export interface SanityFileAsset {
   _id: string
   _type: 'sanity.fileAsset'
   _createdAt: string
@@ -61,28 +61,27 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData
 }
 
-export type Geopoint = {
+export interface Geopoint {
   _type: 'geopoint'
   lat?: number
   lng?: number
   alt?: number
 }
 
-export type BlockContent = Array<
-  | {
-      children?: Array<{
-        marks?: Array<string>
+export type BlockContent = (| {
+      children?: {
+        marks?: string[]
         text?: string
         _type: 'span'
         _key: string
-      }>
+      }[]
       style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote'
       listItem?: 'bullet'
-      markDefs?: Array<{
+      markDefs?: {
         href?: string
         _type: 'link'
         _key: string
-      }>
+      }[]
       level?: number
       _type: 'block'
       _key: string
@@ -99,10 +98,9 @@ export type BlockContent = Array<
       alt?: string
       _type: 'image'
       _key: string
-    }
->
+    })[]
 
-export type Category = {
+export interface Category {
   _id: string
   _type: 'category'
   _createdAt: string
@@ -112,7 +110,7 @@ export type Category = {
   description?: string
 }
 
-export type Post = {
+export interface Post {
   _id: string
   _type: 'post'
   _createdAt: string
@@ -137,18 +135,18 @@ export type Post = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  categories?: Array<{
+  categories?: {
     _ref: string
     _type: 'reference'
     _weak?: boolean
     _key: string
     [internalGroqTypeReferenceTo]?: 'category'
-  }>
+  }[]
   publishedAt?: string
   body?: BlockContent
 }
 
-export type Author = {
+export interface Author {
   _id: string
   _type: 'author'
   _createdAt: string
@@ -167,27 +165,27 @@ export type Author = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  bio?: Array<{
-    children?: Array<{
-      marks?: Array<string>
+  bio?: {
+    children?: {
+      marks?: string[]
       text?: string
       _type: 'span'
       _key: string
-    }>
+    }[]
     style?: 'normal'
     listItem?: never
-    markDefs?: Array<{
+    markDefs?: {
       href?: string
       _type: 'link'
       _key: string
-    }>
+    }[]
     level?: number
     _type: 'block'
     _key: string
-  }>
+  }[]
 }
 
-export type SanityImageCrop = {
+export interface SanityImageCrop {
   _type: 'sanity.imageCrop'
   top?: number
   bottom?: number
@@ -195,7 +193,7 @@ export type SanityImageCrop = {
   right?: number
 }
 
-export type SanityImageHotspot = {
+export interface SanityImageHotspot {
   _type: 'sanity.imageHotspot'
   x?: number
   y?: number
@@ -203,7 +201,7 @@ export type SanityImageHotspot = {
   width?: number
 }
 
-export type SanityImageAsset = {
+export interface SanityImageAsset {
   _id: string
   _type: 'sanity.imageAsset'
   _createdAt: string
@@ -226,14 +224,14 @@ export type SanityImageAsset = {
   source?: SanityAssetSourceData
 }
 
-export type SanityAssetSourceData = {
+export interface SanityAssetSourceData {
   _type: 'sanity.assetSourceData'
   name?: string
   id?: string
   url?: string
 }
 
-export type SanityImageMetadata = {
+export interface SanityImageMetadata {
   _type: 'sanity.imageMetadata'
   location?: Geopoint
   dimensions?: SanityImageDimensions
@@ -244,7 +242,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean
 }
 
-export type Slug = {
+export interface Slug {
   _type: 'slug'
   current?: string
   source?: string
