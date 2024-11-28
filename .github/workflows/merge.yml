@@ -26,17 +26,17 @@ jobs:
         id: pnpm-cache-dir-path
         run: echo "::set-output name=dir::$(pnpm store path)"
 
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     cache: "pnpm"
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: pnpm-cache
         with:
           path: |
+            ~/.pnpm-store
             **/node_modules
             ${{ steps.pnpm-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -49,6 +49,9 @@ jobs:
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -57,14 +60,33 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: pnpm install
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - name: Verify dependencies
+        run: pnpm install --offline
+
       - name: Run linter
         run: pnpm lint
 
   types:
     name: Check Types
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -73,14 +95,33 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: pnpm install
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashfiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - name: verify dependencies
+        run: pnpm install --offline
+
       - name: Run type checks
         run: pnpm types
 
   tests:
     name: Run Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -89,7 +130,23 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: pnpm install
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashfiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - name: verify dependencies
+        run: pnpm install --offline
+
       - name: Run unit tests
         run: pnpm test
