@@ -42,11 +42,11 @@ jobs:
       - name: Verify installation
         run: pnpm list
 
-      - name: Save node_modules as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: node_modules
-          path: node_modules
+      # - name: Save node_modules as artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: node_modules
+      #     path: node_modules
 
   lint:
     name: Lint Code
