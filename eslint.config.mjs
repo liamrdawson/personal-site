@@ -9,7 +9,7 @@ export default [
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
-  { ignores: ["**/build", "**/cdk.out"] },
+  { ignores: ["**/build", "**/dist"] },
   {
     name: "globals",
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
