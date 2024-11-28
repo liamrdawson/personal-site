@@ -57,6 +57,8 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pnpm install
       - name: Run linter
         run: pnpm lint
 
@@ -71,6 +73,8 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pnpm install
       - name: Run type checks
         run: pnpm types
 
@@ -85,5 +89,7 @@ jobs:
           version: 9
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pnpm install
       - name: Run unit tests
         run: pnpm test
