@@ -20,31 +20,30 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       # Get pnpm cache directory path
       - name: Get pnpm cache directory path
         id: pnpm-cache-dir-path
         run: echo "::set-output name=dir::$(pnpm store path)"
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Cache node_modules
+      - name: Cache pnpm store
         uses: actions/cache@v3
         id: pnpm-cache
         with:
-          path: |
-            ~/.pnpm-store
-            **/node_modules
-            ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm
+            ${{ runner.os }}-pnpm-store
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Verify installation
+        run: pnpm list
 
   lint:
     name: Lint Code
@@ -66,15 +65,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
+
       - name: Restore pnpm cache
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-store
       - name: Verify dependencies
         run: pnpm install --offline
 
@@ -101,15 +103,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: restore pnpm cache
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
+
+      - name: Restore pnpm cache
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashfiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-store
       - name: verify dependencies
         run: pnpm install --offline
 
@@ -128,6 +133,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -136,15 +142,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: restore pnpm cache
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
+
+      - name: Restore pnpm cache
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashfiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-store
       - name: verify dependencies
         run: pnpm install --offline
 
