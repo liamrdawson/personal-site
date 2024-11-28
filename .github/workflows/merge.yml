@@ -9,9 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [20]
     steps:
       - uses: actions/checkout@v4
 
@@ -20,10 +17,10 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       # Get pnpm cache directory path
       - name: Get pnpm cache directory path
@@ -48,9 +45,6 @@ jobs:
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -60,10 +54,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       # Get pnpm cache directory path
       - name: Get pnpm cache directory path
@@ -86,9 +80,6 @@ jobs:
   types:
     name: Check Types
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -98,10 +89,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       # Get pnpm cache directory path
       - name: Get pnpm cache directory path
@@ -124,9 +115,6 @@ jobs:
   tests:
     name: Run Tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
     needs: build
     steps:
       - name: Install pnpm
@@ -137,10 +125,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       # Get pnpm cache directory path
       - name: Get pnpm cache directory path
