@@ -60,31 +60,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download node_modules artifact
-        uses: actions/download-artifact@v3
+      # - name: Download node_modules artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: node_modules
+      #     path: node_modules
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          name: node_modules
-          path: node_modules
+          node-version: 20
 
-      # - name: Use Node.js 20
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
 
-      # # Get pnpm cache directory path
-      # - name: Get pnpm cache directory path
-      #   id: pnpm-cache-dir-path
-      #   run: echo "::set-output name=dir::$(pnpm store path)"
-
-      # - name: Restore pnpm cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store
-      # - name: Verify dependencies
-      #   run: pnpm install --offline
+      - name: Restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store
+      - name: Verify dependencies
+        run: pnpm install --offline
 
       - name: Run linter
         run: pnpm lint
@@ -101,31 +101,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download node_modules artifact
-        uses: actions/download-artifact@v3
+      # - name: Download node_modules artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: node_modules
+      #     path: node_modules
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          name: node_modules
-          path: node_modules
+          node-version: 20
 
-      # - name: Use Node.js 20
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
 
-      # # Get pnpm cache directory path
-      # - name: Get pnpm cache directory path
-      #   id: pnpm-cache-dir-path
-      #   run: echo "::set-output name=dir::$(pnpm store path)"
-
-      # - name: Restore pnpm cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store
-      # - name: verify dependencies
-      #   run: pnpm install --offline
+      - name: Restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store
+      - name: verify dependencies
+        run: pnpm install --offline
 
       - name: Run type checks
         run: pnpm types
@@ -143,31 +143,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download node_modules artifact
-        uses: actions/download-artifact@v3
+      # - name: Download node_modules artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: node_modules
+      #     path: node_modules
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          name: node_modules
-          path: node_modules
+          node-version: 20
 
-      # - name: Use Node.js 20
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
+      # Get pnpm cache directory path
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
 
-      # # Get pnpm cache directory path
-      # - name: Get pnpm cache directory path
-      #   id: pnpm-cache-dir-path
-      #   run: echo "::set-output name=dir::$(pnpm store path)"
-
-      # - name: Restore pnpm cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store
-      # - name: verify dependencies
-      #   run: pnpm install --offline
+      - name: Restore pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store
+      - name: verify dependencies
+        run: pnpm install --offline
 
       - name: Run unit tests
         run: pnpm test
