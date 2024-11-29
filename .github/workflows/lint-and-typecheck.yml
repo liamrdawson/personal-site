@@ -11,7 +11,7 @@ on:
         type: string
 
 jobs:
-  test:
+  lint_and_types:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Code
