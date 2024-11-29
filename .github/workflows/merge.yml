@@ -40,7 +40,7 @@ jobs:
         with:
           path: |
             node_modules
-            $(find packages -name "node_modules" -type d)
+            packages/**/node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-modules
