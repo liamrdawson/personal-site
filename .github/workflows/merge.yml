@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-node-modules
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --recursive
 
   tests:
     name: Run Tests
@@ -80,4 +80,4 @@ jobs:
 
       # Run Tests
       - name: Run Tests
-        run: pnpm --recursive test
+        run: pnpm test
