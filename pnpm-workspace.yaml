@@ -1,5 +1,3 @@
 packages:
-  - "packages/RemixApp"
   - "packages/cms"
   - "packages/remix-app"
-  - "packages/remix-app/remix.init"
