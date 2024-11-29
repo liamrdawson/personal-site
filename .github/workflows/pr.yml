@@ -1,0 +1,26 @@
+name: PR
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: "🏗️ Build"
+    if: github.repository == 'liamrdawson/personal-site'
+    uses: ./.github/workflows/build.yml
+
+  lint-and-types:
+    name: "📏 Lint and Types"
+    if: github.repository == 'liamrdawson/personal-site'
+    uses: ./.github/workflows/lint-and-typecheck.yml
+    with:
+      os: "ubuntu-latest"
+      node_version: "[20]"
+
+  unit-test:
+    name: "🧪 Unit Test"
+    if: github.repository == 'liamrdawson/personal-site'
+    uses: ./.github/workflows/test-unit.yml
+    with:
+      os: "ubuntu-latest"
+      node_version: "[20]"
