@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm --filter remix-app build",
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
     "types": "tsc --build",
     "lint:fix": "pnpm lint -- --fix",
