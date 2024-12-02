@@ -10,13 +10,15 @@
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
     "types": "tsc --build",
     "lint:fix": "pnpm lint -- --fix",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ui:e2e": "pnpm --filter remix-app test:e2e"
   },
   "dependencies": {
     "esbuild": "^0.21.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.6.0",
+    "@playwright/test": "^1.49.0",
     "eslint": "8.x",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",

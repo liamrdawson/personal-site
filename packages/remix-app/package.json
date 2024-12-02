@@ -7,6 +7,7 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "test": "vitest",
+    "test:e2e": "pnpm exec playwright test",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "netlify serve",
     "typecheck": "tsc"
@@ -37,9 +38,11 @@
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^4.0.4",
     "@liamrdawsonweb/cms": "workspace:^",
+    "@playwright/test": "^1.49.0",
     "@portabletext/types": "^2.0.13",
     "@remix-run/dev": "^2.14.0",
     "@rollup/rollup-linux-x64-gnu": "*",
+    "@types/node": "^22.10.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@types/react-syntax-highlighter": "^15.5.13",
