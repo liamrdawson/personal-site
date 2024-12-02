@@ -10,7 +10,8 @@
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
     "types": "tsc --build",
     "lint:fix": "pnpm lint -- --fix",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ui:e2e": "pnpm --filter remix-app test:e2e"
   },
   "dependencies": {
     "esbuild": "^0.21.5"
