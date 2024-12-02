@@ -24,3 +24,12 @@ jobs:
     with:
       os: "ubuntu-latest"
       node_version: "[20]"
+
+  e2e-test:
+    name: "🧪 End to End Test"
+    needs: unit-test
+    if: github.repository == 'liamrdawson/personal-site'
+    uses: ./.github/workflows/playwright.yml
+    with:
+      os: "ubuntu-latest"
+      node_version: "[20]"
