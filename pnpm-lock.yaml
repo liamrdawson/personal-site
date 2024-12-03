@@ -79,6 +79,12 @@ importers:
 
   packages/remix-app:
     dependencies:
+      '@fontsource-variable/eb-garamond':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource-variable/newsreader':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@netlify/edge-functions':
         specifier: ^2.3.1
         version: 2.11.0
@@ -1489,6 +1495,12 @@ packages:
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
+  '@fontsource-variable/eb-garamond@5.1.1':
+    resolution: {integrity: sha512-8rSdgPsFk96vvJPL7i47VsEaTOdhKvoSOFPSizrX5JcrLuWvTRngT2p9cPFL4WROGCA5TDNa+m68w7pdk4HYoQ==}
+
+  '@fontsource-variable/newsreader@5.1.0':
+    resolution: {integrity: sha512-2ISuLzafbdqtakul+f0EwS+u0phcnxFeEFVBCRPEVcbOOLMR2oq0MFUy1Gmi6n4F5LFso97ocyTOyGUQrUUVXg==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -8257,6 +8269,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/utils@0.2.8': {}
+
+  '@fontsource-variable/eb-garamond@5.1.1': {}
+
+  '@fontsource-variable/newsreader@5.1.0': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
