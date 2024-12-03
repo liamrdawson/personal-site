@@ -40,13 +40,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        id: netlify_build
-        run: netlify build --filter remix-app
-
       - name: Deploy to Netlify Prod
         id: netlify_deploy
         run: |
-          netlify deploy --prod --filter remix-app \
+          netlify deploy --build --prod --filter remix-app \
             --site ${{ secrets.NETLIFY_SITE_ID }} \
-            --auth ${{ secrets.NETLIFY_API_TOKEN }}
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
