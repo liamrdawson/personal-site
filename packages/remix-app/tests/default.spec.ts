@@ -6,3 +6,9 @@ test("has title", async ({ page }) => {
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Liam Dawson/);
 });
+
+// has menu
+
+// menu has options
+
+// list of posts renders

@@ -1,23 +1,20 @@
-name: 📏 Lint and Typecheck
+name: 🚀 Deploy
 
 on:
   workflow_call:
-    inputs:
-      os:
-        required: true
-        type: string
-      node_version:
-        required: true
-        type: string
 
 jobs:
-  lint_and_types:
+  build-and-deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - name: Echo merged
+        run: |
+          echo The PR was merged
+
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Install pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -28,7 +25,6 @@ jobs:
         with:
           node-version: 20
 
-      # Cache pnpm store
       - name: Cache pnpm store
         uses: actions/cache@v3
         with:
@@ -40,8 +36,13 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm lint
+      - name: Build
+        id: netlify_build
+        run: netlify build --filter remix-app
 
-      - name: Types
-        run: pnpm types
+      - name: Deploy to Netlify Prod
+        id: netlify_deploy
+        run: |
+          netlify deploy --prod --filter remix-app \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_API_TOKEN }}
