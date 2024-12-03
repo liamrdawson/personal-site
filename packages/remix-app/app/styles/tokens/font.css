@@ -10,7 +10,7 @@
 
   /* Font Weight */
 
-  --lrd-font-weight-regular: 300;
+  --lrd-font-weight-regular: 400;
   --lrd-font-weight-medium: 600;
   --lrd-font-weight-bold: 700;
 
@@ -22,4 +22,5 @@
   --lrd-font-weight-h5: var(--lrd-font-weight-bold);
   --lrd-font-weight-display: var(--lrd-font-weight-bold);
   --lrd-font-weight-social: var(--lrd-font-weight-medium);
+  --lrd-font-weight-strong: var(--lrd-font-weight-medium);
 }

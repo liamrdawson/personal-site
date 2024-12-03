@@ -1,4 +1,6 @@
 import "./styles/global.css";
+import "@fontsource-variable/eb-garamond";
+import "@fontsource-variable/newsreader";
 
 import {
   Links,
@@ -22,7 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="max-w-body mx-auto flex min-h-[120vh] w-[90%] flex-col bg-background antialiased">
+      <body className="mx-auto flex min-h-[120vh] w-[90%] max-w-body flex-col bg-background antialiased">
         <Header footerIsInView={footerIsInView} />
         {children}
         <Footer setFooterIsInView={setFooterIsInView} />
