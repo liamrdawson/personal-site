@@ -62,6 +62,9 @@ const portableTextComponents: PortableTextComponents = {
       </TextLink>
     ),
     code: ({ children }) => <InlineCode>{children}</InlineCode>,
+    strong: ({ children }) => (
+      <strong className="font-strong">{children}</strong>
+    ),
   },
   block: {
     normal: ({ children }) => (

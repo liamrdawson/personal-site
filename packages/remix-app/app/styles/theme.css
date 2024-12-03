@@ -36,6 +36,7 @@
   --font-weight-h4: var(--lrd-font-weight-h4);
   --font-weight-h5: var(--lrd-font-weight-h5);
   --font-weight-body: var(--lrd-font-weight-body);
+  --font-weight-strong: var(--lrd-font-weight-strong);
   --font-weight-social: var(--lrd-font-weight-social);
 
   --letter-spacing-display: -0.05em;

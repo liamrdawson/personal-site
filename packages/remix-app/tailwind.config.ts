@@ -56,7 +56,7 @@ export default {
       h5: "var(--font-weight-h5)",
       display: "var(--font-weight-display)",
       body: "var(--font-weight-body)",
-      strong: "var(--font-weight-social)",
+      strong: "var(--font-weight-strong)",
     },
     letterSpacing: {
       h1: "var(--letter-spacing-h1)",
