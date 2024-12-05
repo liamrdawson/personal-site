@@ -38,6 +38,7 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@csstools/postcss-oklab-function": "^4.0.4",
     "@liamrdawsonweb/cms": "workspace:^",
     "@playwright/test": "^1.49.0",
