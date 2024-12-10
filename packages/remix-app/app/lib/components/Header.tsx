@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { ClientOnly } from "remix-utils/client-only";
 
+import { useViewportWidth } from "../utils/useViewportWidth";
 import { Grid } from "./Grid";
 import { Text } from "./Text";
 import { TextLink } from "./TextLink";
@@ -27,34 +28,42 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   );
   const [isOpen, setIsOpen] = useState(false);
 
+  const collapsedHeight = useViewportWidth() > 1023 ? "4.4rem" : "3.5rem";
+  const expandedHeight = useViewportWidth() > 1023 ? "8.8rem" : "7rem";
+
   const motionNavVariants: Variants = {
     isOpen: {
-      height: ["3.5rem", "8rem"],
+      height: [collapsedHeight, expandedHeight],
       width: ["9.6rem", "12.8rem"],
+      pointerEvents: "auto",
       transition: {
         ease: cubicBezier(0.5, 0, 0, 1),
         height: {
-          duration: 0.25,
+          duration: 0.15,
           delay: 0.1,
         },
         width: {
           duration: 0.1,
           delay: 0,
+        },
+        pointerEvents: {
+          delay: 0.35,
         },
       },
     },
     isClosed: {
-      height: [null, "3.5rem"],
+      height: [expandedHeight, collapsedHeight],
       width: [null, "9.6rem"],
+      pointerEvents: "none",
       transition: {
         ease: cubicBezier(0.5, 0, 0, 1),
         height: {
-          duration: 0.25,
-          delay: 0.1,
+          duration: 0.15,
+          delay: 0,
         },
         width: {
-          duration: 0.1,
-          delay: 0,
+          duration: 0.2,
+          delay: 0.15,
         },
       },
     },
@@ -183,18 +192,22 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                     {menuItems.map((item) => (
                       <motion.li
                         key={item.label}
-                        className={`relative z-40 flex h-32 flex-row items-center justify-center`}
+                        className={`relative z-40 flex flex-row items-center justify-center`}
                         onHoverStart={() => setHovered(item)}
                         onClick={() => handleLinkClick()}
                       >
                         <TextLink
-                          className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label ? "text-dark" : "text-light"}`}
+                          className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label && isOpen ? "text-dark" : "text-light"}`}
                           to={item.path}
                           variant="nav"
                           prefetch="viewport"
                         >
-                          <span className="relative z-40">{item.label}</span>
-                          {item.label === hovered?.label ? <HoverBox /> : null}
+                          <span className="relative z-40 px-xs">
+                            {item.label}
+                          </span>
+                          {item.label === hovered?.label && isOpen ? (
+                            <HoverBox />
+                          ) : null}
                         </TextLink>
                       </motion.li>
                     ))}
