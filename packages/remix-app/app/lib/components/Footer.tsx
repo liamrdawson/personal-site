@@ -16,7 +16,7 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
       ([entry]) => {
         setFooterIsInView(entry.isIntersecting);
       },
-      { threshold: 0.4 }, // Adjust as needed to control sensitivity
+      { threshold: 0.4 },
     );
 
     if (ref.current) {
@@ -52,7 +52,7 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
               to="https://www.linkedin.com/in/liamrdawson/"
               variant="muted"
             >
-              linkedin
+              LinkedIn
             </TextLink>
           </li>
           <li>
