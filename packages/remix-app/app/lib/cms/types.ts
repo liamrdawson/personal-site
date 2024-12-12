@@ -71,7 +71,8 @@ export interface Geopoint {
   alt?: number;
 }
 
-export type BlockContent = (| {
+export type BlockContent = (
+  | {
       children?: {
         marks?: string[];
         text?: string;
@@ -104,7 +105,8 @@ export type BlockContent = (| {
     }
   | ({
       _key: string;
-    } & Code))[];
+    } & Code)
+)[];
 
 export interface Category {
   _id: string;
@@ -283,7 +285,7 @@ export type AllSanitySchemaTypes =
   | Slug
   | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ../remix-app/app/routes/blog.$slug.tsx
+// Source: ../remix-app/app/sanity/queries.ts
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]
 export type POST_QUERYResult = {
@@ -324,8 +326,34 @@ export type POST_QUERYResult = {
   body: BlockContent;
   myCodeField?: Code;
 } | null;
+// Variable: MAIN_IMAGE_QUERY
+// Query: *[_type == "post" && slug.current == $slug][0]{mainImage}
+export type MAIN_IMAGE_QUERYResult = {
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+  } | null;
+} | null;
+// Variable: POSTS_QUERY
+// Query: *[    _type == "post"    && defined(slug.current)  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}
+export type POSTS_QUERYResult = {
+  _id: string;
+  title: string;
+  slug: Slug;
+  publishedAt: string | null;
+}[];
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "post" && slug.current == $slug][0]': POST_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{mainImage}': MAIN_IMAGE_QUERYResult;
+    '*[\n    _type == "post"\n    && defined(slug.current)\n  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}': POSTS_QUERYResult;
   }
 }

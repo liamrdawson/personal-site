@@ -11,12 +11,9 @@ const PortableTextBlogImage = ({
   value,
 }: PortableTextTypeComponentProps<SanityImageAsset>) => {
   const { width, height } = getImageDimensions(value);
-  const { projectId, dataset } = client.config();
 
   const urlFor = (source: SanityImageSource) =>
-    projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset }).image(source)
-      : null;
+    imageUrlBuilder(client).image(source);
 
   return (
     <img

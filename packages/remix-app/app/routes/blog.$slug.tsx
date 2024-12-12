@@ -1,39 +1,38 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { LoaderFunctionArgs } from "@remix-run/node";
 import { MetaFunction, useLoaderData } from "@remix-run/react";
-import imageUrlBuilder from "@sanity/image-url";
 
-import { AssetSlideWrapper } from "~/lib/components/AssetSlideWrapper";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { InlineCode } from "~/lib/components/InlineCode";
 import { List } from "~/lib/components/List";
 import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
+import { SlidingImage } from "~/lib/components/SlidingImage";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
-import { fetchPost } from "~/sanity/api";
-import { client } from "~/sanity/client";
+import { getSanityImageUrl } from "~/lib/utils/getSanityImageUrl";
+import { fetchMainImageForPost, fetchPost } from "~/sanity/api";
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const post = await fetchPost(params);
-  const { projectId, dataset } = client.config();
+  const mainImage = await fetchMainImageForPost(params);
 
-  const mainImageUrl =
-    post?.mainImage && projectId && dataset
-      ? imageUrlBuilder({ projectId, dataset })
-          .image(post.mainImage)
-          .width(700)
-          .height(583)
-          .url()
-      : null;
+  const mainImageUrl = mainImage
+    ? getSanityImageUrl({
+        source: mainImage,
+        width: 700,
+        height: 500,
+      })
+    : null;
 
-  return json({
+  return {
     post,
     urlPath: url.pathname,
     mainImageUrl,
-  });
+    mainImage,
+  };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -101,20 +100,25 @@ const portableTextComponents: PortableTextComponents = {
 };
 
 export default function PostPage() {
-  const { post, mainImageUrl } = useLoaderData<typeof loader>();
+  const { post, mainImage } = useLoaderData<typeof loader>();
 
   return (
     <main className="mt-layoutSection flex-1 text-dark">
       <Grid>
         <section className="col-span-6 col-start-1 md:col-span-12">
           <Heading level="h1">{post?.title}</Heading>
-          {mainImageUrl && (
-            <div className="my-textToImage overflow-hidden">
-              <AssetSlideWrapper>
-                <img src={mainImageUrl} alt={post?.title} />
-              </AssetSlideWrapper>
-            </div>
-          )}
+          <div className="my-textToImage overflow-hidden">
+            {mainImage && (
+              <SlidingImage
+                src={getSanityImageUrl({
+                  source: mainImage,
+                  width: 700,
+                  height: 500,
+                })}
+                alt={mainImage.alt}
+              />
+            )}
+          </div>
           {post?.body && (
             <div className="animate-fade-in opacity-0">
               <PortableText
