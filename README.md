@@ -1,3 +1,3 @@
 # LiamRDawson
 
-This is the code for liamrdawson.com. Built with Remix.
+This is the code for liamrdawson.com. Built with React Router.

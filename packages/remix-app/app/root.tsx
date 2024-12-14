@@ -2,14 +2,8 @@ import "./styles/global.css";
 import "@fontsource-variable/eb-garamond";
 import "@fontsource-variable/newsreader";
 
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
 import { useState } from "react";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 
 import Footer from "./lib/components/Footer";
 import Header from "./lib/components/Header";

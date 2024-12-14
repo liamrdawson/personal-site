@@ -1,4 +1,4 @@
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction } from "react-router";
 
 import image1 from "/assets/1-281006880034-liamrdawsonweb.jpg";
 import image2 from "/assets/2-281006880033-liamrdawsonweb.jpg";

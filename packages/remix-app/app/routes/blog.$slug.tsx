@@ -1,6 +1,5 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { LoaderFunctionArgs } from "@remix-run/node";
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { LoaderFunctionArgs, MetaFunction, useLoaderData } from "react-router";
 
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
