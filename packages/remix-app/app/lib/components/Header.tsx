@@ -15,8 +15,8 @@ interface HeaderProps {
 
 const Header = ({ footerIsInView }: HeaderProps) => {
   const menuItems = [
-    { label: "About", path: "/about" },
-    { label: "Home", path: "/" },
+    { label: "About", path: "https://liamrdawson.com/about" },
+    { label: "Home", path: "https://liamrdawson.com/" },
   ];
   const location = useLocation();
   const currentMenuItem = menuItems.find(
