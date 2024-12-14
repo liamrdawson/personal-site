@@ -1,5 +1,5 @@
-import { Link } from "@remix-run/react";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Link } from "react-router";
 
 import { Grid } from "./Grid";
 import { TextLink } from "./TextLink";

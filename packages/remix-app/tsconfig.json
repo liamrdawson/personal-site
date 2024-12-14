@@ -1,7 +1,14 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["env.d.ts", "**/*.ts", "**/*.tsx", "netlify-edge-plugin.ts"],
+  "include": [
+    "env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".react-router/types/**/*",
+    "netlify-edge-plugin.ts"
+  ],
   "compilerOptions": {
+    "types": ["@react-router/node", "vite/client"],
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -18,6 +25,7 @@
     "paths": {
       "~/*": ["./app/*"]
     },
+    "rootDirs": [".", "./.react-router/types"],
     // Vite takes care of building everything, not tsc.
     "noEmit": true
   }

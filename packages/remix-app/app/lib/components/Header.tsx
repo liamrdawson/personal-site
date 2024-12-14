@@ -1,7 +1,7 @@
-import { Link, useLocation } from "@remix-run/react";
 import { cubicBezier, motion, Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
+import { Link, useLocation } from "react-router";
 import { ClientOnly } from "remix-utils/client-only";
 
 import { useViewportWidth } from "../utils/useViewportWidth";

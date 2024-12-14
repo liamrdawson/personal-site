@@ -19,8 +19,6 @@ function urlFor(source: SanityImageSource) {
 const PortableTextBlogImage = ({
   value,
 }: PortableTextTypeComponentProps<SecondType>) => {
-  console.log(value);
-
   if (!value.asset) {
     console.error("Asset data missing for image component", value);
     return null;

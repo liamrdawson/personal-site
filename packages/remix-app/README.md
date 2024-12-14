@@ -1,7 +1,6 @@
-# Welcome to Remix!
+# Welcome
 
-- [Remix Docs](https://remix.run/docs)
-- [Netlify Functions Overview](https://docs.netlify.com/functions/overview)
+Here's my React Router site.
 
 ## Netlify Setup
 

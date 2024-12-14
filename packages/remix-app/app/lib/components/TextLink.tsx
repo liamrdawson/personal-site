@@ -1,6 +1,6 @@
-import { Link } from "@remix-run/react";
 import { cva, VariantProps } from "class-variance-authority";
 import { ReactNode } from "react";
+import { Link } from "react-router";
 
 import { cn } from "../utils/cn";
 

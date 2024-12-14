@@ -1,4 +1,4 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "react-router";
 
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
