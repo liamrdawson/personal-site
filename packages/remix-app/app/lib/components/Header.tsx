@@ -8,6 +8,7 @@ import { useViewportWidth } from "../utils/useViewportWidth";
 import { Grid } from "./Grid";
 import { Text } from "./Text";
 import { TextLink } from "./TextLink";
+import { hasTouchScreen } from "../utils/hasTouchscreen";
 
 interface HeaderProps {
   footerIsInView: boolean;
@@ -15,8 +16,8 @@ interface HeaderProps {
 
 const Header = ({ footerIsInView }: HeaderProps) => {
   const menuItems = [
-    { label: "About", path: "https://liamrdawson.com/about" },
-    { label: "Home", path: "https://liamrdawson.com/" },
+    { label: "About", path: "/about" },
+    { label: "Home", path: "/" },
   ];
   const location = useLocation();
   const currentMenuItem = menuItems.find(
@@ -200,7 +201,9 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                           className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label && isOpen ? "text-dark" : "text-light"}`}
                           to={item.path}
                           variant="nav"
-                          prefetch="viewport"
+                          prefetch={
+                            hasTouchScreen() === true ? "viewport" : "intent"
+                          }
                         >
                           <span className="relative z-40 px-xs">
                             {item.label}

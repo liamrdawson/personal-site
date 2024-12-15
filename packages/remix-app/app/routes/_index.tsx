@@ -71,7 +71,7 @@ export default function IndexPage() {
                       <li className="w-fit" key={post._id}>
                         <TextLink
                           prefetch="viewport"
-                          to={`https://liamrdawson.com/blog/${post.slug.current}`}
+                          to={`blog/${post.slug.current}`}
                           variant="content"
                         >
                           {post.title}
