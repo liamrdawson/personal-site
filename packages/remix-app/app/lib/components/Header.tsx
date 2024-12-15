@@ -4,11 +4,11 @@ import { isMobile } from "react-device-detect";
 import { Link, useLocation } from "react-router";
 import { ClientOnly } from "remix-utils/client-only";
 
+import { hasTouchScreen } from "../utils/hasTouchscreen";
 import { useViewportWidth } from "../utils/useViewportWidth";
 import { Grid } from "./Grid";
 import { Text } from "./Text";
 import { TextLink } from "./TextLink";
-import { hasTouchScreen } from "../utils/hasTouchscreen";
 
 interface HeaderProps {
   footerIsInView: boolean;
