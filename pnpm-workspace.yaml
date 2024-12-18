@@ -1,3 +1,4 @@
 packages:
   - "packages/cms"
   - "packages/remix-app"
+  - "packages/site"
