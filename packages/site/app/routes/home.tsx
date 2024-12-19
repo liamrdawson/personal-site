@@ -1,5 +1,4 @@
 import {
-  data,
   type HeadersArgs,
   type MetaFunction,
   useLoaderData,
@@ -14,19 +13,17 @@ import { fetchPosts } from "~/sanity/api";
 
 export async function loader() {
   const posts = await fetchPosts();
-  return data(
-    { posts },
-    {
-      headers: {
-        "Cache-Control":
-          "max-age=3600, s-max-age=2678400, stale-while-revalidate=31540000",
-      },
-    }
-  );
+  return {
+    posts,
+  };
 }
 
-export function headers({ actionHeaders, loaderHeaders }: HeadersArgs) {
-  return actionHeaders ? actionHeaders : loaderHeaders;
+export function headers({ parentHeaders }: HeadersArgs) {
+  parentHeaders.append(
+    "Cache-Control",
+    "max-age=3600, s-max-age=2678400, stale-while-revalidate=31540000"
+  );
+  return parentHeaders;
 }
 
 export const meta: MetaFunction = () => {

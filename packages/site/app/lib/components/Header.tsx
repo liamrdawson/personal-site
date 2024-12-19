@@ -221,7 +221,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
           )}
         </ClientOnly>
         <div className="col-span-6 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center md:col-span-12">
-          <Link to="/">
+          <Link to="/" prefetch="render">
             <Text variant="display" size="display">
               LIAM DAWSON
             </Text>
