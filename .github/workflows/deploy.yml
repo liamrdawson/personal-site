@@ -40,6 +40,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install Netlify
+        run: pnpm install netlify-cli
+
       - name: Deploy to Netlify Prod
         id: netlify_deploy
         run: |
