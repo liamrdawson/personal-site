@@ -115,7 +115,10 @@ export default function PostPage({ loaderData }: Route.ComponentProps) {
                   width: 700,
                   height: 500,
                 })}
-                alt={mainImage.alt}
+                alt={
+                  mainImage.asset?.altText ??
+                  "The main image for this blog post"
+                }
               />
             )}
           </div>

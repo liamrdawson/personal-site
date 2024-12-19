@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build": "react-router build && pnpm typecheck",
     "dev": "cross-env NODE_ENV=development node server.js",
     "start": "node ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
