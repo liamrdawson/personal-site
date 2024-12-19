@@ -1,4 +1,5 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import { type HeadersArgs } from "react-router";
 
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
@@ -33,6 +34,14 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     mainImageUrl,
     mainImage,
   };
+}
+
+export function headers({ parentHeaders }: HeadersArgs) {
+  parentHeaders.append(
+    "Cache-Control",
+    "max-age=600, s-max-age=2678400, stale-while-revalidate=31540000"
+  );
+  return parentHeaders;
 }
 
 export const meta = ({ data }: Route.MetaArgs) => {
