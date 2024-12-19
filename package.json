@@ -6,12 +6,12 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "pnpm --filter remix-app build",
+    "build": "pnpm --filter site build",
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
     "types": "tsc --build",
     "lint:fix": "pnpm lint -- --fix",
     "test": "vitest",
-    "test:ui:e2e": "pnpm --filter remix-app test:e2e"
+    "test:ui:e2e": "pnpm --filter site test:e2e"
   },
   "dependencies": {
     "esbuild": "^0.21.5"
