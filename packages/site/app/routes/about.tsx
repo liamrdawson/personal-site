@@ -1,4 +1,4 @@
-import type { LinksFunction } from "react-router";
+import { data, type LinksFunction } from "react-router";
 
 import image1 from "/assets/1-281006880034-liamrdawsonweb.jpg";
 import image2 from "/assets/2-281006880033-liamrdawsonweb.jpg";
@@ -7,6 +7,18 @@ import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { SlidingImage } from "~/lib/components/SlidingImage";
 import { Text } from "~/lib/components/Text";
+
+export async function loader() {
+  return data(
+    {},
+    {
+      headers: {
+        "Cache-Control":
+          "max-age=86400, s-max-age=2678400, stale-while-revalidate=31540000",
+      },
+    }
+  );
+}
 
 export const links: LinksFunction = () => {
   return [

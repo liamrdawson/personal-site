@@ -1,4 +1,9 @@
-import { type MetaFunction, useLoaderData } from "react-router";
+import {
+  data,
+  type HeadersArgs,
+  type MetaFunction,
+  useLoaderData,
+} from "react-router";
 
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
@@ -9,7 +14,19 @@ import { fetchPosts } from "~/sanity/api";
 
 export async function loader() {
   const posts = await fetchPosts();
-  return { posts };
+  return data(
+    { posts },
+    {
+      headers: {
+        "Cache-Control":
+          "max-age=3600, s-max-age=2678400, stale-while-revalidate=31540000",
+      },
+    }
+  );
+}
+
+export function headers({ actionHeaders, loaderHeaders }: HeadersArgs) {
+  return actionHeaders ? actionHeaders : loaderHeaders;
 }
 
 export const meta: MetaFunction = () => {
