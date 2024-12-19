@@ -1,0 +1,7 @@
+[build]
+command = "pnpm -F site run build"
+publish = "packages/site/build/client"
+
+[dev]
+command = "react-router dev"
+framework = "vite"
