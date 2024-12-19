@@ -1,5 +1,5 @@
 [build]
-command = "react-router build"
+command = "pnpm -F site react-router build"
 publish = "packages/site/build/client"
 
 [dev]
