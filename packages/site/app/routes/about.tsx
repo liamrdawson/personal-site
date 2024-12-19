@@ -38,6 +38,26 @@ export const links: LinksFunction = () => {
   ];
 };
 
+export const meta = () => {
+  return [
+    { title: "Liam Dawson | About" },
+    {
+      property: "og:description",
+      content: "About Liam Dawson: husband, father, software engineer.",
+    },
+    {
+      property: "description",
+      content: "About Liam Dawson: husband, father, software engineer",
+    },
+    { property: "og:title", content: "Liam Dawson | About" },
+    { property: "og:image", content: image2 },
+    { property: "og:url", content: `https://liamrdawson.com/about` },
+    { property: "og:site_name", content: "Liam Dawson" },
+    { property: "og:type", content: "article" },
+    { property: "og:locale", content: "en_GB" },
+  ];
+};
+
 export default function AboutPage() {
   return (
     <main className="mt-layoutSection flex-1 text-dark">

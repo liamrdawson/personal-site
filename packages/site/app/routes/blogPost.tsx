@@ -48,9 +48,12 @@ export const meta = ({ data }: Route.MetaArgs) => {
   return [
     { title: data?.post?.title },
     { property: "og:description", content: data?.post?.description },
+    { property: "description", content: data?.post?.description },
     { property: "og:title", content: data?.post?.title },
     { property: "og:image", content: data?.mainImageUrl },
     { property: "og:url", content: `https://liamrdawson.com${data?.urlPath}` },
+    { property: "og:locale", content: "en_GB" },
+    { property: "og:type", content: "article" },
   ];
 };
 

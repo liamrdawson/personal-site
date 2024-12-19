@@ -40,6 +40,10 @@ export const meta: MetaFunction = () => {
       content: "The writings of Liam Dawson, Full Stack eCommerce Developer",
     },
     {
+      property: "description",
+      content: "The writings of Liam Dawson, Full Stack eCommerce Developer",
+    },
+    {
       property: "og:title",
       content: "Liam Dawson",
     },
@@ -53,8 +57,9 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:locale",
-      content: "en-GB",
+      content: "en_GB",
     },
+    { property: "og:type", content: "website" },
   ];
 };
 
