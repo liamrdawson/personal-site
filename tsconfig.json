@@ -1,7 +1,4 @@
 {
   "files": [],
-  "references": [
-    { "path": "packages/remix-app" },
-    { "path": "packages/remix-app" }
-  ]
+  "references": [{ "path": "packages/site" }]
 }

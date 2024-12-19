@@ -1,5 +1,5 @@
 {
-  "path": "'../remix-app/app/**/*.{ts,tsx,js,jsx}'",
+  "path": "'../site/app/**/*.{ts,tsx,js,jsx}'",
   "schema": "schema.json",
-  "generates": "../remix-app/app/lib/cms/types.ts"
+  "generates": "../site/app/lib/cms/types.ts"
 }
