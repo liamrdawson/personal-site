@@ -162,3 +162,9 @@
     --spacing-layout-section: var(--lrd-spacing-layout-section-wide);
   }
 }
+
+@media only screen and (min-width: 2400px) {
+  :root {
+    --spacing-layout-section: var(--lrd-spacing-layout-section-ultra-wide);
+  }
+}

@@ -198,7 +198,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                         onClick={() => handleLinkClick()}
                       >
                         <TextLink
-                          className={`relative z-40 flex h-full w-full items-center justify-center px-sm ${item.label === hovered?.label && isOpen ? "text-dark" : "text-light"}`}
+                          className={`relative z-40 flex h-full w-full items-center justify-center px-sm selection:text-background selection:bg-text ${item.label === hovered?.label && isOpen ? "text-dark" : "text-light"}`}
                           to={item.path}
                           variant="nav"
                           prefetch={
@@ -228,7 +228,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
             <Text
               variant="content"
               size="default"
-              className="italic leading-subheading"
+              className="italic leading-subheading selection:text-background selection:bg-text"
             >
               <i>eCommerce Developer</i>
             </Text>

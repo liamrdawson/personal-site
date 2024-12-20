@@ -115,7 +115,7 @@ export default function PostPage({ loaderData }: Route.ComponentProps) {
   const { post, mainImage } = loaderData;
 
   return (
-    <main className="mt-layoutSection flex-1 text-dark">
+    <main className="mt-layoutSection flex-1 text-dark selection:text-background selection:bg-text">
       <Grid>
         <section className="col-span-6 col-start-1 md:col-span-12">
           <Heading level="h1">{post?.title}</Heading>

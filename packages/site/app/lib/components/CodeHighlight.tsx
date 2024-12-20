@@ -9,6 +9,11 @@ interface Props {
   };
 }
 
+const customNightOwl = {
+  ...nightOwl,
+  comment: { color: "currentColor", fontStyle: "italic", opacity: 0.8 },
+};
+
 const CodeBlock = ({ value }: Props) => {
   const { code, language } = value;
   return (
@@ -18,7 +23,7 @@ const CodeBlock = ({ value }: Props) => {
           showLineNumbers={false}
           showInlineLineNumbers={true}
           language={language}
-          style={nightOwl}
+          style={customNightOwl}
           customStyle={{
             padding: "1em",
             marginTop: "3.2rem",

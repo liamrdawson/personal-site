@@ -80,12 +80,17 @@
   --lrd-spacing-layout-section-desktop: clamp(
     var(--lrd-spacing-layout-fixed-xs),
     var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
+    var(--lrd-spacing-layout-fixed-lg)
   );
   --lrd-spacing-layout-section-wide: clamp(
     var(--lrd-spacing-layout-fixed-xs),
     var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
+    var(--lrd-spacing-layout-fixed-lg)
+  );
+  --lrd-spacing-layout-section-ultra-wide: clamp(
+    var(--lrd-spacing-layout-fixed-xs),
+    var(--lrd-spacing-layout-variable-md),
+    var(--lrd-spacing-layout-fixed-lg)
   );
 
   --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
