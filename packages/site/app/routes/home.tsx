@@ -67,7 +67,7 @@ export default function IndexPage() {
   const { posts } = useLoaderData<typeof loader>();
 
   return (
-    <main className="mt-layoutSection flex-1 text-dark">
+    <main className="mt-layoutSection flex-1 text-dark selection:bg-text selection:text-background">
       <Grid>
         <div className="col-span-6 col-start-1 md:col-span-12">
           <section>

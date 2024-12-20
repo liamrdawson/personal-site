@@ -60,7 +60,7 @@ export const meta = () => {
 
 export default function AboutPage() {
   return (
-    <main className="mt-layoutSection flex-1 text-dark">
+    <main className="mt-layoutSection flex-1 text-dark selection:text-background selection:bg-text">
       <Heading level={"h1"}>About</Heading>
       <Grid>
         <div className="col-start-1 col-end-3 my-textToImage hidden aspect-[4/5] min-[500px]:block md:col-end-5">

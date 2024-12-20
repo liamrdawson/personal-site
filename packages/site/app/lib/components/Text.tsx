@@ -14,7 +14,8 @@ const textVariants = cva("block", {
       sm: "text-small leading-small tracking-small",
       default: "text-body leading-body tracking-body",
       lg: "text-large leading-large tracking-large",
-      display: "text-display leading-display tracking-display",
+      display:
+        "text-display leading-display tracking-display selection:text-background selection:bg-text",
     },
   },
   defaultVariants: {
