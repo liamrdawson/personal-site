@@ -1,5 +1,6 @@
 import {
   type HeadersArgs,
+  isRouteErrorResponse,
   type MetaFunction,
   useLoaderData,
 } from "react-router";
@@ -10,6 +11,8 @@ import { List } from "~/lib/components/List";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
 import { fetchPosts } from "~/sanity/api";
+
+import type { Route } from "../+types/root";
 
 export async function loader() {
   const posts = await fetchPosts();
@@ -62,6 +65,31 @@ export const meta: MetaFunction = () => {
     { property: "og:type", content: "website" },
   ];
 };
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error)) {
+    return (
+      <>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <h2>Hello</h2>
+        <p>{error.data}</p>
+      </>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
+}
 
 export default function IndexPage() {
   const { posts } = useLoaderData<typeof loader>();

@@ -10,7 +10,7 @@ const textLinkVariants = cva("duration-250 ease-easeOutSoft", {
       content:
         "text-contentLink font-family-content hover:text-contentLinkHover border-b border-solid border-b-contentLinkUnderscore hover:border-b-contentLinkUnderscoreHover",
       muted: "text-socialsLink hover:text-socialsLinkHover",
-      ui: "text-defaultLink hover:text-defaultLinkHover",
+      ui: "text-defaultLink hover:text-defaultLinkHover font-family-default",
       nav: "text-light hover:text-dark",
     },
   },

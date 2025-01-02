@@ -2,10 +2,54 @@ import "./styles/global.css";
 import "@fontsource-variable/newsreader";
 
 import { useState } from "react";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "react-router";
 
+import type { Route } from "./+types/root";
 import Footer from "./lib/components/Footer";
 import Header from "./lib/components/Header";
+import { Heading } from "./lib/components/Heading";
+import { Text } from "./lib/components/Text";
+import { TextLink } from "./lib/components/TextLink";
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error)) {
+    return (
+      <main className="mt-layoutSection flex-1 text-dark selection:bg-text selection:text-background">
+        <Heading level={"h1"}>{error.status}</Heading>
+        <Text variant={"content"} size={"default"} className="mt-paragraph">
+          Whoops, we broke the internet (
+          {error.status === 404 ? "Page not found" : error.statusText}).
+        </Text>
+        <TextLink
+          to={"/"}
+          prefetch={"render"}
+          variant={"ui"}
+          className="text-body font-strong inline-block mt-paragraph"
+        >
+          Start over
+        </TextLink>
+      </main>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [footerIsInView, setFooterIsInView] = useState(false);
