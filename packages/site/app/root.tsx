@@ -22,16 +22,20 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   if (isRouteErrorResponse(error)) {
     return (
       <main className="mt-layoutSection flex-1 text-dark selection:bg-text selection:text-background">
-        <Heading level={"h1"}>{error.status}</Heading>
-        <Text variant={"content"} size={"default"} className="mt-paragraph">
+        <Heading level="h1">{error.status}</Heading>
+        <Text
+          variant="content"
+          size="default"
+          className="mt-paragraph animate-fade-in opacity-0"
+        >
           Whoops, we broke the internet (
           {error.status === 404 ? "Page not found" : error.statusText}).
         </Text>
         <TextLink
-          to={"/"}
-          prefetch={"render"}
-          variant={"ui"}
-          className="text-body font-strong inline-block mt-paragraph"
+          to="/"
+          prefetch="render"
+          variant="ui"
+          className="text-body font-strong inline-block mt-paragraph animate-fade-in opacity-0"
         >
           Start over
         </TextLink>
@@ -40,14 +44,26 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   } else if (error instanceof Error) {
     return (
       <div>
-        <h1>Error</h1>
-        <p>{error.message}</p>
-        <p>The stack trace is:</p>
-        <pre>{error.stack}</pre>
+        <Heading level="h1">Error</Heading>
+        <Text
+          variant="content"
+          size="default"
+          className="mt-paragraph animate-fade-in opacity-0"
+        >
+          {error.message}
+        </Text>
+        <Text
+          variant="content"
+          size="default"
+          className="mt-paragraph animate-fade-in opacity-0"
+        >
+          The stack trace is:
+        </Text>
+        <pre className="text-body font-family-default">{error.stack}</pre>
       </div>
     );
   } else {
-    return <h1>Unknown Error</h1>;
+    return <Heading level="h1">Unknown Error</Heading>;
   }
 }
 
