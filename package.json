@@ -8,12 +8,14 @@
   "scripts": {
     "build": "pnpm --filter site build",
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
+    "dev": "concurrently 'pnpm --filter site dev' 'pnpm --filter cms dev'",
     "types": "tsc --build",
     "lint:fix": "pnpm lint -- --fix",
     "test": "vitest",
     "test:ui:e2e": "pnpm --filter site test:e2e"
   },
   "dependencies": {
+    "concurrently": "^9.1.2",
     "esbuild": "^0.21.5"
   },
   "devDependencies": {
