@@ -13,18 +13,15 @@
  */
 
 // Source: schema.json
-// Query TypeMap
-import "@sanity/client";
-
-export interface SanityImagePaletteSwatch {
+export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
   foreground?: string;
   population?: number;
   title?: string;
-}
+};
 
-export interface SanityImagePalette {
+export type SanityImagePalette = {
   _type: "sanity.imagePalette";
   darkMuted?: SanityImagePaletteSwatch;
   lightVibrant?: SanityImagePaletteSwatch;
@@ -33,16 +30,16 @@ export interface SanityImagePalette {
   dominant?: SanityImagePaletteSwatch;
   lightMuted?: SanityImagePaletteSwatch;
   muted?: SanityImagePaletteSwatch;
-}
+};
 
-export interface SanityImageDimensions {
+export type SanityImageDimensions = {
   _type: "sanity.imageDimensions";
   height?: number;
   width?: number;
   aspectRatio?: number;
-}
+};
 
-export interface SanityFileAsset {
+export type SanityFileAsset = {
   _id: string;
   _type: "sanity.fileAsset";
   _createdAt: string;
@@ -62,33 +59,54 @@ export interface SanityFileAsset {
   path?: string;
   url?: string;
   source?: SanityAssetSourceData;
-}
+};
 
-export interface Geopoint {
+export type Geopoint = {
   _type: "geopoint";
   lat?: number;
   lng?: number;
   alt?: number;
-}
+};
 
-export type BlockContent = ({
-  children?: {
-    marks?: string[];
+export type Gallery = {
+  _type: "gallery";
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  display?: "stacked" | "inline" | "carousel";
+  zoom?: boolean;
+};
+
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
     text?: string;
     _type: "span";
     _key: string;
-  }[];
+  }>;
   style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
   listItem?: "bullet" | "number";
-  markDefs?: {
+  markDefs?: Array<{
     href?: string;
     _type: "link";
     _key: string;
-  }[];
+  }>;
   level?: number;
   _type: "block";
   _key: string;
-} | {
+} | ({
+  _key: string;
+} & Gallery) | {
   asset?: {
     _ref: string;
     _type: "reference";
@@ -102,9 +120,9 @@ export type BlockContent = ({
   _key: string;
 } | ({
   _key: string;
-} & Code))[];
+} & Code)>;
 
-export interface Category {
+export type Category = {
   _id: string;
   _type: "category";
   _createdAt: string;
@@ -112,9 +130,9 @@ export interface Category {
   _rev: string;
   title?: string;
   description?: string;
-}
+};
 
-export interface Post {
+export type Post = {
   _id: string;
   _type: "post";
   _createdAt: string;
@@ -141,19 +159,18 @@ export interface Post {
     alt: string;
     _type: "image";
   };
-  categories?: {
+  categories?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
     [internalGroqTypeReferenceTo]?: "category";
-  }[];
+  }>;
   publishedAt?: string;
   body: BlockContent;
-  myCodeField?: Code;
-}
+};
 
-export interface Author {
+export type Author = {
   _id: string;
   _type: "author";
   _createdAt: string;
@@ -172,43 +189,43 @@ export interface Author {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  bio?: {
-    children?: {
-      marks?: string[];
+  bio?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
       text?: string;
       _type: "span";
       _key: string;
-    }[];
+    }>;
     style?: "normal";
     listItem?: never;
-    markDefs?: {
+    markDefs?: Array<{
       href?: string;
       _type: "link";
       _key: string;
-    }[];
+    }>;
     level?: number;
     _type: "block";
     _key: string;
-  }[];
-}
+  }>;
+};
 
-export interface SanityImageCrop {
+export type SanityImageCrop = {
   _type: "sanity.imageCrop";
   top?: number;
   bottom?: number;
   left?: number;
   right?: number;
-}
+};
 
-export interface SanityImageHotspot {
+export type SanityImageHotspot = {
   _type: "sanity.imageHotspot";
   x?: number;
   y?: number;
   height?: number;
   width?: number;
-}
+};
 
-export interface SanityImageAsset {
+export type SanityImageAsset = {
   _id: string;
   _type: "sanity.imageAsset";
   _createdAt: string;
@@ -229,16 +246,16 @@ export interface SanityImageAsset {
   url?: string;
   metadata?: SanityImageMetadata;
   source?: SanityAssetSourceData;
-}
+};
 
-export interface SanityAssetSourceData {
+export type SanityAssetSourceData = {
   _type: "sanity.assetSourceData";
   name?: string;
   id?: string;
   url?: string;
-}
+};
 
-export interface SanityImageMetadata {
+export type SanityImageMetadata = {
   _type: "sanity.imageMetadata";
   location?: Geopoint;
   dimensions?: SanityImageDimensions;
@@ -247,23 +264,23 @@ export interface SanityImageMetadata {
   blurHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
-}
+};
 
-export interface Slug {
+export type Slug = {
   _type: "slug";
   current: string;
   source?: string;
-}
+};
 
-export interface Code {
+export type Code = {
   _type: "code";
   language?: string;
   filename?: string;
   code?: string;
-  highlightedLines?: number[];
-}
+  highlightedLines?: Array<number>;
+};
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | BlockContent | Category | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Code;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Gallery | BlockContent | Category | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../site/app/sanity/queries.ts
 // Variable: POST_QUERY
@@ -295,16 +312,15 @@ export type POST_QUERYResult = {
     alt: string;
     _type: "image";
   };
-  categories?: {
+  categories?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
     [internalGroqTypeReferenceTo]?: "category";
-  }[];
+  }>;
   publishedAt?: string;
   body: BlockContent;
-  myCodeField?: Code;
 } | null;
 // Variable: MAIN_IMAGE_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]{mainImage { asset-> }}
@@ -336,12 +352,15 @@ export type MAIN_IMAGE_QUERYResult = {
 } | null;
 // Variable: POSTS_QUERY
 // Query: *[    _type == "post"    && defined(slug.current)  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}
-export type POSTS_QUERYResult = {
+export type POSTS_QUERYResult = Array<{
   _id: string;
   title: string;
   slug: Slug;
   publishedAt: string | null;
-}[];
+}>;
+
+// Query TypeMap
+import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && slug.current == $slug][0]": POST_QUERYResult;

@@ -70,11 +70,6 @@ export default defineType({
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      type: 'code',
-      name: 'myCodeField',
-      title: 'My code field',
-    }),
   ],
 
   preview: {
