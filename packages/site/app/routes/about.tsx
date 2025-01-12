@@ -63,7 +63,7 @@ export default function AboutPage() {
     <main className="mt-layoutSection flex-1 text-dark selection:text-background selection:bg-text">
       <Heading level={"h1"}>About</Heading>
       <Grid>
-        <div className="col-start-1 col-end-3 my-textToImage hidden aspect-[4/5] min-[500px]:block md:col-end-5">
+        <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-1 col-end-5">
           <SlidingImage
             src={image1}
             alt={
@@ -71,13 +71,13 @@ export default function AboutPage() {
             }
           />
         </div>
-        <div className="col-start-1 col-end-7 my-textToImage aspect-[4/5] min-[500px]:col-start-3 min-[500px]:col-end-5 md:col-start-5 md:col-end-9">
+        <div className="my-textToImage aspect-[4/5] col-start-1 min-[500px]:col-start-5 min-[500px]:col-end-9 col-end-13">
           <SlidingImage
             src={image2}
             alt={"A black and white 35mm photos of Liam smiling at the camera"}
           />
         </div>
-        <div className="col-start-5 col-end-7 my-textToImage hidden aspect-[4/5] min-[500px]:block md:col-start-9 md:col-end-13">
+        <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-9 col-end-13">
           <SlidingImage
             src={image3}
             alt={
@@ -85,7 +85,7 @@ export default function AboutPage() {
             }
           />
         </div>
-        <section className="col-span-6 col-start-1 animate-fade-in opacity-0 md:col-span-12">
+        <section className="col-span-12 col-start-1 animate-fade-in opacity-0">
           <Text variant="content" className="mt-paragraph">
             Hi, I&apos;m Liam.
           </Text>

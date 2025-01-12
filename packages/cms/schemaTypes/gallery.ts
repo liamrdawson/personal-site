@@ -9,6 +9,7 @@ export default defineType({
       name: 'images',
       type: 'array',
       title: 'Images',
+      validation: (rule) => rule.required().max(4),
       of: [
         {
           name: 'image',
@@ -19,9 +20,13 @@ export default defineType({
           },
           fields: [
             {
+              title: 'Alternative Text',
               name: 'alt',
               type: 'string',
-              title: 'Alternative text',
+              validation: (rule) => rule.required(),
+              options: {
+                isHighlighted: true,
+              },
             },
           ],
         },

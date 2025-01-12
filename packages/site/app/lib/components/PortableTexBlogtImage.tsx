@@ -9,7 +9,7 @@ import type { BlockContent } from "../cms/types";
 
 type SecondType = Extract<BlockContent[number], { _type: "image" }>;
 
-function urlFor(source: SanityImageSource) {
+export function urlFor(source: SanityImageSource) {
   const { projectId, dataset } = client.config();
   return projectId && dataset
     ? imageUrlBuilder({ projectId, dataset }).image(source)

@@ -220,7 +220,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
             </motion.div>
           )}
         </ClientOnly>
-        <div className="col-span-6 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center md:col-span-12">
+        <div className="col-span-12 col-start-1 border-b border-solid border-dark pb-md pt-xl text-center">
           <Link to="/" prefetch="render">
             <Text variant="display" size="display">
               LIAM DAWSON

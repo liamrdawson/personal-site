@@ -1,12 +1,15 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { type HeadersArgs } from "react-router";
 
+import type { Gallery } from "~/lib/cms/types";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
 import { InlineCode } from "~/lib/components/InlineCode";
 import { List } from "~/lib/components/List";
-import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
+import PortableTextBlogImage, {
+  urlFor,
+} from "~/lib/components/PortableTexBlogtImage";
 import { SlidingImage } from "~/lib/components/SlidingImage";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
@@ -57,10 +60,44 @@ export const meta = ({ data }: Route.MetaArgs) => {
   ];
 };
 
+interface ImageGalleryProps {
+  value: Gallery;
+}
+
+const ImageGallery = ({ value }: ImageGalleryProps) => {
+  console.log(value.images?.[0].alt);
+
+  return (
+    <Grid className="gallery-grid-container">
+      {value.images?.map((im, index) => {
+        if (!im.asset) {
+          return null;
+        }
+
+        return (
+          <div className={`gallery-grid-image-${index} gallery-grid-area`}>
+            <img
+              srcSet={`
+                  ${urlFor(im)?.width(200).auto("format").url()} 600w,
+                  ${urlFor(im)?.width(800).auto("format").url()} 800w,
+                  ${urlFor(im)?.width(1200).auto("format").url()} 1200w
+                `}
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              loading="lazy"
+              alt={im.alt}
+            />
+          </div>
+        );
+      })}
+    </Grid>
+  );
+};
+
 const portableTextComponents: PortableTextComponents = {
   types: {
     image: (props) => <PortableTextBlogImage {...props} />,
     code: ({ value }) => <CodeBlock value={value} />,
+    gallery: ({ value }) => <ImageGallery value={value} />,
   },
   list: {
     bullet: ({ children }) => <List style="ul">{children}</List>,
@@ -117,7 +154,7 @@ export default function PostPage({ loaderData }: Route.ComponentProps) {
   return (
     <main className="mt-layoutSection flex-1 text-dark selection:text-background selection:bg-text">
       <Grid>
-        <section className="col-span-6 col-start-1 md:col-span-12">
+        <section className="col-start-1 col-span-12">
           <Heading level="h1">{post?.title}</Heading>
           <div className="my-textToImage overflow-hidden">
             {mainImage && (

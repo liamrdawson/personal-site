@@ -70,7 +70,7 @@ export type Geopoint = {
 
 export type Gallery = {
   _type: "gallery";
-  images?: Array<{
+  images: Array<{
     asset?: {
       _ref: string;
       _type: "reference";
@@ -79,7 +79,7 @@ export type Gallery = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    alt?: string;
+    alt: string;
     _type: "image";
     _key: string;
   }>;

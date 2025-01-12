@@ -69,7 +69,7 @@ export default function IndexPage() {
   return (
     <main className="mt-layoutSection flex-1 text-dark selection:bg-text selection:text-background">
       <Grid>
-        <div className="col-span-6 col-start-1 md:col-span-12">
+        <div className="col-span-12 col-start-1">
           <section>
             <Heading level="h1">Welcome</Heading>
             <Text
