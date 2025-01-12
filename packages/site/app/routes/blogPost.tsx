@@ -1,15 +1,13 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { type HeadersArgs } from "react-router";
 
-import type { Gallery } from "~/lib/cms/types";
 import CodeBlock from "~/lib/components/CodeHighlight";
 import { Grid } from "~/lib/components/Grid";
 import { Heading } from "~/lib/components/Heading";
+import { ImageGallery } from "~/lib/components/ImageGallery";
 import { InlineCode } from "~/lib/components/InlineCode";
 import { List } from "~/lib/components/List";
-import PortableTextBlogImage, {
-  urlFor,
-} from "~/lib/components/PortableTexBlogtImage";
+import PortableTextBlogImage from "~/lib/components/PortableTexBlogtImage";
 import { SlidingImage } from "~/lib/components/SlidingImage";
 import { Text } from "~/lib/components/Text";
 import { TextLink } from "~/lib/components/TextLink";
@@ -58,39 +56,6 @@ export const meta = ({ data }: Route.MetaArgs) => {
     { property: "og:locale", content: "en_GB" },
     { property: "og:type", content: "article" },
   ];
-};
-
-interface ImageGalleryProps {
-  value: Gallery;
-}
-
-const ImageGallery = ({ value }: ImageGalleryProps) => {
-  console.log(value.images?.[0].alt);
-
-  return (
-    <Grid className="gallery-grid-container">
-      {value.images?.map((im, index) => {
-        if (!im.asset) {
-          return null;
-        }
-
-        return (
-          <div className={`gallery-grid-image-${index} gallery-grid-area`}>
-            <img
-              srcSet={`
-                  ${urlFor(im)?.width(200).auto("format").url()} 600w,
-                  ${urlFor(im)?.width(800).auto("format").url()} 800w,
-                  ${urlFor(im)?.width(1200).auto("format").url()} 1200w
-                `}
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              loading="lazy"
-              alt={im.alt}
-            />
-          </div>
-        );
-      })}
-    </Grid>
-  );
 };
 
 const portableTextComponents: PortableTextComponents = {
