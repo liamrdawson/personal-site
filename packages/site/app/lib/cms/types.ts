@@ -71,6 +71,25 @@ export interface Geopoint {
   alt?: number;
 }
 
+export interface Gallery {
+  _type: "gallery";
+  images: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    _type: "image";
+    _key: string;
+  }[];
+  display?: "stacked" | "inline" | "carousel";
+  zoom?: boolean;
+}
+
 export type BlockContent = ({
   children?: {
     marks?: string[];
@@ -88,7 +107,9 @@ export type BlockContent = ({
   level?: number;
   _type: "block";
   _key: string;
-} | {
+} | ({
+  _key: string;
+} & Gallery) | {
   asset?: {
     _ref: string;
     _type: "reference";
@@ -150,7 +171,6 @@ export interface Post {
   }[];
   publishedAt?: string;
   body: BlockContent;
-  myCodeField?: Code;
 }
 
 export interface Author {
@@ -263,7 +283,7 @@ export interface Code {
   highlightedLines?: number[];
 }
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | BlockContent | Category | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Code;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Gallery | BlockContent | Category | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../site/app/sanity/queries.ts
 // Variable: POST_QUERY
@@ -304,7 +324,6 @@ export type POST_QUERYResult = {
   }[];
   publishedAt?: string;
   body: BlockContent;
-  myCodeField?: Code;
 } | null;
 // Variable: MAIN_IMAGE_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]{mainImage { asset-> }}
