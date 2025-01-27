@@ -17,6 +17,8 @@ export function getSanityImageUrl({
     .width(width)
     .height(height)
     .auto("format")
+    .quality(100)
+    .dpr(2)
     .url();
 
   return url;

@@ -2,6 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
 import { cn } from "../utils/cn";
+import { Grid } from "./Grid";
 
 const textVariants = cva("block", {
   variants: {
@@ -9,6 +10,7 @@ const textVariants = cva("block", {
       content: "font-content font-family-content",
       ui: "font-default font-family-default",
       display: "font-display font-family-display",
+      quote: "font-content font-family-content italic mt-paragraph",
     },
     size: {
       sm: "text-small leading-small tracking-small",
@@ -22,13 +24,23 @@ const textVariants = cva("block", {
     variant: "content",
     size: "default",
   },
+  compoundVariants: [
+    {
+      variant: ["content", "ui", "display"],
+      class: "col-span-full",
+    },
+    {
+      variant: ["quote"],
+      class: "col-start-2 col-end-12",
+    },
+  ],
 });
-
-type TextElement = "p" | "span";
 
 type TextVariantProps = Omit<VariantProps<typeof textVariants>, "variant"> & {
   variant: Required<VariantProps<typeof textVariants>>["variant"];
 };
+
+type TextElement = "p" | "span" | "blockquote";
 
 interface TextProps
   extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement>,
@@ -48,11 +60,13 @@ export function Text({
 }: TextProps) {
   const Element = as;
   return (
-    <Element
-      className={cn(textVariants({ variant, size }), className ?? "")}
-      {...props}
-    >
-      {children}
-    </Element>
+    <Grid>
+      <Element
+        className={cn(textVariants({ variant, size }), className ?? "")}
+        {...props}
+      >
+        {children}
+      </Element>
+    </Grid>
   );
 }
