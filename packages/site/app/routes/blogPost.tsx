@@ -24,7 +24,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
   const mainImageUrl = mainImage
     ? getSanityImageUrl({
         source: mainImage,
-        width: 700,
+        width: 900,
         height: 500,
       })
     : null;
@@ -75,9 +75,7 @@ const portableTextComponents: PortableTextComponents = {
       </TextLink>
     ),
     code: ({ children }) => <InlineCode>{children}</InlineCode>,
-    strong: ({ children }) => (
-      <strong className="font-strong">{children}</strong>
-    ),
+    emphasis: ({ children }) => <em>{children}</em>,
   },
   block: {
     normal: ({ children }) => (
@@ -109,6 +107,11 @@ const portableTextComponents: PortableTextComponents = {
       <Heading level="h5" className="mt-paragraph">
         {children}
       </Heading>
+    ),
+    blockquote: ({ children }) => (
+      <Text as="blockquote" className="col-start-2" variant="quote">
+        {children}
+      </Text>
     ),
   },
 };
