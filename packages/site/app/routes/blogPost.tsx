@@ -94,7 +94,7 @@ const portableTextComponents: PortableTextComponents = {
       </Heading>
     ),
     h3: ({ children }) => (
-      <Heading level="h3" className="mt-pageSection">
+      <Heading level="h3" className="mt-64">
         {children}
       </Heading>
     ),
@@ -109,7 +109,11 @@ const portableTextComponents: PortableTextComponents = {
       </Heading>
     ),
     blockquote: ({ children }) => (
-      <Text as="blockquote" className="col-start-2" variant="quote">
+      <Text
+        as="blockquote"
+        className="col-start-2 mt-paragraph"
+        variant="quote"
+      >
         {children}
       </Text>
     ),
