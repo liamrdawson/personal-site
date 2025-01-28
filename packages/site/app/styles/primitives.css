@@ -1,11 +1,20 @@
 :root {
   /* Colour */
 
-  --lrd-grey-hue: 145.39;
-  --lrd-colour-base-grey-50: oklch(95% 0.005 var(--lrd-grey-hue));
-  --lrd-colour-base-grey-400: oklch(60% 0.005 var(--lrd-grey-hue));
-  --lrd-colour-base-grey-800: oklch(20% 0.005 var(--lrd-grey-hue));
-  --lrd-colour-base-grey-900: oklch(10% 0.005 var(--lrd-grey-hue));
+  --lrd-grey-hue: 98;
+  --lrd-grey-chroma: 0.0015;
+  --lrd-colour-base-grey-50: oklch(
+    95% var(--lrd-grey-chroma) var(--lrd-grey-hue)
+  );
+  --lrd-colour-base-grey-400: oklch(
+    60% var(--lrd-grey-chroma) var(--lrd-grey-hue)
+  );
+  --lrd-colour-base-grey-800: oklch(
+    20% var(--lrd-grey-chroma) var(--lrd-grey-hue)
+  );
+  --lrd-colour-base-grey-900: oklch(
+    10% var(--lrd-grey-chroma) var(--lrd-grey-hue)
+  );
   --lrd-colour-base-black: oklch(0% 0 0);
   --lrd-colour-base-white: oklch(100% 0 0);
 

@@ -15,11 +15,11 @@
   --lrd-font-weight-bold: 700;
 
   --lrd-font-weight-body: var(--lrd-font-weight-regular);
-  --lrd-font-weight-h1: var(--lrd-font-weight-bold);
-  --lrd-font-weight-h2: var(--lrd-font-weight-bold);
-  --lrd-font-weight-h3: var(--lrd-font-weight-bold);
-  --lrd-font-weight-h4: var(--lrd-font-weight-bold);
-  --lrd-font-weight-h5: var(--lrd-font-weight-bold);
+  --lrd-font-weight-h1: var(--lrd-font-weight-medium);
+  --lrd-font-weight-h2: var(--lrd-font-weight-medium);
+  --lrd-font-weight-h3: var(--lrd-font-weight-medium);
+  --lrd-font-weight-h4: var(--lrd-font-weight-medium);
+  --lrd-font-weight-h5: var(--lrd-font-weight-medium);
   --lrd-font-weight-display: var(--lrd-font-weight-bold);
   --lrd-font-weight-social: var(--lrd-font-weight-medium);
   --lrd-font-weight-strong: var(--lrd-font-weight-medium);
