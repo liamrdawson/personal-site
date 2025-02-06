@@ -11,7 +11,11 @@ import { Text } from "~/lib/components/Text";
 export function headers({ parentHeaders }: HeadersArgs) {
   parentHeaders.append(
     "Cache-Control",
-    "max-age=86400, s-max-age=2678400, stale-while-revalidate=31540000"
+    "public, max-age=604800, stale-while-revalidate=2678400, immutable"
+  );
+  parentHeaders.append(
+    "Netlify-CDN-Cache-Control",
+    "public, max-age=2678400, stale-while-revalidate=2678400"
   );
   return parentHeaders;
 }
