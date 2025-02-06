@@ -21,7 +21,11 @@ export async function loader() {
 export function headers({ parentHeaders }: HeadersArgs) {
   parentHeaders.append(
     "Cache-Control",
-    "max-age=3600, s-max-age=2678400, stale-while-revalidate=31540000"
+    "public, max-age=604800, stale-while-revalidate=2678400, immutable"
+  );
+  parentHeaders.append(
+    "Netlify-CDN-Cache-Control",
+    "public, max-age=2678400, stale-while-revalidate=2678400"
   );
   return parentHeaders;
 }
