@@ -21,11 +21,11 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   ];
   const location = useLocation();
   const currentMenuItem = menuItems.find(
-    (item) => item.path === location.pathname
+    (item) => item.path === location.pathname,
   );
 
   const [hovered, setHovered] = useState<(typeof menuItems)[0] | undefined>(
-    currentMenuItem
+    currentMenuItem,
   );
   const [isOpen, setIsOpen] = useState(false);
 
@@ -114,17 +114,17 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     document.addEventListener("mousedown", handleClickOutside as EventListener);
     document.addEventListener(
       "touchstart",
-      handleClickOutside as EventListener
+      handleClickOutside as EventListener,
     );
 
     return () => {
       document.removeEventListener(
         "mousedown",
-        handleClickOutside as EventListener
+        handleClickOutside as EventListener,
       );
       document.removeEventListener(
         "touchstart",
-        handleClickOutside as EventListener
+        handleClickOutside as EventListener,
       );
     };
   }, []);
@@ -230,7 +230,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
               size="default"
               className="italic leading-subheading selection:text-background selection:bg-text"
             >
-              <i>eCommerce Developer</i>
+              <i>Software Engineer</i>
             </Text>
           </Link>
         </div>
