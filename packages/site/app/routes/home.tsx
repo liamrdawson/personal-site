@@ -80,8 +80,8 @@ export default function IndexPage() {
               variant={"content"}
               className="mt-paragraph animate-fade-in opacity-0"
             >
-              I&apos;m Liam Dawson. I build and optimise eCommerce websites for
-              consumer brands and write about my experiences here.
+              I&apos;m Liam Dawson. I build and optimise websites and business
+              software for consumer brands and write about my experiences here.
             </Text>
           </section>
           <section className="mt-pageSection">
