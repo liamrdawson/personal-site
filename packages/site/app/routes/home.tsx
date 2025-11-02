@@ -21,11 +21,11 @@ export async function loader() {
 export function headers({ parentHeaders }: HeadersArgs) {
   parentHeaders.append(
     "Cache-Control",
-    "public, max-age=604800, stale-while-revalidate=2678400, immutable"
+    "public, max-age=604800, stale-while-revalidate=2678400, immutable",
   );
   parentHeaders.append(
     "Netlify-CDN-Cache-Control",
-    "public, max-age=2678400, stale-while-revalidate=2678400"
+    "public, max-age=2678400, stale-while-revalidate=2678400",
   );
   return parentHeaders;
 }
@@ -80,8 +80,8 @@ export default function IndexPage() {
               variant={"content"}
               className="mt-paragraph animate-fade-in opacity-0"
             >
-              I&apos;m Liam Dawson. I build and optimise eCommerce websites for
-              consumer brands and write about my experiences here.
+              I&apos;m Liam Dawson. I build and optimise websites and business
+              software for consumer brands and write about my experiences here.
             </Text>
           </section>
           <section className="mt-pageSection">
@@ -100,7 +100,7 @@ export default function IndexPage() {
                           {post.title}
                         </TextLink>
                       </li>
-                    )
+                    ),
                 )}
             </List>
           </section>

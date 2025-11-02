@@ -20,5 +20,5 @@ app.use(
         VALUE_FROM_EXPRESS: "Hello from Express",
       };
     },
-  })
+  }),
 );

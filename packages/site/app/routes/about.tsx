@@ -11,11 +11,11 @@ import { Text } from "~/lib/components/Text";
 export function headers({ parentHeaders }: HeadersArgs) {
   parentHeaders.append(
     "Cache-Control",
-    "public, max-age=604800, stale-while-revalidate=2678400, immutable"
+    "public, max-age=604800, stale-while-revalidate=2678400, immutable",
   );
   parentHeaders.append(
     "Netlify-CDN-Cache-Control",
-    "public, max-age=2678400, stale-while-revalidate=2678400"
+    "public, max-age=2678400, stale-while-revalidate=2678400",
   );
   return parentHeaders;
 }
@@ -70,6 +70,7 @@ export default function AboutPage() {
         <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-1 col-end-5">
           <SlidingImage
             src={image1}
+            height={500}
             alt={
               "A blurry black and white 35mm photo of Liam smiling at the camera"
             }
@@ -77,12 +78,14 @@ export default function AboutPage() {
         </div>
         <div className="my-textToImage aspect-[4/5] col-start-1 min-[500px]:col-start-5 min-[500px]:col-end-9 col-end-13">
           <SlidingImage
+            height={500}
             src={image2}
             alt={"A black and white 35mm photos of Liam smiling at the camera"}
           />
         </div>
         <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-9 col-end-13">
           <SlidingImage
+            height={500}
             src={image3}
             alt={
               "A blurry black and white 35mm photos of Liam smiling at the camera"
@@ -100,24 +103,22 @@ export default function AboutPage() {
             Born and raised in North Wales, I initially worked in the TV
             industry in London after university, but soon found my true passion
             in tech. Now based in Winchester, England, I specialise in
-            full-stack eCommerce development, helping brands optimise their
-            digital experiences to drive growth and deliver outstanding customer
-            journeys.
+            full-stack web development, helping brands optimise their digital
+            experiences and deliver outstanding customer journeys.
           </Text>
           <Text variant="content" className="mt-paragraph">
-            I use technology to empower brands to maximise their potential. I’m
-            fortunate to work in a field where innovation drives change, and I
-            use my skills to enhance customer buying experiences while
-            supporting brand growth and success.
+            I’m fortunate to work in a field where innovation drives change, and
+            I love that I get to use my skills to enhance people's everyday
+            online experiences and support the scalability of great companies.
           </Text>
           <Text variant="content" className="mt-paragraph">
             On this site, I share insights and learnings from my journey in
-            eCommerce. From industry trends to personal insights, I enjoy
-            jotting down ideas that might be valuable for others.
+            software engineering. From industry trends to personal insights, I
+            enjoy jotting down ideas that might be valuable for others.
           </Text>
           <Text variant="content" className="mt-paragraph">
             Outside of work, my favourite things are spending time with my
-            family, photography, and, on occasion, exercise.
+            family, photography, and, on the very rare occasion, exercise.
           </Text>
         </section>
       </Grid>
