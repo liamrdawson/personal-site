@@ -16,7 +16,7 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
       ([entry]) => {
         setFooterIsInView(entry.isIntersecting);
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     if (ref.current) {
@@ -55,15 +55,15 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
               LinkedIn
             </TextLink>
           </li>
-          <li>
-            <TextLink
-              prefetch="none"
-              to="https://www.instagram.com/liam_r_dawson/"
-              variant="muted"
-            >
-              Instagram
-            </TextLink>
-          </li>
+          {/* <li> */}
+          {/*   <TextLink */}
+          {/*     prefetch="none" */}
+          {/*     to="https://www.instagram.com/liam_r_dawson/" */}
+          {/*     variant="muted" */}
+          {/*   > */}
+          {/*     Instagram */}
+          {/*   </TextLink> */}
+          {/* </li> */}
         </ul>
       </Grid>
       <div className="mt-row text-center text-socialsLink">
