@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { cn } from "../utils/cn";
 
 const listVariants = cva(
-  "space-y-4 pl-sm text-body leading-body tracking-body mt-paragraph",
+  "space-y-4 pl-sm text-body leading-body tracking-body mt-paragraph [&>li>ul]:mt-4 [&>li>ol]:mt-4",
   {
     variants: {
       intent: {
@@ -16,7 +16,7 @@ const listVariants = cva(
         ol: "list-decimal",
       },
     },
-  }
+  },
 );
 
 type ListVariantProps = VariantProps<typeof listVariants> & {

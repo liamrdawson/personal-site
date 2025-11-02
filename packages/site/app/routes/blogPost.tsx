@@ -40,11 +40,11 @@ export async function loader({ params, request }: Route.LoaderArgs) {
 export function headers({ parentHeaders }: HeadersArgs) {
   parentHeaders.append(
     "Cache-Control",
-    "public, max-age=604800, stale-while-revalidate=2678400, immutable"
+    "public, max-age=604800, stale-while-revalidate=2678400, immutable",
   );
   parentHeaders.append(
     "Netlify-CDN-Cache-Control",
-    "public, max-age=2678400, stale-while-revalidate=2678400"
+    "public, max-age=2678400, stale-while-revalidate=2678400",
   );
   return parentHeaders;
 }
@@ -140,6 +140,8 @@ export default function PostPage({ loaderData }: Route.ComponentProps) {
                   width: 700,
                   height: 500,
                 })}
+                width={700}
+                height={500}
                 alt={
                   mainImage.asset?.altText ??
                   "The main image for this blog post"

@@ -6,10 +6,13 @@ export const SlidingImage = ({
 }: {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 }) => {
-  const c = width && height ? `aspect-[${width}/${height}] object-cover` : "";
+  const c =
+    width && height
+      ? `aspect-[${width}/${height}] h-${height}px object-cover`
+      : "";
 
   return (
     <div className="relative overflow-hidden align-baseline md:col-end-5">
