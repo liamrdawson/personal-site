@@ -55,15 +55,15 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
               LinkedIn
             </TextLink>
           </li>
-          {/* <li> */}
-          {/*   <TextLink */}
-          {/*     prefetch="none" */}
-          {/*     to="https://www.instagram.com/liam_r_dawson/" */}
-          {/*     variant="muted" */}
-          {/*   > */}
-          {/*     Instagram */}
-          {/*   </TextLink> */}
-          {/* </li> */}
+          <li>
+            <TextLink
+              prefetch="none"
+              to="https://github.com/liamrdawson"
+              variant="muted"
+            >
+              Github
+            </TextLink>
+          </li>
         </ul>
       </Grid>
       <div className="mt-row text-center text-socialsLink">
