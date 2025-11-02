@@ -11,7 +11,7 @@ export const SlidingImage = ({
 }) => {
   const c =
     width && height
-      ? `aspect-[${width}/${height}] h-${height}px object-cover`
+      ? `aspect-[${width}/${height}] h-[${height}px] object-cover`
       : "";
 
   return (
