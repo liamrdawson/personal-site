@@ -16,13 +16,22 @@ const customNightOwl = {
 
 const CodeBlock = ({ value }: Props) => {
   const { code, language } = value;
+
+  const languageMap: Record<string, string> = {
+    golang: "go",
+    typescipt: "typescript",
+    sh: "bash",
+  };
+
+  const correctLanguage = languageMap[language] ?? language;
+
   return (
     <ClientOnly>
       {() => (
         <SyntaxHighlighter
           showLineNumbers={false}
           showInlineLineNumbers={true}
-          language={language}
+          language={correctLanguage}
           style={customNightOwl}
           customStyle={{
             padding: "1em",
