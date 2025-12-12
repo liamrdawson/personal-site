@@ -68,7 +68,8 @@ const Footer = ({ setFooterIsInView }: FooterProps) => {
       </Grid>
       <div className="mt-row text-center text-socialsLink">
         <span>
-          Copyright © 2024 <Link to="/">Liam Dawson</Link>
+          Copyright © {new Date().getFullYear()}{" "}
+          <Link to="/">Liam Dawson</Link>
         </span>
       </div>
     </footer>
