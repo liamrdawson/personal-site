@@ -1,8 +1,8 @@
 :root {
   /* Colour */
 
-  --lrd-grey-hue: 98;
-  --lrd-grey-chroma: 0.0015;
+  --lrd-grey-hue: 65;
+  --lrd-grey-chroma: 0.01;
   --lrd-colour-base-grey-50: oklch(
     95% var(--lrd-grey-chroma) var(--lrd-grey-hue)
   );
