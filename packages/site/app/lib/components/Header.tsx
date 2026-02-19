@@ -24,9 +24,19 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     (item) => item.path === location.pathname,
   );
 
+
+  console.log('[DEBUG] currentMenuItem', {
+    currentMenuItem,
+    locationName: location.pathname,
+    menuItems
+  })
+
   const [hovered, setHovered] = useState<(typeof menuItems)[0] | undefined>(
     currentMenuItem,
   );
+
+  console.log('[DEBUG] hovered', {hovered})
+
   const [isOpen, setIsOpen] = useState(false);
 
   const collapsedHeight = useViewportWidth() > 1023 ? "4.4rem" : "3.5rem";
