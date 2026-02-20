@@ -14,6 +14,14 @@ interface HeaderProps {
   footerIsInView: boolean;
 }
 
+const HoverBox = () => (
+  <motion.span
+    layoutId="underline"
+    transition={{ duration: 0.2, ease: cubicBezier(0.72, 0, 0.28, 1) }}
+    className="absolute bottom-0 left-0 right-0 top-0 z-30 rounded-sm bg-light"
+  />
+);
+
 const Header = ({ footerIsInView }: HeaderProps) => {
   const menuItems = [
     { label: "About", path: "/about" },
@@ -21,12 +29,13 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   ];
   const location = useLocation();
   const currentMenuItem = menuItems.find(
-    (item) => item.path === location.pathname,
+    (item) => item.path === location.pathname
   );
 
   const [hovered, setHovered] = useState<(typeof menuItems)[0] | undefined>(
-    currentMenuItem,
+    currentMenuItem
   );
+
   const [isOpen, setIsOpen] = useState(false);
 
   const collapsedHeight = useViewportWidth() > 1023 ? "4.4rem" : "3.5rem";
@@ -78,22 +87,10 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     closed: { opacity: 1, pointerEvents: "auto" },
   };
 
-  const HoverBox = () => (
-    <motion.span
-      layoutId="underline"
-      transition={{ duration: 0.2, ease: cubicBezier(0.72, 0, 0.28, 1) }}
-      className="absolute bottom-0 left-0 right-0 top-0 z-30 rounded-sm bg-light"
-    />
-  );
-
   const navRef = useRef<HTMLDivElement>(null);
 
   const handleMenuOpen = () => {
-    if (isMobile) {
-      setHovered(currentMenuItem);
-    } else {
-      setHovered(menuItems.find((item) => item.path === "/"));
-    }
+    setHovered(currentMenuItem);
     setIsOpen(true);
   };
 
@@ -114,17 +111,17 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     document.addEventListener("mousedown", handleClickOutside as EventListener);
     document.addEventListener(
       "touchstart",
-      handleClickOutside as EventListener,
+      handleClickOutside as EventListener
     );
 
     return () => {
       document.removeEventListener(
         "mousedown",
-        handleClickOutside as EventListener,
+        handleClickOutside as EventListener
       );
       document.removeEventListener(
         "touchstart",
-        handleClickOutside as EventListener,
+        handleClickOutside as EventListener
       );
     };
   }, []);
