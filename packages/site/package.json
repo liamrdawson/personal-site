@@ -41,6 +41,7 @@
     "@playwright/test": "^1.58.2",
     "@portabletext/types": "^4.0.1",
     "@react-router/dev": "^7.13.0",
+    "@tailwindcss/postcss": "^4.2.0",
     "@types/compression": "^1.8.1",
     "@types/express": "^5.0.6",
     "@types/express-serve-static-core": "^5.1.1",
