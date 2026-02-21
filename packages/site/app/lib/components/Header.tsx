@@ -82,7 +82,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
     <motion.span
       layoutId="underline"
       transition={{ duration: 0.2, ease: cubicBezier(0.72, 0, 0.28, 1) }}
-      className="absolute bottom-0 left-0 right-0 top-0 z-30 rounded-sm bg-light"
+      className="absolute bottom-0 left-0 right-0 top-0 z-30 rounded-xs bg-light"
     />
   );
 
@@ -189,7 +189,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                   onMouseLeave={() => handleMouseLeave()}
                   className="absolute bottom-0 w-96 overflow-y-hidden rounded-md bg-dark p-xs"
                 >
-                  <ul className="relative flex flex-col rounded-sm text-center text-large font-strong">
+                  <ul className="relative flex flex-col rounded-xs text-center text-large font-strong">
                     {menuItems.map((item) => (
                       <motion.li
                         key={item.label}
