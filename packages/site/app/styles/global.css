@@ -1,9 +1,6 @@
+@import "tailwindcss";
 @import url("./reset.css");
 @import url("./theme.css");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 h1 + .text-h2,
 h2 + .text-h3,
