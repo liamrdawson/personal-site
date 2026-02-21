@@ -1,3 +1,5 @@
 packages:
-  - "packages/cms"
-  - "packages/site"
+  - packages/cms
+  - packages/site
+onlyBuiltDependencies:
+  - esbuild
