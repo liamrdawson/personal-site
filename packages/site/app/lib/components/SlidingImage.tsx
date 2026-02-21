@@ -17,7 +17,7 @@ export const SlidingImage = ({
   return (
     <div className="relative overflow-hidden align-baseline md:col-end-5">
       <div className="translate-y-[102%] animate-asset-slide-up overflow-hidden">
-        <div className="translate-y-[-100%] animate-asset-slide-down overflow-hidden">
+        <div className="-translate-y-full animate-asset-slide-down overflow-hidden">
           <img src={src} className={c} alt={alt} />
         </div>
       </div>

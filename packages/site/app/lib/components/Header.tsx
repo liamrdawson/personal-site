@@ -139,7 +139,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
   };
 
   const boxShadow =
-    "shadow-[0px_0px_0px_0px_rgba(0,_0,_0,_0.10),_4px_2px_9px_0px_rgba(0,_0,_0,_0.10),_14px_10px_17px_0px_rgba(0,_0,_0,_0.09)]";
+    "shadow-[0px_0px_0px_0px_rgba(0,0,0,0.10),4px_2px_9px_0px_rgba(0,0,0,0.10),14px_10px_17px_0px_rgba(0,0,0,0.09)]";
 
   return (
     <header>
@@ -157,7 +157,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                 ease: cubicBezier(0.5, 0, 0, 1),
               }}
             >
-              <div className="relative mx-auto flex w-128 flex-col items-center justify-center border-2 border-[red]">
+              <div className="relative mx-auto flex w-lg flex-col items-center justify-center border-2 border-[red]">
                 <motion.button
                   animate={isOpen ? "open" : "closed"}
                   variants={motionButtonVariants}
@@ -177,7 +177,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                     ease: cubicBezier(0.28, 0.44, 0.49, 1),
                     pointerEvents: { delay: 0.125, duration: 0.125 },
                   }}
-                  className={`${boxShadow} z-50 w-128 rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light`}
+                  className={`${boxShadow} z-50 w-lg rounded-md bg-dark py-xs text-center font-family-default text-large font-strong text-light`}
                 >
                   Menu
                 </motion.button>

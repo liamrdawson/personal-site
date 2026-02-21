@@ -67,7 +67,7 @@ export default function AboutPage() {
     <main className="mt-layoutSection flex-1 text-dark selection:text-background selection:bg-text">
       <Heading level={"h1"}>About</Heading>
       <Grid>
-        <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-1 col-end-5">
+        <div className="my-textToImage hidden aspect-4/5 min-[500px]:block col-start-1 col-end-5">
           <SlidingImage
             src={image1}
             height={500}
@@ -76,14 +76,14 @@ export default function AboutPage() {
             }
           />
         </div>
-        <div className="my-textToImage aspect-[4/5] col-start-1 min-[500px]:col-start-5 min-[500px]:col-end-9 col-end-13">
+        <div className="my-textToImage aspect-4/5 col-start-1 min-[500px]:col-start-5 min-[500px]:col-end-9 col-end-13">
           <SlidingImage
             height={500}
             src={image2}
             alt={"A black and white 35mm photos of Liam smiling at the camera"}
           />
         </div>
-        <div className="my-textToImage hidden aspect-[4/5] min-[500px]:block col-start-9 col-end-13">
+        <div className="my-textToImage hidden aspect-4/5 min-[500px]:block col-start-9 col-end-13">
           <SlidingImage
             height={500}
             src={image3}
