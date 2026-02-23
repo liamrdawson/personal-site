@@ -1,11 +1,13 @@
 import { type ReactNode } from "react";
 
 export const Grid = ({
-  children,
-  className,
+    children,
+    className,
 }: {
-  children: ReactNode;
-  className?: string;
+    children: ReactNode;
+    className?: string;
 }) => (
-  <div className={`${className} grid grid-cols-12 gap-x-body`}>{children}</div>
+    <div className={`${className} grid grid-cols-12 gap-x-body`}>
+        {children}
+    </div>
 );

@@ -17,354 +17,376 @@
 import "@sanity/client";
 
 export interface SanityImagePaletteSwatch {
-  _type: "sanity.imagePaletteSwatch";
-  background?: string;
-  foreground?: string;
-  population?: number;
-  title?: string;
+    _type: "sanity.imagePaletteSwatch";
+    background?: string;
+    foreground?: string;
+    population?: number;
+    title?: string;
 }
 
 export interface SanityImagePalette {
-  _type: "sanity.imagePalette";
-  darkMuted?: SanityImagePaletteSwatch;
-  lightVibrant?: SanityImagePaletteSwatch;
-  darkVibrant?: SanityImagePaletteSwatch;
-  vibrant?: SanityImagePaletteSwatch;
-  dominant?: SanityImagePaletteSwatch;
-  lightMuted?: SanityImagePaletteSwatch;
-  muted?: SanityImagePaletteSwatch;
+    _type: "sanity.imagePalette";
+    darkMuted?: SanityImagePaletteSwatch;
+    lightVibrant?: SanityImagePaletteSwatch;
+    darkVibrant?: SanityImagePaletteSwatch;
+    vibrant?: SanityImagePaletteSwatch;
+    dominant?: SanityImagePaletteSwatch;
+    lightMuted?: SanityImagePaletteSwatch;
+    muted?: SanityImagePaletteSwatch;
 }
 
 export interface SanityImageDimensions {
-  _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
+    _type: "sanity.imageDimensions";
+    height?: number;
+    width?: number;
+    aspectRatio?: number;
 }
 
 export interface SanityFileAsset {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
+    _id: string;
+    _type: "sanity.fileAsset";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    originalFilename?: string;
+    label?: string;
+    title?: string;
+    description?: string;
+    altText?: string;
+    sha1hash?: string;
+    extension?: string;
+    mimeType?: string;
+    size?: number;
+    assetId?: string;
+    uploadId?: string;
+    path?: string;
+    url?: string;
+    source?: SanityAssetSourceData;
 }
 
 export interface Geopoint {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
+    _type: "geopoint";
+    lat?: number;
+    lng?: number;
+    alt?: number;
 }
 
 export interface Gallery {
-  _type: "gallery";
-  images: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt: string;
-    _type: "image";
-    _key: string;
-  }[];
-  display?: "stacked" | "inline" | "carousel";
-  zoom?: boolean;
+    _type: "gallery";
+    images: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        _type: "image";
+        _key: string;
+    }[];
+    display?: "stacked" | "inline" | "carousel";
+    zoom?: boolean;
 }
 
-export type BlockContent = ({
-  children?: {
-    marks?: string[];
-    text?: string;
-    _type: "span";
-    _key: string;
-  }[];
-  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-  listItem?: "bullet" | "number";
-  markDefs?: {
-    href?: string;
-    _type: "link";
-    _key: string;
-  }[];
-  level?: number;
-  _type: "block";
-  _key: string;
-} | ({
-  _key: string;
-} & Gallery) | {
-  asset?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-  };
-  hotspot?: SanityImageHotspot;
-  crop?: SanityImageCrop;
-  alt: string;
-  _type: "image";
-  _key: string;
-} | ({
-  _key: string;
-} & Code))[];
+export type BlockContent = (
+    | {
+          children?: {
+              marks?: string[];
+              text?: string;
+              _type: "span";
+              _key: string;
+          }[];
+          style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+          listItem?: "bullet" | "number";
+          markDefs?: {
+              href?: string;
+              _type: "link";
+              _key: string;
+          }[];
+          level?: number;
+          _type: "block";
+          _key: string;
+      }
+    | ({
+          _key: string;
+      } & Gallery)
+    | {
+          asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt: string;
+          _type: "image";
+          _key: string;
+      }
+    | ({
+          _key: string;
+      } & Code)
+)[];
 
 export interface Category {
-  _id: string;
-  _type: "category";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  description?: string;
+    _id: string;
+    _type: "category";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    title?: string;
+    description?: string;
 }
 
 export interface Post {
-  _id: string;
-  _type: "post";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title: string;
-  description: string;
-  slug: Slug;
-  author: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "author";
-  };
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    _id: string;
+    _type: "post";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    title: string;
+    description: string;
+    slug: Slug;
+    author: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "author";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt: string;
-    _type: "image";
-  };
-  categories?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "category";
-  }[];
-  publishedAt?: string;
-  body: BlockContent;
+    mainImage?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        _type: "image";
+    };
+    categories?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        _key: string;
+        [internalGroqTypeReferenceTo]?: "category";
+    }[];
+    publishedAt?: string;
+    body: BlockContent;
 }
 
 export interface Author {
-  _id: string;
-  _type: "author";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  slug?: Slug;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    _id: string;
+    _type: "author";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name?: string;
+    slug?: Slug;
+    image?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  bio?: {
-    children?: {
-      marks?: string[];
-      text?: string;
-      _type: "span";
-      _key: string;
+    bio?: {
+        children?: {
+            marks?: string[];
+            text?: string;
+            _type: "span";
+            _key: string;
+        }[];
+        style?: "normal";
+        listItem?: never;
+        markDefs?: {
+            href?: string;
+            _type: "link";
+            _key: string;
+        }[];
+        level?: number;
+        _type: "block";
+        _key: string;
     }[];
-    style?: "normal";
-    listItem?: never;
-    markDefs?: {
-      href?: string;
-      _type: "link";
-      _key: string;
-    }[];
-    level?: number;
-    _type: "block";
-    _key: string;
-  }[];
 }
 
 export interface SanityImageCrop {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+    _type: "sanity.imageCrop";
+    top?: number;
+    bottom?: number;
+    left?: number;
+    right?: number;
 }
 
 export interface SanityImageHotspot {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
+    _type: "sanity.imageHotspot";
+    x?: number;
+    y?: number;
+    height?: number;
+    width?: number;
 }
 
 export interface SanityImageAsset {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  metadata?: SanityImageMetadata;
-  source?: SanityAssetSourceData;
+    _id: string;
+    _type: "sanity.imageAsset";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    originalFilename?: string;
+    label?: string;
+    title?: string;
+    description?: string;
+    altText?: string;
+    sha1hash?: string;
+    extension?: string;
+    mimeType?: string;
+    size?: number;
+    assetId?: string;
+    uploadId?: string;
+    path?: string;
+    url?: string;
+    metadata?: SanityImageMetadata;
+    source?: SanityAssetSourceData;
 }
 
 export interface SanityAssetSourceData {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
+    _type: "sanity.assetSourceData";
+    name?: string;
+    id?: string;
+    url?: string;
 }
 
 export interface SanityImageMetadata {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
+    _type: "sanity.imageMetadata";
+    location?: Geopoint;
+    dimensions?: SanityImageDimensions;
+    palette?: SanityImagePalette;
+    lqip?: string;
+    blurHash?: string;
+    hasAlpha?: boolean;
+    isOpaque?: boolean;
 }
 
 export interface Slug {
-  _type: "slug";
-  current: string;
-  source?: string;
+    _type: "slug";
+    current: string;
+    source?: string;
 }
 
 export interface Code {
-  _type: "code";
-  language?: string;
-  filename?: string;
-  code?: string;
-  highlightedLines?: number[];
+    _type: "code";
+    language?: string;
+    filename?: string;
+    code?: string;
+    highlightedLines?: number[];
 }
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Gallery | BlockContent | Category | Post | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Code;
+export type AllSanitySchemaTypes =
+    | SanityImagePaletteSwatch
+    | SanityImagePalette
+    | SanityImageDimensions
+    | SanityFileAsset
+    | Geopoint
+    | Gallery
+    | BlockContent
+    | Category
+    | Post
+    | Author
+    | SanityImageCrop
+    | SanityImageHotspot
+    | SanityImageAsset
+    | SanityAssetSourceData
+    | SanityImageMetadata
+    | Slug
+    | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../site/app/sanity/queries.ts
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]
 export type POST_QUERYResult = {
-  _id: string;
-  _type: "post";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title: string;
-  description: string;
-  slug: Slug;
-  author: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "author";
-  };
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    _id: string;
+    _type: "post";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    title: string;
+    description: string;
+    slug: Slug;
+    author: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "author";
     };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt: string;
-    _type: "image";
-  };
-  categories?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "category";
-  }[];
-  publishedAt?: string;
-  body: BlockContent;
+    mainImage?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt: string;
+        _type: "image";
+    };
+    categories?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        _key: string;
+        [internalGroqTypeReferenceTo]?: "category";
+    }[];
+    publishedAt?: string;
+    body: BlockContent;
 } | null;
 // Variable: MAIN_IMAGE_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]{mainImage { asset-> }}
 export type MAIN_IMAGE_QUERYResult = {
-  mainImage: {
-    asset: {
-      _id: string;
-      _type: "sanity.imageAsset";
-      _createdAt: string;
-      _updatedAt: string;
-      _rev: string;
-      originalFilename?: string;
-      label?: string;
-      title?: string;
-      description?: string;
-      altText?: string;
-      sha1hash?: string;
-      extension?: string;
-      mimeType?: string;
-      size?: number;
-      assetId?: string;
-      uploadId?: string;
-      path?: string;
-      url?: string;
-      metadata?: SanityImageMetadata;
-      source?: SanityAssetSourceData;
+    mainImage: {
+        asset: {
+            _id: string;
+            _type: "sanity.imageAsset";
+            _createdAt: string;
+            _updatedAt: string;
+            _rev: string;
+            originalFilename?: string;
+            label?: string;
+            title?: string;
+            description?: string;
+            altText?: string;
+            sha1hash?: string;
+            extension?: string;
+            mimeType?: string;
+            size?: number;
+            assetId?: string;
+            uploadId?: string;
+            path?: string;
+            url?: string;
+            metadata?: SanityImageMetadata;
+            source?: SanityAssetSourceData;
+        } | null;
     } | null;
-  } | null;
 } | null;
 // Variable: POSTS_QUERY
 // Query: *[    _type == "post"    && defined(slug.current)  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}
 export type POSTS_QUERYResult = {
-  _id: string;
-  title: string;
-  slug: Slug;
-  publishedAt: string | null;
+    _id: string;
+    title: string;
+    slug: Slug;
+    publishedAt: string | null;
 }[];
 declare module "@sanity/client" {
-  interface SanityQueries {
-    "*[_type == \"post\" && slug.current == $slug][0]": POST_QUERYResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{mainImage { asset-> }}": MAIN_IMAGE_QUERYResult;
-    "*[\n    _type == \"post\"\n    && defined(slug.current)\n  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}": POSTS_QUERYResult;
-  }
+    interface SanityQueries {
+        '*[_type == "post" && slug.current == $slug][0]': POST_QUERYResult;
+        '*[_type == "post" && slug.current == $slug][0]{mainImage { asset-> }}': MAIN_IMAGE_QUERYResult;
+        '*[\n    _type == "post"\n    && defined(slug.current)\n  ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}': POSTS_QUERYResult;
+    }
 }

@@ -1,139 +1,139 @@
-@import url("../primitives.css");
+@import "../primitives.css";
 
 :root {
-  /* Font Size  */
+    /* Font Size  */
 
-  --lrd-font-text-body-sm-mobile-font-size: var(--lrd-size-font-sm);
-  --lrd-font-text-body-sm-desktop-font-size: var(--lrd-size-font-sm);
+    --lrd-font-text-body-sm-mobile-font-size: var(--lrd-size-font-sm);
+    --lrd-font-text-body-sm-desktop-font-size: var(--lrd-size-font-sm);
 
-  --lrd-font-text-body-base-mobile-font-size: var(--lrd-size-font-md);
-  --lrd-font-text-body-base-desktop-font-size: var(--lrd-size-font-lg);
+    --lrd-font-text-body-base-mobile-font-size: var(--lrd-size-font-md);
+    --lrd-font-text-body-base-desktop-font-size: var(--lrd-size-font-lg);
 
-  --lrd-font-text-body-lg-mobile-font-size: var(--lrd-size-font-lg);
-  --lrd-font-text-body-lg-desktop-font-size: var(--lrd-size-font-xl);
+    --lrd-font-text-body-lg-mobile-font-size: var(--lrd-size-font-lg);
+    --lrd-font-text-body-lg-desktop-font-size: var(--lrd-size-font-xl);
 
-  --lrd-font-text-heading-xs-mobile-font-size: var(--lrd-size-font-lg);
-  --lrd-font-text-heading-xs-desktop-font-size: var(--lrd-size-font-xl);
+    --lrd-font-text-heading-xs-mobile-font-size: var(--lrd-size-font-lg);
+    --lrd-font-text-heading-xs-desktop-font-size: var(--lrd-size-font-xl);
 
-  --lrd-font-text-heading-sm-mobile-font-size: var(--lrd-size-font-xl);
-  --lrd-font-text-heading-sm-desktop-font-size: var(--lrd-size-font-2xl);
+    --lrd-font-text-heading-sm-mobile-font-size: var(--lrd-size-font-xl);
+    --lrd-font-text-heading-sm-desktop-font-size: var(--lrd-size-font-2xl);
 
-  --lrd-font-text-heading-md-mobile-font-size: var(--lrd-size-font-2xl);
-  --lrd-font-text-heading-md-desktop-font-size: var(--lrd-size-font-3xl);
+    --lrd-font-text-heading-md-mobile-font-size: var(--lrd-size-font-2xl);
+    --lrd-font-text-heading-md-desktop-font-size: var(--lrd-size-font-3xl);
 
-  --lrd-font-text-heading-lg-mobile-font-size: var(--lrd-size-font-3xl);
-  --lrd-font-text-heading-lg-desktop-font-size: var(--lrd-size-font-4xl);
+    --lrd-font-text-heading-lg-mobile-font-size: var(--lrd-size-font-3xl);
+    --lrd-font-text-heading-lg-desktop-font-size: var(--lrd-size-font-4xl);
 
-  --lrd-font-text-heading-xl-mobile-font-size: var(--lrd-size-font-4xl);
-  --lrd-font-text-heading-xl-desktop-font-size: var(--lrd-size-font-5xl);
+    --lrd-font-text-heading-xl-mobile-font-size: var(--lrd-size-font-4xl);
+    --lrd-font-text-heading-xl-desktop-font-size: var(--lrd-size-font-5xl);
 
-  --lrd-font-text-heading-xxl-mobile-font-size: var(--lrd-size-font-5xl);
-  --lrd-font-text-heading-xxl-desktop-font-size: var(--lrd-size-font-6xl);
+    --lrd-font-text-heading-xxl-mobile-font-size: var(--lrd-size-font-5xl);
+    --lrd-font-text-heading-xxl-desktop-font-size: var(--lrd-size-font-6xl);
 
-  /* Line Height */
+    /* Line Height */
 
-  --lrd-size-line-height-sm: 150%;
-  --lrd-size-line-height-md: 175%;
-  --lrd-size-line-height-lg: 180%;
-  --lrd-size-line-height-h1: 110%;
-  --lrd-size-line-height-h2: 110%;
-  --lrd-size-line-height-h3: 110%;
-  --lrd-size-line-height-h4: 110%;
-  --lrd-size-line-height-h5: 110%;
-  --lrd-size-line-height-display: 100%;
-  --lrd-size-line-height-subheading: 85%;
+    --lrd-size-line-height-sm: 150%;
+    --lrd-size-line-height-md: 175%;
+    --lrd-size-line-height-lg: 180%;
+    --lrd-size-line-height-h1: 110%;
+    --lrd-size-line-height-h2: 110%;
+    --lrd-size-line-height-h3: 110%;
+    --lrd-size-line-height-h4: 110%;
+    --lrd-size-line-height-h5: 110%;
+    --lrd-size-line-height-display: 100%;
+    --lrd-size-line-height-subheading: 85%;
 
-  /* Spacing */
+    /* Spacing */
 
-  --lrd-spacing-layout-fixed-xs: var(--lrd-size-64);
-  --lrd-spacing-layout-fixed-sm: var(--lrd-size-96);
-  --lrd-spacing-layout-fixed-md: var(--lrd-size-128);
-  --lrd-spacing-layout-fixed-lg: var(--lrd-size-256);
+    --lrd-spacing-layout-fixed-xs: var(--lrd-size-64);
+    --lrd-spacing-layout-fixed-sm: var(--lrd-size-96);
+    --lrd-spacing-layout-fixed-md: var(--lrd-size-128);
+    --lrd-spacing-layout-fixed-lg: var(--lrd-size-256);
 
-  --lrd-spacing-layout-variable-sm: 3.2vw;
-  --lrd-spacing-layout-variable-md: 6.5vw;
-  --lrd-spacing-layout-variable-lg: 10.5vw;
+    --lrd-spacing-layout-variable-sm: 3.2vw;
+    --lrd-spacing-layout-variable-md: 6.5vw;
+    --lrd-spacing-layout-variable-lg: 10.5vw;
 
-  --lrd-spacing-section-mobile: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
-  );
+    --lrd-spacing-section-mobile: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-sm)
+    );
 
-  --lrd-spacing-section-desktop: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
-  );
+    --lrd-spacing-section-desktop: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-sm)
+    );
 
-  --lrd-spacing-section-wide: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
-  );
+    --lrd-spacing-section-wide: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-sm)
+    );
 
-  --lrd-spacing-layout-section-mobile: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-sm)
-  );
-  --lrd-spacing-layout-section-desktop: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-lg)
-  );
-  --lrd-spacing-layout-section-wide: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-lg),
-    var(--lrd-spacing-layout-fixed-lg)
-  );
-  --lrd-spacing-layout-section-ultra-wide: clamp(
-    var(--lrd-spacing-layout-fixed-xs),
-    var(--lrd-spacing-layout-variable-md),
-    var(--lrd-spacing-layout-fixed-lg)
-  );
+    --lrd-spacing-layout-section-mobile: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-sm)
+    );
+    --lrd-spacing-layout-section-desktop: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-lg)
+    );
+    --lrd-spacing-layout-section-wide: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-lg),
+        var(--lrd-spacing-layout-fixed-lg)
+    );
+    --lrd-spacing-layout-section-ultra-wide: clamp(
+        var(--lrd-spacing-layout-fixed-xs),
+        var(--lrd-spacing-layout-variable-md),
+        var(--lrd-spacing-layout-fixed-lg)
+    );
 
-  --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
-  --lrd-spacing-text-to-image-desktop: var(--lrd-spacing-layout-variable-sm);
+    --lrd-spacing-text-to-image-mobile: var(--lrd-size-32);
+    --lrd-spacing-text-to-image-desktop: var(--lrd-spacing-layout-variable-sm);
 
-  --lrd-spacing-between-text-mobile: var(--lrd-size-4);
-  --lrd-spacing-between-text-desktop: var(--lrd-size-8);
+    --lrd-spacing-between-text-mobile: var(--lrd-size-4);
+    --lrd-spacing-between-text-desktop: var(--lrd-size-8);
 
-  --lrd-spacing-between-paragraphs-mobile: var(--lrd-size-32);
-  --lrd-spacing-between-paragraphs-desktop: var(--lrd-size-32);
+    --lrd-spacing-between-paragraphs-mobile: var(--lrd-size-32);
+    --lrd-spacing-between-paragraphs-desktop: var(--lrd-size-32);
 
-  --lrd-spacing-heading-to-subheading-mobile: 0;
-  --lrd-spacing-heading-to-subheading-desktop: var(--lrd-size-8);
+    --lrd-spacing-heading-to-subheading-mobile: 0;
+    --lrd-spacing-heading-to-subheading-desktop: var(--lrd-size-8);
 
-  --lrd-spacing-h1-to-text-mobile: var(--lrd-size-16);
-  --lrd-spacing-h1-to-text-desktop: var(--lrd-size-16);
+    --lrd-spacing-h1-to-text-mobile: var(--lrd-size-16);
+    --lrd-spacing-h1-to-text-desktop: var(--lrd-size-16);
 
-  --lrd-spacing-h2-to-text-mobile: var(--lrd-size-12);
-  --lrd-spacing-h2-to-text-desktop: var(--lrd-size-12);
+    --lrd-spacing-h2-to-text-mobile: var(--lrd-size-12);
+    --lrd-spacing-h2-to-text-desktop: var(--lrd-size-12);
 
-  --lrd-spacing-footer-row-mobile: var(--lrd-size-32);
-  --lrd-spacing-footer-row-desktop: var(--lrd-size-32);
+    --lrd-spacing-footer-row-mobile: var(--lrd-size-32);
+    --lrd-spacing-footer-row-desktop: var(--lrd-size-32);
 
-  /* Padding */
+    /* Padding */
 
-  --lrd-padding-xs: var(--lrd-size-8);
-  --lrd-padding-sm: var(--lrd-size-16);
-  --lrd-padding-md: var(--lrd-size-24);
-  --lrd-padding-lg: var(--lrd-size-32);
-  --lrd-padding-xl: var(--lrd-size-48);
+    --lrd-padding-xs: var(--lrd-size-8);
+    --lrd-padding-sm: var(--lrd-size-16);
+    --lrd-padding-md: var(--lrd-size-24);
+    --lrd-padding-lg: var(--lrd-size-32);
+    --lrd-padding-xl: var(--lrd-size-48);
 
-  --lrd-padding-header-top-mobile: var(--lrd-padding-xl);
-  --lrd-padding-header-top-desktop: var(--lrd-padding-xl);
+    --lrd-padding-header-top-mobile: var(--lrd-padding-xl);
+    --lrd-padding-header-top-desktop: var(--lrd-padding-xl);
 
-  --lrd-padding-header-bottom-mobile: var(--lrd-padding-md);
-  --lrd-padding-header-bottom-desktop: var(--lrd-padding-md);
+    --lrd-padding-header-bottom-mobile: var(--lrd-padding-md);
+    --lrd-padding-header-bottom-desktop: var(--lrd-padding-md);
 
-  --lrd-padding-left-posts-list-mobile: var(--lrd-padding-sm);
-  --lrd-padding-left-posts-list-desktop: var(--lrd-padding-sm);
+    --lrd-padding-left-posts-list-mobile: var(--lrd-padding-sm);
+    --lrd-padding-left-posts-list-desktop: var(--lrd-padding-sm);
 
-  --lrd-padding-footer-top-mobile: var(--lrd-padding-md);
-  --lrd-padding-footer-top-desktop: var(--lrd-padding-lg);
+    --lrd-padding-footer-top-mobile: var(--lrd-padding-md);
+    --lrd-padding-footer-top-desktop: var(--lrd-padding-lg);
 
-  --lrd-padding-footer-bottom-mobile: var(--lrd-padding-md);
-  --lrd-padding-footer-bottom-desktop: var(--lrd-padding-lg);
+    --lrd-padding-footer-bottom-mobile: var(--lrd-padding-md);
+    --lrd-padding-footer-bottom-desktop: var(--lrd-padding-lg);
 }

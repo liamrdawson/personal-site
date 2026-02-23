@@ -1,11 +1,11 @@
-@import url("../primitives.css");
+@import "../primitives.css";
 
 :root {
-  --lrd-layout-grid-columns-mobile: var(--lrd-layout-grid-columns-small);
-  --lrd-layout-grid-columns-desktop: var(--lrd-layout-grid-columns-large);
+    --lrd-layout-grid-columns-mobile: var(--lrd-layout-grid-columns-small);
+    --lrd-layout-grid-columns-desktop: var(--lrd-layout-grid-columns-large);
 
-  --lrd-grid-gutter-mobile: var(--lrd-size-16);
-  --lrd-grid-gutter-desktop: var(--lrd-size-24);
-  --lrd-grid-margin-mobile: var(--lrd-size-32);
-  --lrd-grid-margin-desktop: var(--lrd-size-96);
+    --lrd-grid-gutter-mobile: var(--lrd-size-16);
+    --lrd-grid-gutter-desktop: var(--lrd-size-24);
+    --lrd-grid-margin-mobile: var(--lrd-size-32);
+    --lrd-grid-margin-desktop: var(--lrd-size-96);
 }
