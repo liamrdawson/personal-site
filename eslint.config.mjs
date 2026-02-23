@@ -1,5 +1,5 @@
 import eslint from "@eslint/js";
-import pluginImport from "eslint-plugin-import";
+import pluginImport from "eslint-plugin-import-x";
 import pluginReactConfig from "eslint-plugin-react/configs/jsx-runtime.js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
