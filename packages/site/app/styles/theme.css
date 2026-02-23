@@ -1,10 +1,11 @@
-@import url("./tokens/colour.css");
-@import url("./tokens/font.css");
-@import url("./tokens/layout.css");
-@import url("./tokens/size.css");
-@import url("./tokens/timing.css");
+@import "./tokens/colour.css";
+@import "./tokens/font.css";
+@import "./tokens/layout.css";
+@import "./tokens/size.css";
+@import "./tokens/timing.css";
+@import "./tokens/colour.css";
 
-:root {
+@theme {
   /* Colour */
 
   --colour-dark-primary: var(--lrd-colour-dark);

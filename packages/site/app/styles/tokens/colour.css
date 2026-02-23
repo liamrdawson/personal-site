@@ -1,6 +1,7 @@
-@import url("../primitives.css");
+/*@import url("../primitives.css");*/
+@import "../primitives.css";
 
-:root {
+@theme {
   --lrd-colour-dark: var(--lrd-colour-base-grey-800);
   --lrd-colour-light: var(--lrd-colour-base-grey-50);
   --lrd-colour-opaque-dark-high: oklch(from var(--lrd-colour-dark) l c h / 0.7);

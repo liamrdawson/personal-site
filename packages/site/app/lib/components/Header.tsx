@@ -157,7 +157,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                 ease: cubicBezier(0.5, 0, 0, 1),
               }}
             >
-              <div className="relative mx-auto flex w-lg flex-col items-center justify-center border-2 border-[red]">
+              <div className="relative mx-auto flex w-lg flex-col items-center justify-center">
                 <motion.button
                   animate={isOpen ? "open" : "closed"}
                   variants={motionButtonVariants}
@@ -166,6 +166,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                   whileHover={{
                     padding: 8,
                     width: 128,
+                    cursor: "pointer",
                     transition: {
                       duration: 0.2,
                       ease: cubicBezier(0.28, 0.44, 0.49, 1),

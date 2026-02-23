@@ -77,7 +77,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="mx-auto flex min-h-[120vh] w-[90%] max-w-body flex-col bg-background antialiased">
+      <body className="mx-auto flex min-h-[120vh] w-[90%] max-w-max-body flex-col bg-background antialiased">
         <Header footerIsInView={footerIsInView} />
         {children}
         <Footer setFooterIsInView={setFooterIsInView} />

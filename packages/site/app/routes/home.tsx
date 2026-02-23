@@ -78,7 +78,7 @@ export default function IndexPage() {
             <Heading level="h1">Welcome</Heading>
             <Text
               variant={"content"}
-              className="mt-paragraph animate-fade-in opacity-0"
+              className="mt-paragraph animate-fade-in opacity-100"
             >
               I&apos;m Liam Dawson. I build and optimise websites and business
               software for consumer brands and write about my experiences here.

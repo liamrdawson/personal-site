@@ -1,4 +1,4 @@
-@import url("../primitives.css");
+@import "../primitives.css";
 
 :root {
   --lrd-layout-grid-columns-mobile: var(--lrd-layout-grid-columns-small);
