@@ -6,166 +6,168 @@
 @import "./tokens/colour.css";
 
 @theme {
-  /* Colour */
+    /* Colour */
 
-  --colour-dark-primary: var(--lrd-colour-dark);
-  --colour-light-primary: var(--lrd-colour-light);
-  --background-colour: var(--lrd-colour-background-light);
-  --text-colour: var(--lrd-colour-text-base);
-  --content-link-colour: var(--lrd-colour-content-link);
-  --content-link-colour-hover: var(--lrd-colour-content-link-hover);
-  --link-underscore-colour: var(--lrd-colour-content-link-underscore);
-  --link-underscore-colour-hover: var(
-    --lrd-colour-content-link-underscore-hover
-  );
-  --nav-link-colour: var(--lrd-colour-nav-link);
-  --nav-link-colour-hover: var(--lrd-colour-nav-link-hover);
-  --socials-link-colour: var(--lrd-colour-socials-link);
-  --socials-link-colour-hover: var(--lrd-colour-dark);
+    --colour-dark-primary: var(--lrd-colour-dark);
+    --colour-light-primary: var(--lrd-colour-light);
+    --background-colour: var(--lrd-colour-background-light);
+    --text-colour: var(--lrd-colour-text-base);
+    --content-link-colour: var(--lrd-colour-content-link);
+    --content-link-colour-hover: var(--lrd-colour-content-link-hover);
+    --link-underscore-colour: var(--lrd-colour-content-link-underscore);
+    --link-underscore-colour-hover: var(
+        --lrd-colour-content-link-underscore-hover
+    );
+    --nav-link-colour: var(--lrd-colour-nav-link);
+    --nav-link-colour-hover: var(--lrd-colour-nav-link-hover);
+    --socials-link-colour: var(--lrd-colour-socials-link);
+    --socials-link-colour-hover: var(--lrd-colour-dark);
 
-  /* Font */
+    /* Font */
 
-  --font-family-default: var(--lrd-font-family-default);
-  --font-family-heading: var(--lrd-font-family-heading);
-  --font-family-display: var(--lrd-font-family-display);
-  --font-family-content: var(--lrd-font-family-content);
+    --font-family-default: var(--lrd-font-family-default);
+    --font-family-heading: var(--lrd-font-family-heading);
+    --font-family-display: var(--lrd-font-family-display);
+    --font-family-content: var(--lrd-font-family-content);
 
-  --font-weight-display: var(--lrd-font-weight-display);
-  --font-weight-h1: var(--lrd-font-weight-h1);
-  --font-weight-h2: var(--lrd-font-weight-h2);
-  --font-weight-h3: var(--lrd-font-weight-h3);
-  --font-weight-h4: var(--lrd-font-weight-h4);
-  --font-weight-h5: var(--lrd-font-weight-h5);
-  --font-weight-body: var(--lrd-font-weight-body);
-  --font-weight-strong: var(--lrd-font-weight-strong);
-  --font-weight-social: var(--lrd-font-weight-social);
+    --font-weight-display: var(--lrd-font-weight-display);
+    --font-weight-h1: var(--lrd-font-weight-h1);
+    --font-weight-h2: var(--lrd-font-weight-h2);
+    --font-weight-h3: var(--lrd-font-weight-h3);
+    --font-weight-h4: var(--lrd-font-weight-h4);
+    --font-weight-h5: var(--lrd-font-weight-h5);
+    --font-weight-body: var(--lrd-font-weight-body);
+    --font-weight-strong: var(--lrd-font-weight-strong);
+    --font-weight-social: var(--lrd-font-weight-social);
 
-  --letter-spacing-display: -0.05em;
-  --letter-spacing-h1: -0.05em;
-  --letter-spacing-h2: -0.035em;
-  --letter-spacing-h3: -0.035em;
-  --letter-spacing-h4: -0.02em;
-  --letter-spacing-h5: -0.02em;
-  --letter-spacing-body: -0.01em;
-  --letter-spacing-small: -0.02em;
-  --letter-spacing-large: -0.04em;
+    --letter-spacing-display: -0.05em;
+    --letter-spacing-h1: -0.05em;
+    --letter-spacing-h2: -0.035em;
+    --letter-spacing-h3: -0.035em;
+    --letter-spacing-h4: -0.02em;
+    --letter-spacing-h5: -0.02em;
+    --letter-spacing-body: -0.01em;
+    --letter-spacing-small: -0.02em;
+    --letter-spacing-large: -0.04em;
 
-  /* Grid */
-
-  --grid-columns: var(--lrd-layout-grid-columns-mobile);
-  --grid-gutter: var(--lrd-grid-gutter-mobile);
-  --grid-margin: var(--lrd-grid-margin-mobile);
-
-  /* Size */
-
-  --rem-base: 62.5%;
-
-  --font-size-small: var(--lrd-font-text-body-sm-mobile-font-size);
-  --font-size-body: var(--lrd-font-text-body-base-mobile-font-size);
-  --font-size-large: var(--lrd-font-text-body-lg-mobile-font-size);
-
-  --font-size-display: var(--lrd-font-text-heading-xl-mobile-font-size);
-  --font-size-h1: var(--lrd-font-text-heading-xl-mobile-font-size);
-  --font-size-h2: var(--lrd-font-text-heading-lg-mobile-font-size);
-  --font-size-h3: var(--lrd-font-text-heading-md-mobile-font-size);
-  --font-size-h4: var(--lrd-font-text-heading-sm-mobile-font-size);
-  --font-size-h5: var(--lrd-font-text-heading-xs-mobile-font-size);
-
-  --line-height-small: var(--lrd-size-line-height-sm);
-  --line-height-body: var(--lrd-size-line-height-md);
-  --line-height-large: var(--lrd-size-line-height-lg);
-
-  --line-height-display: var(--lrd-size-line-height-display);
-  --line-height-h1: var(--lrd-size-line-height-h1);
-  --line-height-h2: var(--lrd-size-line-height-h2);
-  --line-height-h3: var(--lrd-size-line-height-h3);
-  --line-height-h4: var(--lrd-size-line-height-h4);
-  --line-height-h5: var(--lrd-size-line-height-h5);
-  --line-height-subheading: var(--lrd-size-line-height-subheading);
-
-  /* Spacing */
-
-  --spacing-between-paragraphs: var(--lrd-spacing-between-paragraphs-mobile);
-  --spacing-page-section: var(--lrd-spacing-layout-section-mobile);
-  --spacing-layout-section: var(--lrd-spacing-layout-section-mobile);
-  --spacing-text-to-image: var(--lrd-spacing-text-to-image-mobile);
-  --spacing-between-text: var(--lrd-spacing-between-text-mobile);
-  --spacing-heading-to-subheading: var(
-    --lrd-spacing-heading-to-subheading-mobile
-  );
-  --spacing-h1-to-text: var(--lrd-spacing-h1-to-text-mobile);
-  --spacing-h2-to-text: var(--lrd-spacing-h2-to-text-mobile);
-  --spacing-footer-row: var(--lrd-spacing-footer-row-mobile);
-
-  /* Padding */
-
-  --padding-header-top: var(--lrd-padding-header-top-mobile);
-  --padding-header-bottom: var(--lrd-padding-header-bottom-mobile);
-  --padding-left-posts-list: var(--lrd-padding-left-posts-list-mobile);
-  --padding-footer-top: var(--lrd-padding-footer-top-mobile);
-  --padding-footer-bottom: var(--lrd-padding-footer-bottom-mobile);
-
-  /* transition */
-
-  --ease-garret: var(--lrd-transition-ease-garret);
-  --ease-out: var(--lrd-transition-ease-out);
-  --ease-out-soft: var(--lrd-transition-ease-out-soft);
-  --ease-in-out-soft: var(--lrd-transition-ease-in-out-soft);
-}
-
-@media only screen and (min-width: 1024px) {
-  :root {
     /* Grid */
 
-    --grid-columns: var(--lrd-layout-grid-columns-desktop);
-    --grid-gutter: var(--lrd-grid-gutter-desktop);
-    --grid-margin: var(--lrd-grid-margin-desktop);
+    --grid-columns: var(--lrd-layout-grid-columns-mobile);
+    --grid-gutter: var(--lrd-grid-gutter-mobile);
+    --grid-margin: var(--lrd-grid-margin-mobile);
 
     /* Size */
 
-    --font-size-small: var(--lrd-font-text-body-sm-desktop-font-size);
-    --font-size-body: var(--lrd-font-text-body-base-desktop-font-size);
-    --font-size-large: var(--lrd-font-text-body-lg-desktop-font-size);
+    --rem-base: 62.5%;
 
-    --font-size-display: var(--lrd-font-text-heading-xl-desktop-font-size);
-    --font-size-h1: var(--lrd-font-text-heading-xl-desktop-font-size);
-    --font-size-h2: var(--lrd-font-text-heading-lg-desktop-font-size);
-    --font-size-h3: var(--lrd-font-text-heading-md-desktop-font-size);
-    --font-size-h4: var(--lrd-font-text-heading-sm-desktop-font-size);
-    --font-size-h5: var(--lrd-font-text-heading-xs-desktop-font-size);
+    --font-size-small: var(--lrd-font-text-body-sm-mobile-font-size);
+    --font-size-body: var(--lrd-font-text-body-base-mobile-font-size);
+    --font-size-large: var(--lrd-font-text-body-lg-mobile-font-size);
+
+    --font-size-display: var(--lrd-font-text-heading-xl-mobile-font-size);
+    --font-size-h1: var(--lrd-font-text-heading-xl-mobile-font-size);
+    --font-size-h2: var(--lrd-font-text-heading-lg-mobile-font-size);
+    --font-size-h3: var(--lrd-font-text-heading-md-mobile-font-size);
+    --font-size-h4: var(--lrd-font-text-heading-sm-mobile-font-size);
+    --font-size-h5: var(--lrd-font-text-heading-xs-mobile-font-size);
+
+    --line-height-small: var(--lrd-size-line-height-sm);
+    --line-height-body: var(--lrd-size-line-height-md);
+    --line-height-large: var(--lrd-size-line-height-lg);
+
+    --line-height-display: var(--lrd-size-line-height-display);
+    --line-height-h1: var(--lrd-size-line-height-h1);
+    --line-height-h2: var(--lrd-size-line-height-h2);
+    --line-height-h3: var(--lrd-size-line-height-h3);
+    --line-height-h4: var(--lrd-size-line-height-h4);
+    --line-height-h5: var(--lrd-size-line-height-h5);
+    --line-height-subheading: var(--lrd-size-line-height-subheading);
 
     /* Spacing */
 
-    --spacing-between-paragraphs: var(--lrd-spacing-between-paragraphs-desktop);
-    --spacing-page-section: var(--lrd-spacing-section-desktop);
-    --spacing-layout-section: var(--lrd-spacing-layout-section-desktop);
-    --spacing-text-to-image: var(--lrd-spacing-text-to-image-desktop);
-    --spacing-between-text: var(--lrd-spacing-between-text-desktop);
+    --spacing-between-paragraphs: var(--lrd-spacing-between-paragraphs-mobile);
+    --spacing-page-section: var(--lrd-spacing-layout-section-mobile);
+    --spacing-layout-section: var(--lrd-spacing-layout-section-mobile);
+    --spacing-text-to-image: var(--lrd-spacing-text-to-image-mobile);
+    --spacing-between-text: var(--lrd-spacing-between-text-mobile);
     --spacing-heading-to-subheading: var(
-      --lrd-spacing-heading-to-subheading-desktop
+        --lrd-spacing-heading-to-subheading-mobile
     );
-    --spacing-h1-to-text: var(--lrd-spacing-h1-to-text-desktop);
-    --spacing-h2-to-text: var(--lrd-spacing-h2-to-text-desktop);
-    --spacing-footer-row: var(--lrd-spacing-footer-row-desktop);
+    --spacing-h1-to-text: var(--lrd-spacing-h1-to-text-mobile);
+    --spacing-h2-to-text: var(--lrd-spacing-h2-to-text-mobile);
+    --spacing-footer-row: var(--lrd-spacing-footer-row-mobile);
 
     /* Padding */
 
-    --padding-header-top: var(--lrd-padding-header-top-desktop);
-    --padding-header-bottom: var(--lrd-padding-header-bottom-desktop);
-    --padding-left-posts-list: var(--lrd-padding-left-posts-list-desktop);
-    --padding-footer-top: var(--lrd-padding-footer-top-desktop);
-    --padding-footer-bottom: var(--lrd-padding-footer-bottom-desktop);
-  }
+    --padding-header-top: var(--lrd-padding-header-top-mobile);
+    --padding-header-bottom: var(--lrd-padding-header-bottom-mobile);
+    --padding-left-posts-list: var(--lrd-padding-left-posts-list-mobile);
+    --padding-footer-top: var(--lrd-padding-footer-top-mobile);
+    --padding-footer-bottom: var(--lrd-padding-footer-bottom-mobile);
+
+    /* transition */
+
+    --ease-garret: var(--lrd-transition-ease-garret);
+    --ease-out: var(--lrd-transition-ease-out);
+    --ease-out-soft: var(--lrd-transition-ease-out-soft);
+    --ease-in-out-soft: var(--lrd-transition-ease-in-out-soft);
+}
+
+@media only screen and (min-width: 1024px) {
+    :root {
+        /* Grid */
+
+        --grid-columns: var(--lrd-layout-grid-columns-desktop);
+        --grid-gutter: var(--lrd-grid-gutter-desktop);
+        --grid-margin: var(--lrd-grid-margin-desktop);
+
+        /* Size */
+
+        --font-size-small: var(--lrd-font-text-body-sm-desktop-font-size);
+        --font-size-body: var(--lrd-font-text-body-base-desktop-font-size);
+        --font-size-large: var(--lrd-font-text-body-lg-desktop-font-size);
+
+        --font-size-display: var(--lrd-font-text-heading-xl-desktop-font-size);
+        --font-size-h1: var(--lrd-font-text-heading-xl-desktop-font-size);
+        --font-size-h2: var(--lrd-font-text-heading-lg-desktop-font-size);
+        --font-size-h3: var(--lrd-font-text-heading-md-desktop-font-size);
+        --font-size-h4: var(--lrd-font-text-heading-sm-desktop-font-size);
+        --font-size-h5: var(--lrd-font-text-heading-xs-desktop-font-size);
+
+        /* Spacing */
+
+        --spacing-between-paragraphs: var(
+            --lrd-spacing-between-paragraphs-desktop
+        );
+        --spacing-page-section: var(--lrd-spacing-section-desktop);
+        --spacing-layout-section: var(--lrd-spacing-layout-section-desktop);
+        --spacing-text-to-image: var(--lrd-spacing-text-to-image-desktop);
+        --spacing-between-text: var(--lrd-spacing-between-text-desktop);
+        --spacing-heading-to-subheading: var(
+            --lrd-spacing-heading-to-subheading-desktop
+        );
+        --spacing-h1-to-text: var(--lrd-spacing-h1-to-text-desktop);
+        --spacing-h2-to-text: var(--lrd-spacing-h2-to-text-desktop);
+        --spacing-footer-row: var(--lrd-spacing-footer-row-desktop);
+
+        /* Padding */
+
+        --padding-header-top: var(--lrd-padding-header-top-desktop);
+        --padding-header-bottom: var(--lrd-padding-header-bottom-desktop);
+        --padding-left-posts-list: var(--lrd-padding-left-posts-list-desktop);
+        --padding-footer-top: var(--lrd-padding-footer-top-desktop);
+        --padding-footer-bottom: var(--lrd-padding-footer-bottom-desktop);
+    }
 }
 
 @media only screen and (min-width: 1280px) {
-  :root {
-    --spacing-layout-section: var(--lrd-spacing-layout-section-wide);
-  }
+    :root {
+        --spacing-layout-section: var(--lrd-spacing-layout-section-wide);
+    }
 }
 
 @media only screen and (min-width: 2400px) {
-  :root {
-    --spacing-layout-section: var(--lrd-spacing-layout-section-ultra-wide);
-  }
+    :root {
+        --spacing-layout-section: var(--lrd-spacing-layout-section-ultra-wide);
+    }
 }

@@ -1,26 +1,26 @@
 @import "../primitives.css";
 
 :root {
-  /* Font Family */
+    /* Font Family */
 
-  --lrd-font-family-default: var(--lrd-font-family-avenir);
-  --lrd-font-family-heading: var(--lrd-font-family-avenir);
-  --lrd-font-family-display: var(--lrd-font-family-avenir);
-  --lrd-font-family-content: var(--lrd-font-family-newsreader);
+    --lrd-font-family-default: var(--lrd-font-family-avenir);
+    --lrd-font-family-heading: var(--lrd-font-family-avenir);
+    --lrd-font-family-display: var(--lrd-font-family-avenir);
+    --lrd-font-family-content: var(--lrd-font-family-newsreader);
 
-  /* Font Weight */
+    /* Font Weight */
 
-  --lrd-font-weight-regular: 400;
-  --lrd-font-weight-medium: 600;
-  --lrd-font-weight-bold: 700;
+    --lrd-font-weight-regular: 400;
+    --lrd-font-weight-medium: 600;
+    --lrd-font-weight-bold: 700;
 
-  --lrd-font-weight-body: var(--lrd-font-weight-regular);
-  --lrd-font-weight-h1: var(--lrd-font-weight-medium);
-  --lrd-font-weight-h2: var(--lrd-font-weight-medium);
-  --lrd-font-weight-h3: var(--lrd-font-weight-medium);
-  --lrd-font-weight-h4: var(--lrd-font-weight-medium);
-  --lrd-font-weight-h5: var(--lrd-font-weight-medium);
-  --lrd-font-weight-display: var(--lrd-font-weight-bold);
-  --lrd-font-weight-social: var(--lrd-font-weight-medium);
-  --lrd-font-weight-strong: var(--lrd-font-weight-medium);
+    --lrd-font-weight-body: var(--lrd-font-weight-regular);
+    --lrd-font-weight-h1: var(--lrd-font-weight-medium);
+    --lrd-font-weight-h2: var(--lrd-font-weight-medium);
+    --lrd-font-weight-h3: var(--lrd-font-weight-medium);
+    --lrd-font-weight-h4: var(--lrd-font-weight-medium);
+    --lrd-font-weight-h5: var(--lrd-font-weight-medium);
+    --lrd-font-weight-display: var(--lrd-font-weight-bold);
+    --lrd-font-weight-social: var(--lrd-font-weight-medium);
+    --lrd-font-weight-strong: var(--lrd-font-weight-medium);
 }

@@ -3,16 +3,16 @@ import { reactRouter } from "@react-router/dev/vite";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
-import devtoolsJson from 'vite-plugin-devtools-json';
+import devtoolsJson from "vite-plugin-devtools-json";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(({ isSsrBuild }) => ({
-  build: {
-    rollupOptions: isSsrBuild
-      ? {
-          input: "./server/app.ts",
-        }
-      : undefined,
-  },
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), netlifyPlugin()],
+    build: {
+        rollupOptions: isSsrBuild
+            ? {
+                  input: "./server/app.ts",
+              }
+            : undefined,
+    },
+    plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), netlifyPlugin()],
 }));
