@@ -1,5 +1,4 @@
 import eslint from "@eslint/js";
-import pluginImport from "eslint-plugin-import-x";
 import pluginReactConfig from "eslint-plugin-react/configs/jsx-runtime.js";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
@@ -24,7 +23,6 @@ export default [
     name: "base",
     plugins: {
       "simple-import-sort": simpleImportSort,
-      import: pluginImport,
     },
     rules: {
       "simple-import-sort/imports": "error",

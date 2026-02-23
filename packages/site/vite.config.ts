@@ -1,6 +1,5 @@
 import netlifyPlugin from "@netlify/vite-plugin-react-router";
 import { reactRouter } from "@react-router/dev/vite";
-import autoprefixer from "autoprefixer";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import devtoolsJson from "vite-plugin-devtools-json";
@@ -14,5 +13,11 @@ export default defineConfig(({ isSsrBuild }) => ({
               }
             : undefined,
     },
-    plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), netlifyPlugin()],
+    plugins: [
+        tailwindcss(),
+        reactRouter(),
+        tsconfigPaths(),
+        netlifyPlugin(),
+        devtoolsJson(),
+    ],
 }));
