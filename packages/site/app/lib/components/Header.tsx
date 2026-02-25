@@ -215,9 +215,11 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                             <motion.li
                                                 key={item.label}
                                                 className={`relative z-40 flex flex-row items-center justify-center`}
-                                                onHoverStart={() =>
-                                                    setHovered(item)
-                                                }
+                                                onHoverStart={() => {
+                                                    if (!hasTouchScreen()) {
+                                                        setHovered(item);
+                                                    }
+                                                }}
                                                 onClick={() =>
                                                     handleLinkClick()
                                                 }
