@@ -1,4 +1,4 @@
-import { cubicBezier, motion, type Variants } from "framer-motion";
+import { cubicBezier, motion, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { Link, useLocation } from "react-router";
@@ -215,9 +215,9 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                             <motion.li
                                                 key={item.label}
                                                 className={`relative z-40 flex flex-row items-center justify-center`}
-                                                onHoverStart={() =>
-                                                    setHovered(item)
-                                                }
+                                                onHoverStart={() => {
+                                                    setHovered(item);
+                                                }}
                                                 onClick={() =>
                                                     handleLinkClick()
                                                 }
