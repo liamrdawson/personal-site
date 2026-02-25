@@ -216,9 +216,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                                 key={item.label}
                                                 className={`relative z-40 flex flex-row items-center justify-center`}
                                                 onHoverStart={() => {
-                                                    if (!hasTouchScreen()) {
-                                                        setHovered(item);
-                                                    }
+                                                    setHovered(item);
                                                 }}
                                                 onClick={() =>
                                                     handleLinkClick()
