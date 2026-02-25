@@ -1,4 +1,3 @@
-import { cubicBezier, motion, type Variants } from "framer-motion";
 import { cubicBezier, motion, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
