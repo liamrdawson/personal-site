@@ -94,16 +94,13 @@ const Header = ({ footerIsInView }: HeaderProps) => {
 
     const navRef = useRef<HTMLDivElement>(null);
 
-    const setInitialHovered = () => {
+    const handleMenuOpen = () => {
+        setIsTouch(hasTouchScreen());
         setHovered(
             isTouch
                 ? currentMenuItem
                 : menuItems.find((item) => item.path === "/")
         );
-    };
-
-    const handleMenuOpen = () => {
-        setInitialHovered();
         setIsAnimatingOpen(true);
         setIsOpen(true);
     };
