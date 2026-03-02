@@ -1,6 +1,5 @@
 import { cubicBezier, motion, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { isMobile } from "react-device-detect";
 import { Link, useLocation } from "react-router";
 import { ClientOnly } from "remix-utils/client-only";
 
@@ -32,10 +31,17 @@ const Header = ({ footerIsInView }: HeaderProps) => {
         (item) => item.path === location.pathname
     );
 
+    const [isTouch, setIsTouch] = useState(false);
+
+    useEffect(() => {
+        setIsTouch(hasTouchScreen());
+    }, []);
+
     const [hovered, setHovered] = useState<(typeof menuItems)[0] | undefined>(
         currentMenuItem
     );
     const [isOpen, setIsOpen] = useState(false);
+    const [isAnimatingOpen, setIsAnimatingOpen] = useState(false);
 
     const collapsedHeight = useViewportWidth() > 1023 ? "4.4rem" : "3.5rem";
     const expandedHeight = useViewportWidth() > 1023 ? "8.8rem" : "7rem";
@@ -88,50 +94,44 @@ const Header = ({ footerIsInView }: HeaderProps) => {
 
     const navRef = useRef<HTMLDivElement>(null);
 
+    const setInitialHovered = () => {
+        setHovered(
+            isTouch
+                ? currentMenuItem
+                : menuItems.find((item) => item.path === "/")
+        );
+    };
+
     const handleMenuOpen = () => {
-        if (isMobile) {
-            setHovered(currentMenuItem);
-        } else {
-            setHovered(menuItems.find((item) => item.path === "/"));
-        }
+        setInitialHovered();
+        setIsAnimatingOpen(true);
         setIsOpen(true);
     };
 
     const handleMouseLeave = () => {
         setIsOpen(false);
-        setHovered(menuItems[1]);
+        setHovered(menuItems.find((item) => item.path === "/"));
     };
 
     const handleLinkClick = () => handleMouseLeave();
 
     useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
+        function handleClickOutside(event: MouseEvent | TouchEvent) {
             if (
                 navRef.current &&
-                !navRef.current.contains(event.target as Node)
+                event.target instanceof Node &&
+                !navRef.current.contains(event.target)
             ) {
                 setIsOpen(false);
             }
         }
 
-        document.addEventListener(
-            "mousedown",
-            handleClickOutside as EventListener
-        );
-        document.addEventListener(
-            "touchstart",
-            handleClickOutside as EventListener
-        );
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("touchstart", handleClickOutside);
 
         return () => {
-            document.removeEventListener(
-                "mousedown",
-                handleClickOutside as EventListener
-            );
-            document.removeEventListener(
-                "touchstart",
-                handleClickOutside as EventListener
-            );
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
         };
     }, []);
 
@@ -167,7 +167,7 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                 <motion.button
                                     animate={isOpen ? "open" : "closed"}
                                     variants={motionButtonVariants}
-                                    onClick={() => handleMenuOpen()}
+                                    onClick={handleMenuOpen}
                                     initial={{ padding: 4, width: 96 }}
                                     whileHover={{
                                         padding: 8,
@@ -207,28 +207,30 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                         width: "9.6rem",
                                     }}
                                     variants={motionNavVariants}
-                                    onMouseLeave={() => handleMouseLeave()}
+                                    onMouseLeave={handleMouseLeave}
+                                    onAnimationComplete={() =>
+                                        setIsAnimatingOpen(false)
+                                    }
                                     className="absolute bottom-0 w-96 overflow-y-hidden rounded-md bg-dark p-xs"
                                 >
                                     <ul className="relative flex flex-col rounded-xs text-center text-large font-strong">
                                         {menuItems.map((item) => (
                                             <motion.li
                                                 key={item.label}
-                                                className={`relative z-40 flex flex-row items-center justify-center`}
+                                                className={`relative z-40 flex flex-row items-center justify-center ${isAnimatingOpen ? "pointer-events-none" : ""}`}
                                                 onHoverStart={() => {
-                                                    setHovered(item);
+                                                    if (!isAnimatingOpen) {
+                                                        setHovered(item);
+                                                    }
                                                 }}
-                                                onClick={() =>
-                                                    handleLinkClick()
-                                                }
+                                                onClick={handleLinkClick}
                                             >
                                                 <TextLink
-                                                    className={`relative z-40 flex h-full w-full items-center justify-center px-sm selection:text-background selection:bg-text ${item.label === hovered?.label && isOpen ? "text-dark" : "text-light"}`}
+                                                    className={`relative z-40 flex h-full w-full items-center justify-center px-sm selection:text-background selection:bg-text ${item.label === hovered?.label ? "text-dark" : "text-light"}`}
                                                     to={item.path}
                                                     variant="nav"
                                                     prefetch={
-                                                        hasTouchScreen() ===
-                                                        true
+                                                        isTouch === true
                                                             ? "viewport"
                                                             : "intent"
                                                     }
@@ -239,7 +241,9 @@ const Header = ({ footerIsInView }: HeaderProps) => {
                                                     {item.label ===
                                                         hovered?.label &&
                                                     isOpen ? (
-                                                        <HoverBox />
+                                                        <HoverBox
+                                                            key={`hover-box`}
+                                                        />
                                                     ) : null}
                                                 </TextLink>
                                             </motion.li>
