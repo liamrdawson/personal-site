@@ -42,12 +42,12 @@ export const meta: MetaFunction = () => {
         {
             property: "og:description",
             content:
-                "The writings of Liam Dawson, Full Stack eCommerce Developer",
+                "The writings of Liam Dawson, software engineer specialising in full-stack TypeScript, payments systems, and cloud infrastructure.",
         },
         {
             property: "description",
             content:
-                "The writings of Liam Dawson, Full Stack eCommerce Developer",
+                "The writings of Liam Dawson, software engineer specialising in full-stack TypeScript, payments systems, and cloud infrastructure.",
         },
         {
             property: "og:title",
@@ -82,9 +82,9 @@ export default function IndexPage() {
                             variant={"content"}
                             className="mt-paragraph animate-fade-in opacity-100"
                         >
-                            I&apos;m Liam Dawson. I build and optimise websites
-                            and business software for consumer brands and write
-                            about my experiences here.
+                            I&apos;m Liam Dawson. Software engineer specialising
+                            in full-stack TypeScript, payments systems, and
+                            cloud infrastructure.
                         </Text>
                     </section>
                     <section className="mt-pageSection">
